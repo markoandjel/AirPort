@@ -18,11 +18,14 @@ namespace AirportProject.Controllers
     {
         public void CreateAirport(Airport a)
         {
-            Dictionary<string,object> queryDict= new Dictionary<string,object>();
-            queryDict.Add("name",a.Name);
-            queryDict.Add("code",a.Code);
-            queryDict.Add("city", a.City);
-            var query = new CypherQuery("CREATE (n:Airport{name:'" + a.Name + "',city:'" + a.City + "',code:'" + a.Code + "'})",queryDict,CypherResultMode.Set,databaseName);
+            Dictionary<string, object> queryDict = new Dictionary<string, object>
+            {
+                { "name", a.Name },
+                { "code", a.Code },
+                { "city", a.City }
+            };
+            var query = new CypherQuery("MERGE (n:Airport{name:'" + a.Name + "',city:'" + a.City + "',code:'" + a.Code + "'})",queryDict,CypherResultMode.Set,databaseName);
+            ((IRawGraphClient)client).ExecuteCypherAsync(query);
         }
 
         public List<Airport> GetAllAirports() 

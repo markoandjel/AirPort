@@ -18,7 +18,7 @@ namespace AirportProject.Controllers
         protected Neo4jConnect()
         {
             databaseName = "airport";
-            string url = "http://localhost:7474/"+databaseName;
+            string url = "bolt://localhost:7687/" + databaseName;
             string username = "neo4j";
             string password = "password";
             client = new GraphClient(new Uri(url), username, password);
