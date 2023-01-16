@@ -16,7 +16,6 @@ namespace AirportProject.Controllers
         {
             string s = "bolt://localhost:7687/Airport";
             _connector = new DatabaseConection(new Uri(s), "neo4j", "grgeci007");
-
         }
         protected Controller()
         {

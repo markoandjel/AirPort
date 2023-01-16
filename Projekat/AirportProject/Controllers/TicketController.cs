@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AirportProject.Controllers
 {
-    internal class TicketController:Controller
+    public class TicketController:Controller
     {
     }
 }
