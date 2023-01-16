@@ -9,7 +9,6 @@ namespace AirportProject.DomainModel
 
     public class Airport
     {
-
         private String _name;
         private String _code;
         private String _city;

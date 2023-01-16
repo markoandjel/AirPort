@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AirportProject.Controllers
 {
-    public class CityController:Controller
+    public class CityController:Neo4jConnect
     {
     }
 }

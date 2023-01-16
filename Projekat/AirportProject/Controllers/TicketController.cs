@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AirportProject.Controllers
 {
-    public class TicketController:Controller
+    public class TicketController:Neo4jConnect
     {
     }
 }

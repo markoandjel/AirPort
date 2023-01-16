@@ -39,5 +39,12 @@ namespace AirportProject
         {
             
         }
+
+        private void btnGetAllAirports_Click(object sender, EventArgs e)
+        {
+            List<Airport> listAirports = new List<Airport>();
+            AirportController A = new AirportController();
+            listAirports=A.GetAllAirports();
+        }
     }
 }
