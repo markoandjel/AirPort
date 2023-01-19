@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Neo4jClient;
+using Neo4j.Driver;
 using Neo4jClient.Cypher;
 using System.Windows.Forms;
 
@@ -13,31 +14,27 @@ namespace AirportProject.Controllers
 {
     public class Neo4jConnect
     {
-        protected String databaseName;
-        protected GraphClient client;
-        protected Neo4jConnect()
+        private IDriver _driver;
+        public Neo4jConnect()
         {
-            databaseName = "airport";
-            string url = "bolt://localhost:7687/" + databaseName;
-            string username = "neo4j";
-            string password = "password";
-            client = new GraphClient(new Uri(url), username, password);
-            try
-            {
-                client.ConnectAsync();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            
+        }
+        public Task InitDriverAsync(string url, string username, string password)
+        {
+            string databaseName = "airport";
+            _driver = GraphDatabase.Driver(url + "/" + databaseName, AuthTokens.Basic(username, password));
+
+            return Task.CompletedTask;
+        }
+        public Task CloseDriver()
+        {
+            return _driver !=null ? _driver.CloseAsync() : Task.CompletedTask;
         }
 
-        public GraphClient Client
+        public IDriver Driver
         {
-            get
-            {
-                return client;
-            }
+            get{return _driver;}
+            set { _driver = value; }
         }
     }
 }

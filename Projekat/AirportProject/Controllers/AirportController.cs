@@ -16,16 +16,24 @@ namespace AirportProject.Controllers
 {
     public class AirportController:Neo4jConnect
     {
-        public void CreateAirport(Airport a)
+        private IGraphClient _client;
+        public AirportController()
+        { 
+
+        }
+
+        public async void CreateAirport(Airport a)
         {
-            Dictionary<string, object> queryDict = new Dictionary<string, object>
-            {
-                { "name", a.Name },
-                { "code", a.Code },
-                { "city", a.City }
-            };
-            var query = new CypherQuery("MERGE (n:Airport{name:'" + a.Name + "',city:'" + a.City + "',code:'" + a.Code + "'})",queryDict,CypherResultMode.Set,databaseName);
-            ((IRawGraphClient)client).ExecuteCypherAsync(query);
+            //Dictionary<string, object> queryDict = new Dictionary<string, object>
+            //{
+            //    { "name", a.Name },
+            //    { "code", a.Code },
+            //    { "city", a.City }
+            //};
+            //var query = new CypherQuery("MERGE (n:Airport{name:'" + a.Name + "',city:'" + a.City + "',code:'" + a.Code + "'})",queryDict,CypherResultMode.Set,databaseName);
+            //((IRawGraphClient)client).ExecuteCypherAsync(query);
+
+            await _client.Cypher.Match("(n:Airport $a)").WithParam("a", a).ExecuteWithoutResultsAsync();
         }
 
         public List<Airport> GetAllAirports() 
