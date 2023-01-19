@@ -9,6 +9,8 @@ using Neo4jClient;
 using Neo4j.Driver;
 using Neo4jClient.Cypher;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Security.Policy;
 
 namespace AirportProject.Controllers
 {
@@ -17,19 +19,14 @@ namespace AirportProject.Controllers
         private IDriver _driver;
         public Neo4jConnect()
         {
-            
+
         }
-        public Task InitDriverAsync(string url, string username, string password)
+        public Neo4jConnect(string url, string username, string password)
         {
             string databaseName = "airport";
-            _driver = GraphDatabase.Driver(url + "/" + databaseName, AuthTokens.Basic(username, password));
-
-            return Task.CompletedTask;
-        }
-        public Task CloseDriver()
-        {
-            return _driver !=null ? _driver.CloseAsync() : Task.CompletedTask;
-        }
+            _driver = GraphDatabase.Driver(url, AuthTokens.Basic(username, password));
+            _driver.Session();
+        } 
 
         public IDriver Driver
         {

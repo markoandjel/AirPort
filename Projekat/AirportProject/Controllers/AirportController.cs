@@ -16,24 +16,24 @@ namespace AirportProject.Controllers
 {
     public class AirportController:Neo4jConnect
     {
-        private IGraphClient _client;
+        private IDriver _driver;
         public AirportController()
         { 
 
         }
-
-        public async void CreateAirport(Airport a)
+        public AirportController(IDriver driver)
         {
-            //Dictionary<string, object> queryDict = new Dictionary<string, object>
-            //{
-            //    { "name", a.Name },
-            //    { "code", a.Code },
-            //    { "city", a.City }
-            //};
-            //var query = new CypherQuery("MERGE (n:Airport{name:'" + a.Name + "',city:'" + a.City + "',code:'" + a.Code + "'})",queryDict,CypherResultMode.Set,databaseName);
-            //((IRawGraphClient)client).ExecuteCypherAsync(query);
+            _driver = driver;
+        }
 
-            await _client.Cypher.Match("(n:Airport $a)").WithParam("a", a).ExecuteWithoutResultsAsync();
+        public void CreateAirport(Airport a)
+        {
+            var session = _driver.Session(conf => conf
+            .WithDefaultAccessMode(AccessMode.Write)
+            .WithDatabase("airport"))
+            .Run("CREATE (a:Airport {name: $name,city: $city,code: $code})", new { name = a.Name, code = a.Code, city = a.City });
+
+
         }
 
         public List<Airport> GetAllAirports() 
@@ -49,6 +49,11 @@ namespace AirportProject.Controllers
                 MessageBox.Show(exc.Message);
                 return null;
             }*/
+
+            var session = _driver.Session(conf => conf
+            .WithDefaultAccessMode(AccessMode.Read)
+            .WithDatabase("airport"))
+            .Run("MATCH(p:Airport) return p LIMIT 3");
             return null;
         }
     }

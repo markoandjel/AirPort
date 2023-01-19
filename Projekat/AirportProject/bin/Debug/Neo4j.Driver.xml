@@ -2235,6 +2235,62 @@
             </summary>
             <param name="message">The error message.</param>
         </member>
+        <member name="T:Neo4j.Driver.InvalidBookmarkMixtureException">
+            <summary>
+            The provided bookmark is invalid. To recover from this a new session needs to be created.
+            </summary>
+        </member>
+        <member name="M:Neo4j.Driver.InvalidBookmarkMixtureException.#ctor(System.String)">
+            <summary>
+            Create a new <see cref="T:Neo4j.Driver.InvalidBookmarkMixtureException" /> with an error message.
+            </summary>
+            <param name="message">The error message.</param>
+        </member>
+        <member name="T:Neo4j.Driver.ArgumentErrorException">
+            <summary>
+            A generic argument error has occurred. To recover from this a new session needs to be created.
+            </summary>
+        </member>
+        <member name="M:Neo4j.Driver.ArgumentErrorException.#ctor(System.String)">
+            <summary>
+            Create a new <see cref="T:Neo4j.Driver.ArgumentErrorException" /> with an error message.
+            </summary>
+            <param name="message">The error message.</param>
+        </member>
+        <member name="T:Neo4j.Driver.TypeException">
+            <summary>
+            An error occurred related to data typing.
+            </summary>
+        </member>
+        <member name="M:Neo4j.Driver.TypeException.#ctor(System.String)">
+            <summary>
+            Create a new <see cref="T:Neo4j.Driver.TypeException" /> with an error message.
+            </summary>
+            <param name="message">The error message.</param>
+        </member>
+        <member name="T:Neo4j.Driver.ForbiddenException">
+            <summary>
+            This operation is forbidden.
+            </summary>
+        </member>
+        <member name="M:Neo4j.Driver.ForbiddenException.#ctor(System.String)">
+            <summary>
+            Create a new <see cref="T:Neo4j.Driver.ForbiddenException" /> with an error message.
+            </summary>
+            <param name="message">The error message.</param>
+        </member>
+        <member name="T:Neo4j.Driver.UnknownSecurityException">
+            <summary>
+            An unknown security error occurred.
+            </summary>
+        </member>
+        <member name="M:Neo4j.Driver.UnknownSecurityException.#ctor(System.String,System.String)">
+            <summary>
+            Create a new <see cref="T:Neo4j.Driver.UnknownSecurityException" /> with an error message.
+            </summary>
+            <param name="message">The error message.</param>
+            <param name="code">The error code.</param>
+        </member>
         <member name="T:Neo4j.Driver.ValueTruncationException">
             <summary>
             A value retrieved from the database needs to be truncated for this conversion to work, and will
@@ -2420,19 +2476,42 @@
             </summary>
         </member>
         <member name="P:Neo4j.Driver.SessionConfig.Database">
-             <summary>
-             The database that the constructed session will connect to.
-            
-             <remarks>
-             When used against servers supporting multi-databases, it is recommended that this value to be set explicitly
-             either through <see cref="M:Neo4j.Driver.SessionConfigBuilder.WithDatabase(System.String)"/> method.
-             If not, then the session will connect to the default database configured on the server side.
-            
-             When used against servers that don't support multi-databases, this property should be left unset.
-             </remarks>
-             </summary>
-             <exception cref="M:Neo4j.Driver.SessionConfig.set_Database(System.String)">throws <see cref="T:System.ArgumentNullException"/> when provided database name
-             is null or an empty string.</exception>
+            <summary>
+            Gets the target database name for queries executed within the constructed session.
+            </summary>
+            <remarks>
+            This option has no explicit value by default, as such it is recommended to set a value if the target
+            database is known in advance. This has the benefit of ensuring a consistent target database name throughout
+            the session in a straightforward way and potentially simplifies driver logic, which reduces network
+            communication and might result in better performance.<br/><br/>
+            Cypher clauses such as USE are not a replacement for this option as Cypher is handled by the server and not
+            the driver.<br/><br/>
+            When no explicit name is set, the driver behavior depends on the connection URI scheme supplied to the
+            driver on instantiation and Bolt protocol version.<br/><br/>
+            Specifically, the following applies:
+            <list type="bullet">
+            <item>
+            <b>bolt schemes</b> - queries are dispatched to the server for execution without explicit database name
+            supplied, meaning that the target database name for query execution is determined by the server.
+            It is important to note that the target database may change (even within the same session), for instance
+            if the user's home database is changed on the server.
+            </item>
+            <item>
+            <b>neo4j schemes</b>  - providing that Bolt protocol version 4.4, which was introduced with
+            Neo4j server 4.4, or above is available, the driver fetches the user's home database name from the server
+            on first query execution within the session and uses the fetched database name explicitly for all queries
+            executed within the session. This ensures that the database name remains consistent within the given
+            session. For instance, if the user's home database name is 'movies' and the server supplies it to the driver
+            upon database name fetching for the session, all queries within that session are executed with the explicit
+            database name 'movies' supplied. Any change to the user’s home database is reflected only in sessions
+            created after such change takes effect. This behavior requires additional network communication. In
+            clustered environments, it is strongly recommended to avoid a single point of failure. For instance, by
+            ensuring that the connection URI resolves to multiple endpoints. For older Bolt protocol versions the
+            behavior is the same as described for the bolt schemes above.
+            </item>
+            </list>
+            </remarks>
+            <seealso cref="M:Neo4j.Driver.SessionConfigBuilder.WithDatabase(System.String)"/>
         </member>
         <member name="P:Neo4j.Driver.SessionConfig.DefaultAccessMode">
              <summary>
@@ -2488,11 +2567,46 @@
         </member>
         <member name="M:Neo4j.Driver.SessionConfigBuilder.WithDatabase(System.String)">
             <summary>
-            Sets the database the constructed session will connect to.
+            Sets the target database name for queries executed within the constructed session.
             </summary>
-            <param name="database">the database name</param>
-            <returns>this <see cref="T:Neo4j.Driver.SessionConfigBuilder"/> instance</returns>
+            <param name="database">The database name.</param>
+            <returns>This <see cref="T:Neo4j.Driver.SessionConfigBuilder"/> instance.</returns>
             <seealso cref="P:Neo4j.Driver.SessionConfig.Database"/>
+            <remarks>
+            This option has no explicit value by default, as such it is recommended to set a value if the target
+            database is known in advance. This has the benefit of ensuring a consistent target database name throughout
+            the session in a straightforward way and potentially simplifies driver logic, which reduces network
+            communication and might result in better performance.<br/><br/>
+            Cypher clauses such as USE are not a replacement for this option as Cypher is handled by the server and not
+            the driver.<br/><br/>
+            When no explicit name is set, the driver behavior depends on the connection URI scheme supplied to the
+            driver on instantiation and Bolt protocol version.<br/><br/>
+            Specifically, the following applies:
+            <list type="bullet">
+            <item>
+            <b>bolt schemes</b> - queries are dispatched to the server for execution without explicit database name
+            supplied, meaning that the target database name for query execution is determined by the server.
+            It is important to note that the target database may change (even within the same session), for instance
+            if the user's home database is changed on the server.
+            </item>
+            <item>
+            <b>neo4j schemes</b>  - providing that Bolt protocol version 4.4, which was introduced with
+            Neo4j server 4.4, or above is available, the driver fetches the user's home database name from the server
+            on first query execution within the session and uses the fetched database name explicitly for all queries
+            executed within the session. This ensures that the database name remains consistent within the given
+            session. For instance, if the user's home database name is 'movies' and the server supplies it to the driver
+            upon database name fetching for the session, all queries within that session are executed with the explicit
+            database name 'movies' supplied. Any change to the user’s home database is reflected only in sessions
+            created after such change takes effect. This behavior requires additional network communication. In
+            clustered environments, it is strongly recommended to avoid a single point of failure. For instance, by
+            ensuring that the connection URI resolves to multiple endpoints. For older Bolt protocol versions the
+            behavior is the same as described for the bolt schemes above.
+            </item>
+            </list>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            Throws <see cref="T:System.ArgumentNullException"/> when provided database name is null or an empty string.
+            </exception>
         </member>
         <member name="M:Neo4j.Driver.SessionConfigBuilder.WithDefaultAccessMode(Neo4j.Driver.AccessMode)">
             <summary>

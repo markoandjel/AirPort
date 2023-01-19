@@ -11,19 +11,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.WebRequestMethods;
-using AirportProject.Controllers;
 using Neo4jClient;
 
 namespace AirportProject
 {
     public partial class Form1 : Form
     {
-        private IGraphClient _client;
         private Neo4jConnect _klijent;
 
         public Form1()
         {
-            _klijent = new Neo4jConnect();
+            _klijent = new Neo4jConnect("bolt://localhost:7687", "neo4j","password");
             InitializeComponent();
         }
 
@@ -34,7 +32,7 @@ namespace AirportProject
             String code = "HEL";
             String city = "Helsinki";
             Airport airport = new Airport(name, code, city);
-            AirportController A = new AirportController();
+            AirportController A = new AirportController(_klijent.Driver);
             A.CreateAirport(airport);
         }
 
@@ -52,7 +50,7 @@ namespace AirportProject
         private void btnGetAllAirports_Click(object sender, EventArgs e)
         {
             List<Airport> listAirports = new List<Airport>();
-            AirportController A = new AirportController();
+            AirportController A = new AirportController(_klijent.Driver);
             listAirports=A.GetAllAirports();
         }
     }
