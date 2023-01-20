@@ -54,5 +54,21 @@ namespace AirportProject.Controllers
             .Run("MATCH(p:Airport) return p LIMIT 3");
             return null;
         }
+
+        public void UpdateAirport(Airport airportOld, Airport airportNew)
+        {
+            var session = _driver.Session(conf => conf
+                        .WithDatabase("airport"));
+            var res = session.Run("MATCH (a:Airport {name:$name,city:$city,code:$code}) SET a.name=$nameNew,a.city=$cityNew,a.code=$codeNew",
+                new
+                {
+                    name = airportOld.Name,
+                    city = airportOld.City,
+                    code = airportOld.Code,
+                    nameNew = airportNew.Name,
+                    cityNew = airportNew.City,
+                    codeNew = airportNew.Code
+                });
+        }
     }
 }
