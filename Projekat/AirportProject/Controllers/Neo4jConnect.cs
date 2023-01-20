@@ -23,7 +23,6 @@ namespace AirportProject.Controllers
         }
         public Neo4jConnect(string url, string username, string password)
         {
-            string databaseName = "airport";
             _driver = GraphDatabase.Driver(url, AuthTokens.Basic(username, password));
             _driver.Session();
         } 

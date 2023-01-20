@@ -32,8 +32,6 @@ namespace AirportProject.Controllers
             .WithDefaultAccessMode(AccessMode.Write)
             .WithDatabase("airport"))
             .Run("CREATE (a:Airport {name: $name,city: $city,code: $code})", new { name = a.Name, code = a.Code, city = a.City });
-
-
         }
 
         public List<Airport> GetAllAirports() 

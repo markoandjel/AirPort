@@ -96,6 +96,7 @@
     <Compile Include="Controllers\AirportController.cs" />
     <Compile Include="Controllers\CityController.cs" />
     <Compile Include="Controllers\Neo4jConnect.cs" />
+    <Compile Include="Controllers\PassengerController.cs" />
     <Compile Include="Controllers\TicketController.cs" />
     <Compile Include="DatabaseConection.cs" />
     <Compile Include="DomainModel\Airline.cs" />
@@ -104,7 +105,7 @@
     <Compile Include="DomainModel\Plane.cs" />
     <Compile Include="DomainModel\Ticket.cs" />
     <Compile Include="DomainModel\Flight.cs" />
-    <Compile Include="DomainModel\Passanger.cs" />
+    <Compile Include="DomainModel\Passenger.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

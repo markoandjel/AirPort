@@ -28,9 +28,9 @@ namespace AirportProject
 
         private void btnAddAirport_Click(object sender, EventArgs e)
         {
-            String name = "Helsinki Airport";
-            String code = "HEL";
-            String city = "Helsinki";
+            String name = "Sofia Airport";
+            String code = "SO";
+            String city = "Sofia";
             Airport airport = new Airport(name, code, city);
             AirportController A = new AirportController(_klijent.Driver);
             A.CreateAirport(airport);
@@ -52,6 +52,16 @@ namespace AirportProject
             List<Airport> listAirports = new List<Airport>();
             AirportController A = new AirportController(_klijent.Driver);
             listAirports=A.GetAllAirports();
+        }
+
+        private void addPassenger_Click(object sender, EventArgs e)
+        {
+            String name = "Marko Andjelkovic";
+            int passport = 22315543;
+            Passenger passenger = new Passenger(name, passport);
+            PassengerController p = new PassengerController(_klijent.Driver);
+            p.CreatePassenger(passenger);
+
         }
     }
 }
