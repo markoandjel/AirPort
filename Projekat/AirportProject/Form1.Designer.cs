@@ -31,14 +31,9 @@
         {
             this.btnAddAirport = new System.Windows.Forms.Button();
             this.btnGetAllAirports = new System.Windows.Forms.Button();
-<<<<<<< HEAD
             this.addPassenger = new System.Windows.Forms.Button();
             this.addTicket = new System.Windows.Forms.Button();
 =======
-            this.btnDeleteAirport = new System.Windows.Forms.Button();
-            this.btnUpdateAirport = new System.Windows.Forms.Button();
-            this.btnCreateFlight = new System.Windows.Forms.Button();
->>>>>>> c50863486bc646f0af288a1cdf987f6d29803a0b
             this.SuspendLayout();
             // 
             // btnAddAirport
@@ -49,10 +44,6 @@
             this.btnAddAirport.Name = "btnAddAirport";
             this.btnAddAirport.Size = new System.Drawing.Size(187, 60);
 =======
-            this.btnAddAirport.Location = new System.Drawing.Point(67, 80);
-            this.btnAddAirport.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAddAirport.Name = "btnAddAirport";
-            this.btnAddAirport.Size = new System.Drawing.Size(118, 38);
 >>>>>>> c50863486bc646f0af288a1cdf987f6d29803a0b
             this.btnAddAirport.TabIndex = 0;
             this.btnAddAirport.Text = "Add Airport";
@@ -65,7 +56,6 @@
             this.btnGetAllAirports.Location = new System.Drawing.Point(315, 255);
             this.btnGetAllAirports.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 =======
-            this.btnGetAllAirports.Location = new System.Drawing.Point(58, 135);
 >>>>>>> c50863486bc646f0af288a1cdf987f6d29803a0b
             this.btnGetAllAirports.Name = "btnGetAllAirports";
             this.btnGetAllAirports.Size = new System.Drawing.Size(176, 39);
