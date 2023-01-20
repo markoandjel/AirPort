@@ -88,33 +88,7 @@ namespace AirportProject
 
         private void btnUpdateAirport_Click(object sender, EventArgs e)
         {
-            String name = "Helsinki Airport";
-            String code = "HEL";
-            String city = "Helsinki";
-            Airport airport = new Airport(name, code, city);
-            name = "flkadjsflka";
-            code = "HEL";
-            city = "nalkjSjkla";
-            Airport airport2 = new Airport(name, code, city);
-            AirportController A = new AirportController(_klijent.Driver);
-            A.UpdateAirport(airport, airport2);
-        }
 
-        private void btnCreateFlight_Click(object sender, EventArgs e)
-        {
-            String name = "Helsinki Airport";
-            String code = "HEL";
-            String city = "Helsinki";
-            Airport airport = new Airport(name, code, city);
-            name = "Dubai International Airport";
-            code = "DXB";
-            city = "Dubai";
-            Airport airport2 = new Airport(name, code, city);
-
-            Flight flight= new Flight("sdfa",airport,airport2,180,40,340,new DateTime(2023,1,20,13,55,55), new DateTime(2023,1,20,5,30,30));
-
-            FlightController F = new FlightController(_klijent.Driver);
-            F.CreateFlight(flight);
         }
     }
 }
