@@ -33,14 +33,16 @@
             this.btnGetAllAirports = new System.Windows.Forms.Button();
             this.addPassenger = new System.Windows.Forms.Button();
             this.addTicket = new System.Windows.Forms.Button();
+            this.btnDeleteAirport = new System.Windows.Forms.Button();
+            this.btnUpdateAirport = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAddAirport
             // 
-            this.btnAddAirport.Location = new System.Drawing.Point(315, 146);
-            this.btnAddAirport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddAirport.Location = new System.Drawing.Point(69, 78);
+            this.btnAddAirport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddAirport.Name = "btnAddAirport";
-            this.btnAddAirport.Size = new System.Drawing.Size(187, 60);
+            this.btnAddAirport.Size = new System.Drawing.Size(140, 49);
             this.btnAddAirport.TabIndex = 0;
             this.btnAddAirport.Text = "Add Airport";
             this.btnAddAirport.UseVisualStyleBackColor = true;
@@ -48,10 +50,9 @@
             // 
             // btnGetAllAirports
             // 
-            this.btnGetAllAirports.Location = new System.Drawing.Point(315, 255);
-            this.btnGetAllAirports.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGetAllAirports.Location = new System.Drawing.Point(77, 198);
             this.btnGetAllAirports.Name = "btnGetAllAirports";
-            this.btnGetAllAirports.Size = new System.Drawing.Size(176, 39);
+            this.btnGetAllAirports.Size = new System.Drawing.Size(132, 32);
             this.btnGetAllAirports.TabIndex = 1;
             this.btnGetAllAirports.Text = "Get all airports";
             this.btnGetAllAirports.UseVisualStyleBackColor = true;
@@ -59,10 +60,10 @@
             // 
             // addPassenger
             // 
-            this.addPassenger.Location = new System.Drawing.Point(304, 35);
-            this.addPassenger.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addPassenger.Location = new System.Drawing.Point(489, 78);
+            this.addPassenger.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.addPassenger.Name = "addPassenger";
-            this.addPassenger.Size = new System.Drawing.Size(187, 60);
+            this.addPassenger.Size = new System.Drawing.Size(140, 49);
             this.addPassenger.TabIndex = 2;
             this.addPassenger.Text = "Add Passenger";
             this.addPassenger.UseVisualStyleBackColor = true;
@@ -70,25 +71,46 @@
             // 
             // addTicket
             // 
-            this.addTicket.Location = new System.Drawing.Point(530, 50);
-            this.addTicket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addTicket.Location = new System.Drawing.Point(528, 181);
+            this.addTicket.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.addTicket.Name = "addTicket";
-            this.addTicket.Size = new System.Drawing.Size(187, 60);
+            this.addTicket.Size = new System.Drawing.Size(140, 49);
             this.addTicket.TabIndex = 3;
             this.addTicket.Text = "Add Ticket";
             this.addTicket.UseVisualStyleBackColor = true;
             this.addTicket.Click += new System.EventHandler(this.addTicket_Click);
             // 
+            // btnDeleteAirport
+            // 
+            this.btnDeleteAirport.Location = new System.Drawing.Point(99, 254);
+            this.btnDeleteAirport.Name = "btnDeleteAirport";
+            this.btnDeleteAirport.Size = new System.Drawing.Size(127, 23);
+            this.btnDeleteAirport.TabIndex = 4;
+            this.btnDeleteAirport.Text = "Delete Airport";
+            this.btnDeleteAirport.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdateAirport
+            // 
+            this.btnUpdateAirport.Location = new System.Drawing.Point(69, 154);
+            this.btnUpdateAirport.Name = "btnUpdateAirport";
+            this.btnUpdateAirport.Size = new System.Drawing.Size(127, 23);
+            this.btnUpdateAirport.TabIndex = 4;
+            this.btnUpdateAirport.Text = "Update Airport";
+            this.btnUpdateAirport.UseVisualStyleBackColor = true;
+            this.btnUpdateAirport.Click += new System.EventHandler(this.btnUpdateAirport_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(760, 380);
+            this.Controls.Add(this.btnUpdateAirport);
+            this.Controls.Add(this.btnDeleteAirport);
             this.Controls.Add(this.addTicket);
             this.Controls.Add(this.addPassenger);
             this.Controls.Add(this.btnGetAllAirports);
             this.Controls.Add(this.btnAddAirport);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -102,6 +124,8 @@
         private System.Windows.Forms.Button btnGetAllAirports;
         private System.Windows.Forms.Button addPassenger;
         private System.Windows.Forms.Button addTicket;
+        private System.Windows.Forms.Button btnDeleteAirport;
+        private System.Windows.Forms.Button btnUpdateAirport;
     }
 }
 

@@ -76,5 +76,10 @@ namespace AirportProject
             TicketController t = new TicketController(_klijent.Driver);
             //t.createTicket(ticket);
         }
+
+        private void btnUpdateAirport_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
