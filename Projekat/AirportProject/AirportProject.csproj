@@ -95,6 +95,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AirportController.cs" />
     <Compile Include="Controllers\CityController.cs" />
+    <Compile Include="Controllers\FlightController.cs" />
     <Compile Include="Controllers\Neo4jConnect.cs" />
     <Compile Include="Controllers\TicketController.cs" />
     <Compile Include="DatabaseConection.cs" />

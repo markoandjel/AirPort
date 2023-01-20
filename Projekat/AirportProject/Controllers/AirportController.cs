@@ -14,10 +14,11 @@ using System.Windows.Forms;
 using NHibernate.Loader.Custom;
 using NHibernate.Mapping;
 using NHibernate.Util;
+using Newtonsoft.Json;
 
 namespace AirportProject.Controllers
 {
-    public class AirportController:Neo4jConnect
+    public class AirportController
     {
         private readonly IDriver _driver;
         public AirportController()
@@ -37,50 +38,40 @@ namespace AirportProject.Controllers
             .Run("MERGE (a:Airport {name: $name,city: $city,code: $code})", new { name = a.Name, code = a.Code, city = a.City });
         }
 
-        [Obsolete]
-        public List<Airport> GetAllAirports() 
+        public List<Airport> GetAllAirports()
         {
-            /*var session = Connector.Driver.Session();
-            try
-            {
-               List<Airport> listAiports= (List<Airport>)session.Run("MATCH(p:Airport) return p LIMIT 3");
-                return listAiports;
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-                return null;
-            }*/
-
             var session = _driver.Session(conf => conf
-            .WithDefaultAccessMode(AccessMode.Read)
             .WithDatabase("airport"));
 
-
-            var res = session.ReadTransaction(tx =>
+            var airports = new List<Airport>();
+            var res = session.ExecuteRead(tx =>
             {
-                var cursor = tx.Run(@"MATCH(n: Airport) RETURN n.city as city LIMIT 25");
-                var records = cursor.ToList();
-                return records.Select(x=>x["city"].As<string>());
+                var cursor = tx.Run(@"MATCH(n: Airport) RETURN n LIMIT 25");
+                return cursor.ToList();
             });
-            var lista = res.ToList();
 
-
-            var res2 = session.ReadTransaction(tx =>
+            foreach(var r in res)
             {
-                var cursor = tx.Run(@"MATCH(n: Airport) RETURN n");
+                var node = JsonConvert.SerializeObject(r[0].As<INode>().Properties);
+                airports.Add(JsonConvert.DeserializeObject<Airport>(node));
+            }
+            return airports;
+        }
 
-                //IRecord row = cursor.Single();
-                List<IRecord> rows=cursor.ToList();
-                //IReadOnlyList<string> columns = row.Keys;
+        public void DeleteAirport(Airport a)
+        {
+            var session = _driver.Session(conf => conf
+            .WithDatabase("airport"));
+            var res = session.Run("MATCH (a:Airport {name:$name,city:$city,code:$code}) Delete a",new {name=a.Name,city=a.City,code=a.Code });
 
-                //string city=row.Values.ContainsKey("")
-                
-                var records = cursor.ToList();
-                return records.Select(x => x["city"].As<string>());
-            });
-            var lista2 = res2.ToList();
-            return null;
+        }
+        public void UpdateAirport(Airport airportOld,Airport airportNew)
+        {
+            var session = _driver.Session(conf => conf
+                        .WithDatabase("airport"));
+            var res = session.Run("MATCH (a:Airport {name:$name,city:$city,code:$code}) SET a.name=$nameNew,a.city=$cityNew,a.code=$codeNew", 
+                new { name = airportOld.Name, city = airportOld.City, code = airportOld.Code,
+                    nameNew=airportNew.Name,cityNew=airportNew.City,codeNew=airportNew.Code});
         }
     }
 }

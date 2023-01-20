@@ -11,20 +11,20 @@ namespace AirportProject.DomainModel
         private int _ticketNum;
         private string _seatNum;
         private string _gate;
-        private string _flightCode;
+        private Flight _flightCode;
         private string _passangerName;
 
         public int TicketNum { get => _ticketNum; set => _ticketNum = value; }
         public string SeatNum { get => _seatNum; set => _seatNum = value; }
         public string Gate { get => _gate; set => _gate = value; }
-        public string FlightCode { get => _flightCode; set => _flightCode = value; }
+        public Flight FlightCode { get => _flightCode; set => _flightCode = value; }
         public string PassangerName { get => _passangerName; set => _passangerName = value; }
 
         public Ticket()
         {
         }
 
-        public Ticket(int ticketNum, string seatNum, string gate, string flightCode, string passangerName)
+        public Ticket(int ticketNum, string seatNum, string gate, Flight flightCode, string passangerName)
         {
             TicketNum = ticketNum;
             SeatNum = seatNum;

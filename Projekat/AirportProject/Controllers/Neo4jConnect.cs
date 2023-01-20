@@ -16,16 +16,17 @@ namespace AirportProject.Controllers
 {
     public class Neo4jConnect
     {
-        private IDriver _driver;
+        protected IDriver _driver;
+        protected ISession _session;
         public Neo4jConnect()
         {
 
         }
         public Neo4jConnect(string url, string username, string password)
         {
-            string databaseName = "airport";
             _driver = GraphDatabase.Driver(url, AuthTokens.Basic(username, password));
-            _driver.Session();
+            _session=_driver.Session(conf => conf
+            .WithDatabase("airport"));
         } 
 
         public IDriver Driver
