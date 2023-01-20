@@ -30,7 +30,7 @@ namespace AirportProject.Controllers
             _driver = driver;
         }
 
-        public void CreateAirport(Airport a)
+        public void CreateAirport(DomainModel.Airport a)
         {
             var session = _driver.Session(conf => conf
             .WithDefaultAccessMode(AccessMode.Write)
@@ -38,12 +38,12 @@ namespace AirportProject.Controllers
             .Run("CREATE (a:Airport {name: $name,city: $city,code: $code})", new { name = a.Name, code = a.Code, city = a.City });
         }
 
-        public List<Airport> GetAllAirports()
+        public List<DomainModel.Airport> GetAllAirports()
         {
             var session = _driver.Session(conf => conf
             .WithDatabase("airport"));
 
-            var airports = new List<Airport>();
+            var airports = new List<DomainModel.Airport>();
             var res = session.ExecuteRead(tx =>
             {
                 var cursor = tx.Run(@"MATCH(n: Airport) RETURN n LIMIT 25");
@@ -53,19 +53,19 @@ namespace AirportProject.Controllers
             foreach(var r in res)
             {
                 var node = JsonConvert.SerializeObject(r[0].As<INode>().Properties);
-                airports.Add(JsonConvert.DeserializeObject<Airport>(node));
+                airports.Add(JsonConvert.DeserializeObject<DomainModel.Airport>(node));
             }
             return airports;
         }
 
-        public void DeleteAirport(Airport a)
+        public void DeleteAirport(DomainModel.Airport a)
         {
             var session = _driver.Session(conf => conf
             .WithDatabase("airport"));
             var res = session.Run("MATCH (a:Airport {name:$name,city:$city,code:$code}) Delete a",new {name=a.Name,city=a.City,code=a.Code });
 
         }
-        public void UpdateAirport(Airport airportOld,Airport airportNew)
+        public void UpdateAirport(DomainModel.Airport airportOld, DomainModel.Airport airportNew)
         {
             var session = _driver.Session(conf => conf
                         .WithDatabase("airport"));

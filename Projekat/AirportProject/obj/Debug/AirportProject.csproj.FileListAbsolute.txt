@@ -108,3 +108,4 @@ D:\NapredneBazeProjekat\AirPort\Projekat\AirportProject\obj\Debug\AirportProject
 D:\NapredneBazeProjekat\AirPort\Projekat\AirportProject\obj\Debug\AirportProject.csproj.CopyComplete
 D:\NapredneBazeProjekat\AirPort\Projekat\AirportProject\obj\Debug\AirportProject.exe
 D:\NapredneBazeProjekat\AirPort\Projekat\AirportProject\obj\Debug\AirportProject.pdb
+D:\AirPort\Projekat\AirportProject\obj\Debug\AirportProject.AirportForm.resources
