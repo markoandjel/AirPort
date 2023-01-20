@@ -44,7 +44,8 @@ namespace AirportProject
             //string password = "password";
             //_client = new GraphClient(new Uri(url), username, password);
             //_client.ConnectAsync();
-            
+            //_klijent = new Neo4jConnect("bolt://localhost:7687", "neo4j", "password");
+
         }
 
         private void btnGetAllAirports_Click(object sender, EventArgs e)
@@ -54,6 +55,7 @@ namespace AirportProject
             listAirports=A.GetAllAirports();
         }
 
+<<<<<<< HEAD
         private void addPassenger_Click(object sender, EventArgs e)
         {
             String name = "Marko Andjelkovic";
@@ -74,6 +76,47 @@ namespace AirportProject
             Ticket ticket = new Ticket(number,seatnum, gate, fcode,passenger);  
             TicketController t = new TicketController(_klijent.Driver);
             t.createTicket(ticket);
+=======
+        private void btnDeleteAirport_Click(object sender, EventArgs e)
+        {
+            String name = "Helsinki Airport";
+            String code = "HEL";
+            String city = "Helsinki";
+            Airport airport = new Airport(name, code, city);
+            AirportController A = new AirportController(_klijent.Driver);
+            A.DeleteAirport(airport);
+        }
+
+        private void btnUpdateAirport_Click(object sender, EventArgs e)
+        {
+            String name = "Helsinki Airport";
+            String code = "HEL";
+            String city = "Helsinki";
+            Airport airport = new Airport(name, code, city);
+            name = "flkadjsflka";
+            code = "HEL";
+            city = "nalkjSjkla";
+            Airport airport2 = new Airport(name, code, city);
+            AirportController A = new AirportController(_klijent.Driver);
+            A.UpdateAirport(airport, airport2);
+        }
+
+        private void btnCreateFlight_Click(object sender, EventArgs e)
+        {
+            String name = "Helsinki Airport";
+            String code = "HEL";
+            String city = "Helsinki";
+            Airport airport = new Airport(name, code, city);
+            name = "Dubai International Airport";
+            code = "DXB";
+            city = "Dubai";
+            Airport airport2 = new Airport(name, code, city);
+
+            Flight flight= new Flight("sdfa",airport,airport2,180,40,340,new DateTime(2023,1,20,13,55,55));
+
+            FlightController F = new FlightController(_klijent.Driver);
+            F.CreateFlight(flight);
+>>>>>>> c50863486bc646f0af288a1cdf987f6d29803a0b
         }
     }
 }

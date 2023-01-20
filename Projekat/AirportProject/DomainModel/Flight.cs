@@ -32,10 +32,10 @@ namespace AirportProject.DomainModel
         {
         }
 
-        public Flight(string code, Airport destination, Airport start, int numOfSeats, int freeSeats, int price, int timeInMinutes,DateTime timeOfArival, DateTime timeOfDeparture )
+        public Flight(string code, Airport destination, Airport start, int numOfSeats, int freeSeats, int price,DateTime timeOfArival, DateTime timeOfDeparture )
         {
             Price=price; 
-            TimeInMinutes=timeInMinutes;
+            TimeInMinutes= (timeOfArival - timeOfDeparture).Minutes;
             NumOfSeats= numOfSeats;
             Code= code;
             Destination= destination;
