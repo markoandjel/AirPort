@@ -399,3 +399,4 @@ FodyWeavers.xsd
 *.sln.iml
 
 obj\Debug
+/Projekat/.vs/NapredneBazeProjekat/v17/.suo
