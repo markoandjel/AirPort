@@ -63,5 +63,17 @@ namespace AirportProject
             p.CreatePassenger(passenger);
 
         }
+
+        private void addTicket_Click(object sender, EventArgs e)
+        {
+            int number = 12;
+            string seatnum = "22";
+            string gate = "5";
+            string fcode = "2344";
+            string passenger = "Marko Andjelkovic";
+            Ticket ticket = new Ticket(number,seatnum, gate, fcode,passenger);  
+            TicketController t = new TicketController(_klijent.Driver);
+            t.createTicket(ticket);
+        }
     }
 }

@@ -32,6 +32,7 @@
             this.btnAddAirport = new System.Windows.Forms.Button();
             this.btnGetAllAirports = new System.Windows.Forms.Button();
             this.addPassenger = new System.Windows.Forms.Button();
+            this.addTicket = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAddAirport
@@ -67,11 +68,23 @@
             this.addPassenger.UseVisualStyleBackColor = true;
             this.addPassenger.Click += new System.EventHandler(this.addPassenger_Click);
             // 
+            // addTicket
+            // 
+            this.addTicket.Location = new System.Drawing.Point(530, 50);
+            this.addTicket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addTicket.Name = "addTicket";
+            this.addTicket.Size = new System.Drawing.Size(187, 60);
+            this.addTicket.TabIndex = 3;
+            this.addTicket.Text = "Add Ticket";
+            this.addTicket.UseVisualStyleBackColor = true;
+            this.addTicket.Click += new System.EventHandler(this.addTicket_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.addTicket);
             this.Controls.Add(this.addPassenger);
             this.Controls.Add(this.btnGetAllAirports);
             this.Controls.Add(this.btnAddAirport);
@@ -88,6 +101,7 @@
         private System.Windows.Forms.Button btnAddAirport;
         private System.Windows.Forms.Button btnGetAllAirports;
         private System.Windows.Forms.Button addPassenger;
+        private System.Windows.Forms.Button addTicket;
     }
 }
 
