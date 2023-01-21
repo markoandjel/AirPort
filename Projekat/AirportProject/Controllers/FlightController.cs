@@ -1,10 +1,12 @@
 ﻿using AirportProject.DomainModel;
 using Neo4j.Driver;
+using NHibernate.Mapping;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace AirportProject.Controllers
 {
@@ -18,23 +20,24 @@ namespace AirportProject.Controllers
         }
         public void CreateFlight(Flight f)
         {
+            string query = "MATCH (a1:Airport),(a2:Airport) WHERE a1.code=\"INI\" AND a2.code=\"IST\" " +
+                "MERGE (a1)-[r:FLIGHT {test:\"test2\"}]->(a2)";
             var session = _driver.Session(conf => conf
             .WithDefaultAccessMode(AccessMode.Write)
             .WithDatabase("airport"))
-            .Run("MERGE (f:Flight {name: $name,city: $city,code: $code})", 
-            new
-            {
-                code = f.Code,
-                destination = f.Destination,
-                timeofdeparture = f.TimeOfDeparture,
-                timeofarival = f.TimeOfArival,
-                numofseats = f.NumOfSeats,
-                numfreesteats = f.FreeSeats,
-                price = f.Price,
-                start=f.Start,
-                timeinminutes=(f.TimeOfArival-f.TimeOfDeparture).TotalMinutes               
-            });
-
+            .Run(query); 
+            //new
+            //{
+            //    code = f.Code,
+            //    destinationCode = f.Destination.Code,
+            //    timeofdeparture = f.TimeOfDeparture,
+            //    timeofarival = f.TimeOfArival,
+            //    numofseats = f.NumOfSeats,
+            //    numfreesteats = f.FreeSeats,
+            //    price = f.Price,
+            //    startCode=f.Start.Code,
+            //    timeinminutes=(f.TimeOfArival-f.TimeOfDeparture).TotalMinutes               
+            //});
         }
     }
 }

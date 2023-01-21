@@ -398,3 +398,6 @@ FodyWeavers.xsd
 *.sln.iml
 
 obj\Debug
+/Projekat/.vs/NapredneBazeProjekat/v17/.suo
+/Projekat/AirportProject/obj/Debug/AirportProject.csproj.AssemblyReference.cache
+/Projekat/AirportProject/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
