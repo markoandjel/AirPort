@@ -36,12 +36,32 @@ namespace AirportProject
 
         private void btnCreateFlight_Click(object sender, EventArgs e)
         {
-            Airport start=new Airport("Konstantin Veliki","SIN","Nis");
+            Airport start=new Airport("Konstantin Veliki", "SIN", "Nis");
             Airport dest = new Airport("Nikola Tesla", "BEG", "Belgrade");
             DateTime timeofArival=new DateTime(2023,1,21,13,4,0);
             DateTime timeOfDeparture = new DateTime(2023, 1, 23, 13, 4, 0);
             Flight flight = new Flight("asdf", dest, start, 10, 2, 130, timeofArival, timeOfDeparture); 
             _flightController.CreateFlight(flight);
+        }
+
+        private void btnSwapDestinations_Click(object sender, EventArgs e)
+        {
+            (lblFlightFrom.Text, lblFlightTo.Text) = (lblFlightTo.Text, lblFlightFrom.Text);
+
+        }
+
+        private void dgvAirports_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if(dgvAirports.SelectedCells.Count == 3 && lblFlightFrom.Text == "")
+            {
+                lblFlightFrom.Text = dgvAirports.SelectedCells[0].Value.ToString()+", CODE:"
+                    +dgvAirports.SelectedCells[1].Value.ToString();
+            }
+            else if(dgvAirports.SelectedCells.Count == 3)
+            {
+                lblFlightTo.Text = dgvAirports.SelectedCells[0].Value.ToString() + ", CODE:"
+                    + dgvAirports.SelectedCells[1].Value.ToString(); 
+            }            
         }
     }
 }

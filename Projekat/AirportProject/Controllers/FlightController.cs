@@ -11,33 +11,20 @@ namespace AirportProject.Controllers
     public class FlightController
     {
         private readonly IDriver _driver;
+        private readonly ISession _session;
         public FlightController(){ }
         public FlightController(IDriver driver)
         {
             _driver = driver;
+            _session=_driver.Session(conf =>
+            conf.WithDatabase("airport"));
         }
         public void CreateFlight(Flight f)
         {
-            string query = "MATCH (a1:Airport),(a2:Airport) WHERE a1.code=\"INI\" AND a2.code=\"IST\" " +
-                "MERGE (a1)-[r:FLIGHT {test:\"test2\"}]->(a2)";
-            var session = _driver.Session(conf => conf
-            .WithDefaultAccessMode(AccessMode.Write)
-            .WithDatabase("airport"))
-            .Run(query);
-
-            string test = "Test2";
-            //new
-            //{
-            //    code = f.Code,
-            //    destinationCode = f.Destination.Code,
-            //    timeofdeparture = f.TimeOfDeparture,
-            //    timeofarival = f.TimeOfArival,
-            //    numofseats = f.NumOfSeats,
-            //    numfreesteats = f.FreeSeats,
-            //    price = f.Price,
-            //    startCode=f.Start.Code,
-            //    timeinminutes=(f.TimeOfArival-f.TimeOfDeparture).TotalMinutes               
-            //});
+            Query query = new Query(string.Format("MATCH (a1: Airport),(a2: Airport) WHERE a1.code=\"{0}\" AND a2.code=\"{1}\" " +
+                "MERGE (a1)-[r:FLIGHT {{ code:\"{2}\",departure:\"{3}\",arival:\"{4}\",price:\"{5}\",freepassengers:\"{6}\",seats:\"{7}\"}}]->(a2) RETURN r",
+                f.Start.Code,f.Destination.Code,f.Code,f.TimeOfDeparture.ToString(), f.TimeOfArival.ToString(), f.Price, f.FreeSeats, f.NumOfSeats));
+            _session.Run(query);
         }
     }
 }

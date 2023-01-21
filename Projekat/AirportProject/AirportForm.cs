@@ -101,5 +101,10 @@ namespace AirportProject
             tbxUpdateCode.Text = dgvAirports.SelectedCells[1].Value.ToString();
             tbxUpdateCity.Text = dgvAirports.SelectedCells[2].Value.ToString();
         }
+
+        private void btnRefreshTable_Click(object sender, EventArgs e)
+        {
+            UpdateTable();
+        }
     }
 }
