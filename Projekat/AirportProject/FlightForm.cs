@@ -36,8 +36,8 @@ namespace AirportProject
 
         private void btnCreateFlight_Click(object sender, EventArgs e)
         {
-            Airport start=new Airport("Konstantin Veliki","SIN","Nis");
-            Airport dest = new Airport("Nikola Tesla", "BEG", "Belgrade");
+            Airport start=new Airport("Konstantin Veliki", "INI", "Nis");
+            Airport dest = new Airport("Nikola Tesla", "SIG", "Belgrade");
             DateTime timeofArival=new DateTime(2023,1,21,13,4,0);
             DateTime timeOfDeparture = new DateTime(2023, 1, 23, 13, 4, 0);
             Flight flight = new Flight("asdf", dest, start, 10, 2, 130, timeofArival, timeOfDeparture); 

@@ -17,15 +17,38 @@ namespace AirportProject.Controllers
             _driver = driver;
         }
         public void CreateFlight(Flight f)
-        {
-            string query = "MATCH (a1:Airport),(a2:Airport) WHERE a1.code=\"INI\" AND a2.code=\"IST\" " +
-                "MERGE (a1)-[r:FLIGHT {test:\"test2\"}]->(a2)";
+        {       
+
             var session = _driver.Session(conf => conf
             .WithDefaultAccessMode(AccessMode.Write)
             .WithDatabase("airport"))
-            .Run(query);
+            .Run("MATCH (a1:Airport),(a2:Airport) WHERE a1.code=\"$codeStart\" AND a2.code=\"$codeDest\" " +
+                "MERGE (a1)-[r:FLIGHT_TO {code:$code,price:$price,freeseats:$freeseats,numofseats:$numofseats," +
+                "timeofdeparture=$timeofdeparture,timeofarival=$timeofarival}]->(a2)",
+                new
+                {
+                    codeStart = f.Start.Code.ToString(),
+                    codeDest = f.Destination.Code.ToString(),
+                    code = f.Code.ToString(),
+                    price = f.Price.ToString(),
+                    freeseats = f.FreeSeats.ToString(),
+                    numofseats = f.NumOfSeats.ToString(),
+                    timeofdeparture = f.TimeOfDeparture.ToString(),
+                    timeofarival = f.TimeOfArival.ToString()
+                });
 
-            string test = "Test2";
+
+            //Dictionary<string, object> queryDict = new Dictionary<string, object>();
+            //queryDict.Add("code", f.Code);
+            //queryDict.Add("price", f.Price);
+            //queryDict.Add("codeDestination", f.Destination.Code);
+            //queryDict.Add("codeStart", f.Start.Code);
+            //queryDict.Add("freeseats", f.FreeSeats);
+            //queryDict.Add("numofseats", f.NumOfSeats);
+            //queryDict.Add("timeofarival", f.TimeOfArival);
+            //queryDict.Add("timeofdeparture", f.TimeOfDeparture);
+
+
             //new
             //{
             //    code = f.Code,
