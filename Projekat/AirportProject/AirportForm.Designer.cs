@@ -46,6 +46,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.gbxUpdateAirport = new System.Windows.Forms.GroupBox();
             this.gbxAddAirport = new System.Windows.Forms.GroupBox();
+            this.btnRefreshTable = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAirports)).BeginInit();
             this.gbxUpdateAirport.SuspendLayout();
             this.gbxAddAirport.SuspendLayout();
@@ -53,9 +54,9 @@
             // 
             // btnAddAirport
             // 
-            this.btnAddAirport.Location = new System.Drawing.Point(90, 136);
+            this.btnAddAirport.Location = new System.Drawing.Point(105, 134);
             this.btnAddAirport.Name = "btnAddAirport";
-            this.btnAddAirport.Size = new System.Drawing.Size(87, 32);
+            this.btnAddAirport.Size = new System.Drawing.Size(100, 32);
             this.btnAddAirport.TabIndex = 0;
             this.btnAddAirport.Text = "Add Airport";
             this.btnAddAirport.UseVisualStyleBackColor = true;
@@ -66,7 +67,7 @@
             this.dgvAirports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAirports.Location = new System.Drawing.Point(314, 25);
             this.dgvAirports.Name = "dgvAirports";
-            this.dgvAirports.Size = new System.Drawing.Size(262, 385);
+            this.dgvAirports.Size = new System.Drawing.Size(447, 385);
             this.dgvAirports.TabIndex = 2;
             this.dgvAirports.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAirports_RowHeaderMouseDoubleClick);
             // 
@@ -74,21 +75,21 @@
             // 
             this.tbxName.Location = new System.Drawing.Point(90, 15);
             this.tbxName.Name = "tbxName";
-            this.tbxName.Size = new System.Drawing.Size(100, 20);
+            this.tbxName.Size = new System.Drawing.Size(149, 20);
             this.tbxName.TabIndex = 3;
             // 
             // tbxCity
             // 
             this.tbxCity.Location = new System.Drawing.Point(88, 53);
             this.tbxCity.Name = "tbxCity";
-            this.tbxCity.Size = new System.Drawing.Size(100, 20);
+            this.tbxCity.Size = new System.Drawing.Size(149, 20);
             this.tbxCity.TabIndex = 4;
             // 
             // tbxCode
             // 
             this.tbxCode.Location = new System.Drawing.Point(90, 89);
             this.tbxCode.Name = "tbxCode";
-            this.tbxCode.Size = new System.Drawing.Size(100, 20);
+            this.tbxCode.Size = new System.Drawing.Size(149, 20);
             this.tbxCode.TabIndex = 5;
             // 
             // lblName
@@ -120,7 +121,7 @@
             // 
             // btnDeleteAirport
             // 
-            this.btnDeleteAirport.Location = new System.Drawing.Point(401, 427);
+            this.btnDeleteAirport.Location = new System.Drawing.Point(530, 426);
             this.btnDeleteAirport.Name = "btnDeleteAirport";
             this.btnDeleteAirport.Size = new System.Drawing.Size(102, 32);
             this.btnDeleteAirport.TabIndex = 0;
@@ -130,7 +131,7 @@
             // 
             // btnUpdateAirport
             // 
-            this.btnUpdateAirport.Location = new System.Drawing.Point(76, 162);
+            this.btnUpdateAirport.Location = new System.Drawing.Point(105, 153);
             this.btnUpdateAirport.Name = "btnUpdateAirport";
             this.btnUpdateAirport.Size = new System.Drawing.Size(100, 32);
             this.btnUpdateAirport.TabIndex = 0;
@@ -142,21 +143,21 @@
             // 
             this.tbxUpdateName.Location = new System.Drawing.Point(76, 32);
             this.tbxUpdateName.Name = "tbxUpdateName";
-            this.tbxUpdateName.Size = new System.Drawing.Size(100, 20);
+            this.tbxUpdateName.Size = new System.Drawing.Size(163, 20);
             this.tbxUpdateName.TabIndex = 3;
             // 
             // tbxUpdateCity
             // 
             this.tbxUpdateCity.Location = new System.Drawing.Point(74, 70);
             this.tbxUpdateCity.Name = "tbxUpdateCity";
-            this.tbxUpdateCity.Size = new System.Drawing.Size(100, 20);
+            this.tbxUpdateCity.Size = new System.Drawing.Size(163, 20);
             this.tbxUpdateCity.TabIndex = 4;
             // 
             // tbxUpdateCode
             // 
             this.tbxUpdateCode.Location = new System.Drawing.Point(76, 106);
             this.tbxUpdateCode.Name = "tbxUpdateCode";
-            this.tbxUpdateCode.Size = new System.Drawing.Size(100, 20);
+            this.tbxUpdateCode.Size = new System.Drawing.Size(163, 20);
             this.tbxUpdateCode.TabIndex = 5;
             // 
             // label1
@@ -197,7 +198,7 @@
             this.gbxUpdateAirport.Controls.Add(this.btnUpdateAirport);
             this.gbxUpdateAirport.Location = new System.Drawing.Point(27, 25);
             this.gbxUpdateAirport.Name = "gbxUpdateAirport";
-            this.gbxUpdateAirport.Size = new System.Drawing.Size(211, 205);
+            this.gbxUpdateAirport.Size = new System.Drawing.Size(261, 205);
             this.gbxUpdateAirport.TabIndex = 7;
             this.gbxUpdateAirport.TabStop = false;
             this.gbxUpdateAirport.Text = "UpdateAirport";
@@ -213,16 +214,27 @@
             this.gbxAddAirport.Controls.Add(this.btnAddAirport);
             this.gbxAddAirport.Location = new System.Drawing.Point(27, 260);
             this.gbxAddAirport.Name = "gbxAddAirport";
-            this.gbxAddAirport.Size = new System.Drawing.Size(205, 186);
+            this.gbxAddAirport.Size = new System.Drawing.Size(261, 186);
             this.gbxAddAirport.TabIndex = 8;
             this.gbxAddAirport.TabStop = false;
             this.gbxAddAirport.Text = "Add Airport";
+            // 
+            // btnRefreshTable
+            // 
+            this.btnRefreshTable.Location = new System.Drawing.Point(382, 422);
+            this.btnRefreshTable.Name = "btnRefreshTable";
+            this.btnRefreshTable.Size = new System.Drawing.Size(64, 40);
+            this.btnRefreshTable.TabIndex = 9;
+            this.btnRefreshTable.Text = "Refresh Table";
+            this.btnRefreshTable.UseVisualStyleBackColor = true;
+            this.btnRefreshTable.Click += new System.EventHandler(this.btnRefreshTable_Click);
             // 
             // AirportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 484);
+            this.ClientSize = new System.Drawing.Size(773, 484);
+            this.Controls.Add(this.btnRefreshTable);
             this.Controls.Add(this.gbxAddAirport);
             this.Controls.Add(this.gbxUpdateAirport);
             this.Controls.Add(this.dgvAirports);
@@ -259,5 +271,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox gbxUpdateAirport;
         private System.Windows.Forms.GroupBox gbxAddAirport;
+        private System.Windows.Forms.Button btnRefreshTable;
     }
 }
