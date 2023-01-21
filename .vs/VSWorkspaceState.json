@@ -1,5 +1,6 @@
 {
   "ExpandedNodes": [
+<<<<<<< HEAD
     "",
     "\\Projekat",
     "\\Projekat\\AirportProject",
@@ -7,5 +8,10 @@
     "\\Projekat\\AirportProject\\DomainModel"
   ],
   "SelectedNode": "\\Projekat\\AirportProject\\Controllers\\AirportController.cs",
+=======
+    ""
+  ],
+  "SelectedNode": "\\D:\\AirPort",
+>>>>>>> 3ac3d0d1dc94983fb646f46c3a36fd22021b4d46
   "PreviewInSolutionExplorer": false
 }
