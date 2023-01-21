@@ -25,7 +25,7 @@ namespace AirportProject.Controllers
             .WithDatabase("airport"))
             .Run(query);
 
-            string test = "Test";
+            string test = "Test2";
             //new
             //{
             //    code = f.Code,
