@@ -23,7 +23,9 @@ namespace AirportProject.Controllers
             var session = _driver.Session(conf => conf
             .WithDefaultAccessMode(AccessMode.Write)
             .WithDatabase("airport"))
-            .Run(query); 
+            .Run(query);
+
+            string test = "Test";
             //new
             //{
             //    code = f.Code,
