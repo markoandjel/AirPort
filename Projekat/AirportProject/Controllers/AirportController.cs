@@ -35,7 +35,7 @@ namespace AirportProject.Controllers
             var session = _driver.Session(conf => conf
             .WithDefaultAccessMode(AccessMode.Write)
             .WithDatabase("airport"))
-            .Run("CREATE (a:Airport {name: $name,city: $city,code: $code})", new { name = a.Name, code = a.Code, city = a.City });
+            .Run("MERGE (a:Airport {name: $name,city: $city,code: $code})", new { name = a.Name, code = a.Code, city = a.City });
         }
 
         public List<DomainModel.Airport> GetAllAirports()

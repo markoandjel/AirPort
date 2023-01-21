@@ -36,6 +36,7 @@
             this.btnDeleteAirport = new System.Windows.Forms.Button();
             this.btnUpdateAirport = new System.Windows.Forms.Button();
             this.btnAirportManager = new System.Windows.Forms.Button();
+            this.btnFlightManager = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAddAirport
@@ -103,7 +104,7 @@
             // btnAirportManager
             // 
             this.btnAirportManager.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnAirportManager.Location = new System.Drawing.Point(259, 241);
+            this.btnAirportManager.Location = new System.Drawing.Point(259, 182);
             this.btnAirportManager.Name = "btnAirportManager";
             this.btnAirportManager.Size = new System.Drawing.Size(155, 52);
             this.btnAirportManager.TabIndex = 5;
@@ -111,11 +112,23 @@
             this.btnAirportManager.UseVisualStyleBackColor = false;
             this.btnAirportManager.Click += new System.EventHandler(this.btnAirportManager_Click);
             // 
+            // btnFlightManager
+            // 
+            this.btnFlightManager.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnFlightManager.Location = new System.Drawing.Point(259, 254);
+            this.btnFlightManager.Name = "btnFlightManager";
+            this.btnFlightManager.Size = new System.Drawing.Size(155, 52);
+            this.btnFlightManager.TabIndex = 5;
+            this.btnFlightManager.Text = "Flight Manager";
+            this.btnFlightManager.UseVisualStyleBackColor = false;
+            this.btnFlightManager.Click += new System.EventHandler(this.btnFlightManager_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(760, 380);
+            this.Controls.Add(this.btnFlightManager);
             this.Controls.Add(this.btnAirportManager);
             this.Controls.Add(this.btnUpdateAirport);
             this.Controls.Add(this.btnDeleteAirport);
@@ -140,6 +153,7 @@
         private System.Windows.Forms.Button btnDeleteAirport;
         private System.Windows.Forms.Button btnUpdateAirport;
         private System.Windows.Forms.Button btnAirportManager;
+        private System.Windows.Forms.Button btnFlightManager;
     }
 }
 

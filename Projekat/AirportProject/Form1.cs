@@ -90,8 +90,14 @@ namespace AirportProject
 
         private void btnAirportManager_Click(object sender, EventArgs e)
         {
-            AirportForm airport=new AirportForm(_klijent);
-            airport.ShowDialog();
+            AirportForm airportForm=new AirportForm(_klijent);
+            airportForm.ShowDialog();
+        }
+
+        private void btnFlightManager_Click(object sender, EventArgs e)
+        {
+            FlightForm flighForm = new FlightForm(_klijent);
+            flighForm.ShowDialog();
         }
     }
 }
