@@ -31,6 +31,7 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
+Airport/Projekat/.vs/NapredneBazeProjekat/v17
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -398,3 +399,9 @@ FodyWeavers.xsd
 *.sln.iml
 
 obj\Debug
+/Projekat/.vs/NapredneBazeProjekat/v17/.suo
+/Projekat/.vs
+/Projekat/.vs/NapredneBazeProjekat/FileContentIndex/3d9f5948-fdfc-4c5e-8453-a68d1681e7c2.vsidx
+/Projekat/AirportProject/bin/Debug/AirportProject.exe
+/Projekat/AirportProject/bin/Debug/AirportProject.pdb
+/Projekat/AirportProject/obj/Debug/AirportProject.csproj.CoreCompileInputs.cache
