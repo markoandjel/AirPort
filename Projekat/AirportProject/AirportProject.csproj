@@ -107,14 +107,32 @@
     <Compile Include="DomainModel\Ticket.cs" />
     <Compile Include="DomainModel\Flight.cs" />
     <Compile Include="DomainModel\Passenger.cs" />
+    <Compile Include="FlightForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FlightForm.Designer.cs">
+      <DependentUpon>FlightForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="AirportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AirportForm.Designer.cs">
+      <DependentUpon>AirportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AirportForm.resx">
+      <DependentUpon>AirportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FlightForm.resx">
+      <DependentUpon>FlightForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
