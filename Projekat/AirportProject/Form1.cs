@@ -99,5 +99,11 @@ namespace AirportProject
             FlightForm flighForm = new FlightForm(_klijent);
             flighForm.ShowDialog();
         }
+
+        private void btnCityManager_Click(object sender, EventArgs e)
+        {
+            CityForm cityForm = new CityForm(_klijent);
+            cityForm.ShowDialog();
+        }
     }
 }
