@@ -38,6 +38,7 @@
             this.btnAirportManager = new System.Windows.Forms.Button();
             this.btnFlightManager = new System.Windows.Forms.Button();
             this.btnCityManager = new System.Windows.Forms.Button();
+            this.btnAirlineManager = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAddAirport
@@ -54,7 +55,7 @@
             // btnGetAllAirports
             // 
             this.btnGetAllAirports.Location = new System.Drawing.Point(103, 244);
-            this.btnGetAllAirports.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGetAllAirports.Margin = new System.Windows.Forms.Padding(4);
             this.btnGetAllAirports.Name = "btnGetAllAirports";
             this.btnGetAllAirports.Size = new System.Drawing.Size(176, 39);
             this.btnGetAllAirports.TabIndex = 1;
@@ -87,7 +88,7 @@
             // btnDeleteAirport
             // 
             this.btnDeleteAirport.Location = new System.Drawing.Point(109, 313);
-            this.btnDeleteAirport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteAirport.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteAirport.Name = "btnDeleteAirport";
             this.btnDeleteAirport.Size = new System.Drawing.Size(169, 28);
             this.btnDeleteAirport.TabIndex = 4;
@@ -97,7 +98,7 @@
             // btnUpdateAirport
             // 
             this.btnUpdateAirport.Location = new System.Drawing.Point(103, 188);
-            this.btnUpdateAirport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdateAirport.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdateAirport.Name = "btnUpdateAirport";
             this.btnUpdateAirport.Size = new System.Drawing.Size(169, 28);
             this.btnUpdateAirport.TabIndex = 4;
@@ -109,7 +110,7 @@
             // 
             this.btnAirportManager.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnAirportManager.Location = new System.Drawing.Point(345, 224);
-            this.btnAirportManager.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAirportManager.Margin = new System.Windows.Forms.Padding(4);
             this.btnAirportManager.Name = "btnAirportManager";
             this.btnAirportManager.Size = new System.Drawing.Size(207, 64);
             this.btnAirportManager.TabIndex = 5;
@@ -121,7 +122,7 @@
             // 
             this.btnFlightManager.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnFlightManager.Location = new System.Drawing.Point(345, 313);
-            this.btnFlightManager.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFlightManager.Margin = new System.Windows.Forms.Padding(4);
             this.btnFlightManager.Name = "btnFlightManager";
             this.btnFlightManager.Size = new System.Drawing.Size(207, 64);
             this.btnFlightManager.TabIndex = 5;
@@ -140,11 +141,24 @@
             this.btnCityManager.UseVisualStyleBackColor = false;
             this.btnCityManager.Click += new System.EventHandler(this.btnCityManager_Click);
             // 
+            // btnAirlineManager
+            // 
+            this.btnAirlineManager.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnAirlineManager.Location = new System.Drawing.Point(345, 54);
+            this.btnAirlineManager.Name = "btnAirlineManager";
+            this.btnAirlineManager.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnAirlineManager.Size = new System.Drawing.Size(207, 64);
+            this.btnAirlineManager.TabIndex = 7;
+            this.btnAirlineManager.Text = "Airline Manager";
+            this.btnAirlineManager.UseVisualStyleBackColor = false;
+            this.btnAirlineManager.Click += new System.EventHandler(this.btnAirlineManager_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1013, 468);
+            this.ClientSize = new System.Drawing.Size(810, 374);
+            this.Controls.Add(this.btnAirlineManager);
             this.Controls.Add(this.btnCityManager);
             this.Controls.Add(this.btnFlightManager);
             this.Controls.Add(this.btnAirportManager);
@@ -173,6 +187,7 @@
         private System.Windows.Forms.Button btnAirportManager;
         private System.Windows.Forms.Button btnFlightManager;
         private System.Windows.Forms.Button btnCityManager;
+        private System.Windows.Forms.Button btnAirlineManager;
     }
 }
 
