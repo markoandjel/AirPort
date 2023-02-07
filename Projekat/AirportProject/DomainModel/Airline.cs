@@ -14,11 +14,18 @@ namespace AirportProject.DomainModel
         public string Name { get => _name; set => _name = value; }
         public List<Flight> Flights { get => _flights; set => _flights = value; }
 
+        public Airline() { }
+
         public Airline(string name, List<Flight> flights)
         {
             Name = name;
             Flights = flights;
             
+        }
+        public Airline(string name)
+        {
+            Name = name;
+           
         }
     }
 }

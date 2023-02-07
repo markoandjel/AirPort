@@ -93,12 +93,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AirlineForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AirlineForm.Designer.cs">
+      <DependentUpon>AirlineForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CityForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CityForm.Designer.cs">
       <DependentUpon>CityForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AirlineController.cs" />
     <Compile Include="Controllers\AirportController.cs" />
     <Compile Include="Controllers\CityController.cs" />
     <Compile Include="Controllers\FlightController.cs" />
@@ -145,6 +152,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AirlineForm.resx">
+      <DependentUpon>AirlineForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AirportForm.resx">
       <DependentUpon>AirportForm.cs</DependentUpon>
     </EmbeddedResource>
