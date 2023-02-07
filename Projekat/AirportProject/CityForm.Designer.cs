@@ -42,6 +42,8 @@
             this.tbxCountryAdd = new System.Windows.Forms.TextBox();
             this.gbUpdate = new System.Windows.Forms.GroupBox();
             this.gbAdd = new System.Windows.Forms.GroupBox();
+            this.btnConnectToAirports = new System.Windows.Forms.Button();
+            this.btnDisconnectAirports = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCity)).BeginInit();
             this.gbUpdate.SuspendLayout();
             this.gbAdd.SuspendLayout();
@@ -54,7 +56,7 @@
             this.dgvCity.Name = "dgvCity";
             this.dgvCity.RowHeadersWidth = 51;
             this.dgvCity.RowTemplate.Height = 24;
-            this.dgvCity.Size = new System.Drawing.Size(284, 365);
+            this.dgvCity.Size = new System.Drawing.Size(421, 365);
             this.dgvCity.TabIndex = 8;
             // 
             // btnUpdateAirport
@@ -62,27 +64,27 @@
             this.btnUpdateAirport.Location = new System.Drawing.Point(156, 127);
             this.btnUpdateAirport.Name = "btnUpdateAirport";
             this.btnUpdateAirport.Size = new System.Drawing.Size(107, 44);
-            this.btnUpdateAirport.TabIndex = 1;
+            this.btnUpdateAirport.TabIndex = 2;
             this.btnUpdateAirport.Text = "Update City";
             this.btnUpdateAirport.UseVisualStyleBackColor = true;
             this.btnUpdateAirport.Click += new System.EventHandler(this.btnUpdateAirport_Click);
             // 
             // btnAddCity
             // 
-            this.btnAddCity.Location = new System.Drawing.Point(157, 119);
+            this.btnAddCity.Location = new System.Drawing.Point(212, 125);
             this.btnAddCity.Name = "btnAddCity";
             this.btnAddCity.Size = new System.Drawing.Size(107, 44);
-            this.btnAddCity.TabIndex = 2;
+            this.btnAddCity.TabIndex = 5;
             this.btnAddCity.Text = "Add City";
             this.btnAddCity.UseVisualStyleBackColor = true;
             this.btnAddCity.Click += new System.EventHandler(this.btnAddCity_Click);
             // 
             // btnDeleteCity
             // 
-            this.btnDeleteCity.Location = new System.Drawing.Point(533, 385);
+            this.btnDeleteCity.Location = new System.Drawing.Point(482, 385);
             this.btnDeleteCity.Name = "btnDeleteCity";
             this.btnDeleteCity.Size = new System.Drawing.Size(107, 44);
-            this.btnDeleteCity.TabIndex = 3;
+            this.btnDeleteCity.TabIndex = 6;
             this.btnDeleteCity.Text = "Delete";
             this.btnDeleteCity.UseVisualStyleBackColor = true;
             this.btnDeleteCity.Click += new System.EventHandler(this.btnDeleteCity_Click);
@@ -135,21 +137,21 @@
             this.tbxCountryUpdate.Location = new System.Drawing.Point(104, 80);
             this.tbxCountryUpdate.Name = "tbxCountryUpdate";
             this.tbxCountryUpdate.Size = new System.Drawing.Size(215, 22);
-            this.tbxCountryUpdate.TabIndex = 0;
+            this.tbxCountryUpdate.TabIndex = 1;
             // 
             // tbxNameAdd
             // 
             this.tbxNameAdd.Location = new System.Drawing.Point(105, 25);
             this.tbxNameAdd.Name = "tbxNameAdd";
             this.tbxNameAdd.Size = new System.Drawing.Size(215, 22);
-            this.tbxNameAdd.TabIndex = 2;
+            this.tbxNameAdd.TabIndex = 3;
             // 
             // tbxCountryAdd
             // 
             this.tbxCountryAdd.Location = new System.Drawing.Point(105, 73);
             this.tbxCountryAdd.Name = "tbxCountryAdd";
             this.tbxCountryAdd.Size = new System.Drawing.Size(215, 22);
-            this.tbxCountryAdd.TabIndex = 3;
+            this.tbxCountryAdd.TabIndex = 4;
             // 
             // gbUpdate
             // 
@@ -179,16 +181,38 @@
             this.gbAdd.TabStop = false;
             this.gbAdd.Text = "Add city";
             // 
+            // btnConnectToAirports
+            // 
+            this.btnConnectToAirports.Location = new System.Drawing.Point(613, 385);
+            this.btnConnectToAirports.Name = "btnConnectToAirports";
+            this.btnConnectToAirports.Size = new System.Drawing.Size(107, 44);
+            this.btnConnectToAirports.TabIndex = 7;
+            this.btnConnectToAirports.Text = "Connect to airports";
+            this.btnConnectToAirports.UseVisualStyleBackColor = true;
+            this.btnConnectToAirports.Click += new System.EventHandler(this.btnConnectToAirports_Click);
+            // 
+            // btnDisconnectAirports
+            // 
+            this.btnDisconnectAirports.Location = new System.Drawing.Point(740, 385);
+            this.btnDisconnectAirports.Name = "btnDisconnectAirports";
+            this.btnDisconnectAirports.Size = new System.Drawing.Size(107, 44);
+            this.btnDisconnectAirports.TabIndex = 8;
+            this.btnDisconnectAirports.Text = "Disconnect Airports";
+            this.btnDisconnectAirports.UseVisualStyleBackColor = true;
+            this.btnDisconnectAirports.Click += new System.EventHandler(this.btnDisconnectAirports_Click);
+            // 
             // CityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(763, 444);
+            this.ClientSize = new System.Drawing.Size(982, 648);
+            this.Controls.Add(this.btnDisconnectAirports);
+            this.Controls.Add(this.btnConnectToAirports);
             this.Controls.Add(this.gbAdd);
             this.Controls.Add(this.gbUpdate);
             this.Controls.Add(this.btnDeleteCity);
             this.Controls.Add(this.dgvCity);
-            this.MaximumSize = new System.Drawing.Size(781, 491);
+            this.MaximumSize = new System.Drawing.Size(1000, 1000);
             this.MinimumSize = new System.Drawing.Size(781, 491);
             this.Name = "CityForm";
             this.Text = "City manager";
@@ -218,5 +242,7 @@
         private System.Windows.Forms.TextBox tbxCountryAdd;
         private System.Windows.Forms.GroupBox gbUpdate;
         private System.Windows.Forms.GroupBox gbAdd;
+        private System.Windows.Forms.Button btnConnectToAirports;
+        private System.Windows.Forms.Button btnDisconnectAirports;
     }
 }

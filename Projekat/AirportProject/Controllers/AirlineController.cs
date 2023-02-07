@@ -65,7 +65,9 @@ namespace AirportProject.Controllers
             }
             return airlines;
         }
-
+        public void AddFlight()
+        { 
+        }
 
     }
 }
