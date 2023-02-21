@@ -31,7 +31,7 @@ namespace AirportProject.Controllers
             _driver = driver;
             _session = _driver.Session(conf => conf
             .WithDefaultAccessMode(AccessMode.Write)
-            .WithDatabase("airport"));
+            .WithDatabase("neo4j"));
         }
 
         public void CreateAirport(DomainModel.Airport a)

@@ -28,7 +28,7 @@ namespace AirportProject.Controllers
         {
             var session = _driver.Session(conf => conf
                 .WithDefaultAccessMode(AccessMode.Write)
-                .WithDatabase("airport"))
+                .WithDatabase("neo4j"))
                 .Run("CREATE (t:Ticket {Number: $ticket_Number,Seat: $seat_Number,Gate=$gate,flight_code = $flight_code,passenger = $passenger_Name})", new { ticket_Number = t.TicketNum, seat_Number = t.SeatNum, gate = t.Gate, flight_Code = t.FlightCode, passanger_Name = t.PassangerName });
         }
 
