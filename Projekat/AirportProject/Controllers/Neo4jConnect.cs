@@ -26,7 +26,7 @@ namespace AirportProject.Controllers
         {
             _driver = GraphDatabase.Driver(url, AuthTokens.Basic(username, password));
             _session=_driver.Session(conf => conf
-            .WithDatabase("airport"));
+            .WithDatabase("neo4j"));
         } 
 
         public IDriver Driver

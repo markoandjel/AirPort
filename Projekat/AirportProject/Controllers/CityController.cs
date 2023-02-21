@@ -21,7 +21,7 @@ namespace AirportProject.Controllers
         {
             _driver = driver;
             _sessionCity = _driver.Session(conf => conf
-           .WithDatabase("airport"));
+           .WithDatabase("neo4j"));
         }
 
         public void CreateCity(City c)
