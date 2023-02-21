@@ -144,7 +144,7 @@
             this.btnShowFlights.TabIndex = 1;
             this.btnShowFlights.Text = "Show Flights";
             this.btnShowFlights.UseVisualStyleBackColor = true;
-            this.btnShowFlights.Click += new System.EventHandler(this.btnCreateFlight_Click);
+            this.btnShowFlights.Click += new System.EventHandler(this.btnShowFlights_Click);
             // 
             // dtpDeparture
             // 

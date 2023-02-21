@@ -43,7 +43,6 @@ namespace AirportProject.DomainModel
             FreeSeats= freeSeats;
             TimeOfArival= timeOfArival;
             TimeOfDeparture= timeOfDeparture;
-            
         }
 
        

@@ -105,5 +105,11 @@ namespace AirportProject
             CityForm cityForm = new CityForm(_klijent);
             cityForm.ShowDialog();
         }
+
+        private void btnAirlineManager_Click(object sender, EventArgs e)
+        {
+            AirlineForm airlineForm=new AirlineForm(_klijent);
+            airlineForm.ShowDialog();
+        }
     }
 }

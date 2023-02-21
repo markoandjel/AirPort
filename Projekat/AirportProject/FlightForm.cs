@@ -72,5 +72,10 @@ namespace AirportProject
                     + dgvAirports.SelectedCells[1].Value.ToString(); 
             }            
         }
+
+        private void btnShowFlights_Click(object sender, EventArgs e)
+        {
+            dgvAirports.DataSource = _flightController.GetAllFlights();
+        }
     }
 }
