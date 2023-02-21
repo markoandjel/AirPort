@@ -15,11 +15,13 @@ using NHibernate.Loader.Custom;
 using NHibernate.Mapping;
 using NHibernate.Util;
 using Newtonsoft.Json;
+using AirportProject.Controllers;
 
 namespace AirportProject.Controllers
 {
     public class AirportController
     {
+        private CityController _cityController;
         private readonly IDriver _driver;
         public AirportController()
         { 
@@ -28,6 +30,7 @@ namespace AirportProject.Controllers
         public AirportController(IDriver driver)
         {
             _driver = driver;
+            _cityController = new CityController(driver);
         }
 
         public void CreateAirport(DomainModel.Airport a)
@@ -36,6 +39,7 @@ namespace AirportProject.Controllers
             .WithDefaultAccessMode(AccessMode.Write)
             .WithDatabase("airport"))
             .Run("MERGE (a:Airport {name: $name,city: $city,code: $code})", new { name = a.Name, code = a.Code, city = a.City });
+            _cityController.ConnectDisconnectAirport(a.City, true);
         }
 
         public List<DomainModel.Airport> GetAllAirports()
@@ -62,7 +66,9 @@ namespace AirportProject.Controllers
         {
             var session = _driver.Session(conf => conf
             .WithDatabase("airport"));
+            _cityController.ConnectDisconnectAirport(a.City,false);
             var res = session.Run("MATCH (a:Airport {name:$name,city:$city,code:$code}) Delete a",new {name=a.Name,city=a.City,code=a.Code });
+            _cityController.ConnectDisconnectAirport(a.City, true);
 
         }
         public void UpdateAirport(DomainModel.Airport airportOld, DomainModel.Airport airportNew)
