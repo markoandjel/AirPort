@@ -9,25 +9,26 @@ using AirportProject.DomainModel;
 
 namespace AirportProject.Controllers
 {
-    public class CityController:Neo4jConnect
+    public class CityController : Neo4jConnect
     {
         private readonly IDriver _driver;
         private ISession _sessionCity;
         public CityController()
         {
-           
+
         }
         public CityController(IDriver driver)
         {
             _driver = driver;
             _sessionCity = _driver.Session(conf => conf
-           .WithDatabase("airport"));
+           .WithDatabase("neo4j"));
         }
 
         public void CreateCity(City c)
         {
-            
+
             _sessionCity.Run("MERGE (c:City {name: $name,country: $country})", new { name = c.Name, country = c.Country });
+            ConnectDisconnectAirport(c.Name, true);
         }
 
         public List<City> GetAllCities()
@@ -52,13 +53,13 @@ namespace AirportProject.Controllers
 
         public void DeleteCity(City c)
         {
-            
-            _sessionCity.Run("MATCH (c:City { country:$country, name:$name}) Delete c", new { name = c.Name, country = c.Country});
+            ConnectDisconnectAirport(c.Name, false);
+            _sessionCity.Run("MATCH (c:City { country:$country, name:$name}) Delete c", new { name = c.Name, country = c.Country });
 
         }
         public void UpdateCity(City cityOld, City cityNew)
         {
-        
+
             _sessionCity.Run("MATCH (c:City {name:$nameOld,country:$countryOld}) SET c.name=$nameNew, c.country=$countryNew",
                 new
                 {
@@ -66,8 +67,33 @@ namespace AirportProject.Controllers
                     countryOld = cityOld.Country,
                     nameNew = cityNew.Name,
                     countryNew = cityNew.Country,
-                    
+
                 });
+            ConnectDisconnectAirport(cityOld.Name, false);
+            ConnectDisconnectAirport(cityNew.Name, true);
+        }
+
+        public void ConnectDisconnectAirport (String name, bool connect) 
+        {
+            var readElements = _sessionCity.ExecuteRead(tx =>
+            {
+                var cursor = tx.Run(@"MATCH(a:Airport{city:$cityName}) RETURN a", new { cityName = name});
+                return cursor.ToList();
+            });
+
+            foreach(var e in readElements)
+            {
+                var node = JsonConvert.SerializeObject(e[0].As<INode>().Properties);
+                Airport temp= JsonConvert.DeserializeObject<Airport>(node);
+                if(connect)
+                    _sessionCity.Run("MATCH(c:City{name:$cityName}),(a:Airport{code: $airportCode})" +
+                                     "MERGE(a)-[r:IN]->(c)" +
+                                     "RETURN a", new { airportCode = temp.Code, cityName = name});
+                else
+                    _sessionCity.Run("MATCH(c:City{name:$cityName}),(a:Airport{code: $airportCode})" +
+                                    "MATCH p=(a)-[r:IN]->(c)" +
+                                    "DELETE r", new { airportCode = temp.Code, cityName = name });
+            }
         }
     }
 }

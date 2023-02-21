@@ -21,7 +21,11 @@ namespace AirportProject
 
         public Form1()
         {
+<<<<<<< HEAD
             _klijent = new Neo4jConnect("bolt://localhost:7687", "neo4j","bazicari");
+=======
+            _klijent = new Neo4jConnect("bolt://87.250.63.38:7687", "neo4j","bazicari");
+>>>>>>> 0ca5457442901007d36e75cf8b0f557d8a57dfc1
             InitializeComponent();
         }
 
@@ -104,6 +108,12 @@ namespace AirportProject
         {
             CityForm cityForm = new CityForm(_klijent);
             cityForm.ShowDialog();
+        }
+
+        private void btnAirlineManager_Click(object sender, EventArgs e)
+        {
+            AirlineForm airlineForm=new AirlineForm(_klijent);
+            airlineForm.ShowDialog();
         }
     }
 }
