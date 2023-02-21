@@ -46,7 +46,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.gbxUpdateAirport = new System.Windows.Forms.GroupBox();
             this.gbxAddAirport = new System.Windows.Forms.GroupBox();
-            this.btnRefreshTable = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAirports)).BeginInit();
             this.gbxUpdateAirport.SuspendLayout();
             this.gbxAddAirport.SuspendLayout();
@@ -121,7 +120,7 @@
             // 
             // btnDeleteAirport
             // 
-            this.btnDeleteAirport.Location = new System.Drawing.Point(530, 426);
+            this.btnDeleteAirport.Location = new System.Drawing.Point(488, 425);
             this.btnDeleteAirport.Name = "btnDeleteAirport";
             this.btnDeleteAirport.Size = new System.Drawing.Size(102, 32);
             this.btnDeleteAirport.TabIndex = 0;
@@ -219,22 +218,11 @@
             this.gbxAddAirport.TabStop = false;
             this.gbxAddAirport.Text = "Add Airport";
             // 
-            // btnRefreshTable
-            // 
-            this.btnRefreshTable.Location = new System.Drawing.Point(382, 422);
-            this.btnRefreshTable.Name = "btnRefreshTable";
-            this.btnRefreshTable.Size = new System.Drawing.Size(64, 40);
-            this.btnRefreshTable.TabIndex = 9;
-            this.btnRefreshTable.Text = "Refresh Table";
-            this.btnRefreshTable.UseVisualStyleBackColor = true;
-            this.btnRefreshTable.Click += new System.EventHandler(this.btnRefreshTable_Click);
-            // 
             // AirportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(773, 484);
-            this.Controls.Add(this.btnRefreshTable);
             this.Controls.Add(this.gbxAddAirport);
             this.Controls.Add(this.gbxUpdateAirport);
             this.Controls.Add(this.dgvAirports);
@@ -271,6 +259,5 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox gbxUpdateAirport;
         private System.Windows.Forms.GroupBox gbxAddAirport;
-        private System.Windows.Forms.Button btnRefreshTable;
     }
 }

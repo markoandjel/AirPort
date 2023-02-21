@@ -21,6 +21,7 @@ namespace AirportProject.Controllers
     public class AirportController
     {
         private readonly IDriver _driver;
+        private readonly ISession _session;
         public AirportController()
         { 
 
@@ -28,23 +29,22 @@ namespace AirportProject.Controllers
         public AirportController(IDriver driver)
         {
             _driver = driver;
+            _session = _driver.Session(conf => conf
+            .WithDefaultAccessMode(AccessMode.Write)
+            .WithDatabase("airport"));
         }
 
         public void CreateAirport(DomainModel.Airport a)
         {
-            var session = _driver.Session(conf => conf
-            .WithDefaultAccessMode(AccessMode.Write)
-            .WithDatabase("airport"))
+            _session
             .Run("MERGE (a:Airport {name: $name,city: $city,code: $code})", new { name = a.Name, code = a.Code, city = a.City });
         }
 
         public List<DomainModel.Airport> GetAllAirports()
         {
-            var session = _driver.Session(conf => conf
-            .WithDatabase("airport"));
 
             var airports = new List<DomainModel.Airport>();
-            var res = session.ExecuteRead(tx =>
+            var res = _session.ExecuteRead(tx =>
             {
                 var cursor = tx.Run(@"MATCH(n: Airport) RETURN n LIMIT 25");
                 return cursor.ToList();
@@ -59,17 +59,13 @@ namespace AirportProject.Controllers
         }
 
         public void DeleteAirport(DomainModel.Airport a)
-        {
-            var session = _driver.Session(conf => conf
-            .WithDatabase("airport"));
-            var res = session.Run("MATCH (a:Airport {name:$name,city:$city,code:$code}) Delete a",new {name=a.Name,city=a.City,code=a.Code });
+        { 
+            var res = _session.Run("MATCH (a:Airport {name:$name,city:$city,code:$code}) Delete a",new {name=a.Name,city=a.City,code=a.Code });
 
         }
         public void UpdateAirport(DomainModel.Airport airportOld, DomainModel.Airport airportNew)
         {
-            var session = _driver.Session(conf => conf
-                        .WithDatabase("airport"));
-            var res = session.Run("MATCH (a:Airport {name:$name,city:$city,code:$code}) SET a.name=$nameNew,a.city=$cityNew,a.code=$codeNew", 
+            var res = _session.Run("MATCH (a:Airport {name:$name,city:$city,code:$code}) SET a.name=$nameNew,a.city=$cityNew,a.code=$codeNew", 
                 new { name = airportOld.Name, city = airportOld.City, code = airportOld.Code,
                     nameNew=airportNew.Name,cityNew=airportNew.City,codeNew=airportNew.Code});
         }
