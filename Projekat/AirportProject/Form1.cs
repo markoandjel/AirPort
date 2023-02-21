@@ -21,7 +21,7 @@ namespace AirportProject
 
         public Form1()
         {
-            _klijent = new Neo4jConnect("bolt://localhost:7687", "neo4j","password");
+            _klijent = new Neo4jConnect("bolt://87.250.63.38:7687", "neo4j","bazicari");
             InitializeComponent();
         }
 
