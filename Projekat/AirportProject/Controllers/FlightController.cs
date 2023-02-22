@@ -1,6 +1,8 @@
 ﻿using AirportProject.DomainModel;
 using Neo4j.Driver;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using NHibernate.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,22 +38,28 @@ namespace AirportProject.Controllers
             Query query = new Query(string.Format("MATCH (a:Airport {{code:\'{0}\'}})-[f:FLIGHT {{code:{1} }}]->(a2:Airport {{code:{2}}})",f.Start.Code,f.Code,f.Destination.Code));
             _session.Run(query);
         }
-        public List<Flight> GetAllFlights()
+        public List<Flight> GetAllFlightsFrom(Airport airport)
         {
             List<Flight> flights = new List<Flight>();
             var res = _session.ExecuteRead(tx =>
             {
-                var cursor = tx.Run(@"MATCH(a1: Airport)-[r:FLIGHT]->(a2:Airport) RETURN r,a1,a2 LIMIT 25");
+                Query query = new Query(string.Format("MATCH(a1: Airport{{code:\'{0}\'}} )-[r:FLIGHT]->(a2:Airport) RETURN r,a1,a2 LIMIT 25",airport.Code));
+                var cursor = tx.Run(query);
                 return cursor.ToList();
             }); 
             foreach (var r in res)
             {
                 var node = JsonConvert.SerializeObject(r[0].As<IRelationship>().Properties);
-                var flight = JsonConvert.DeserializeObject<DomainModel.Flight>(node);
+                //DateTime timeArrival = Convert.ToDateTime(r[0].As<IRelationship>().Properties.Values.First());
+                //DateTime timeDeparture = Convert.ToDateTime(r[0].As<IRelationship>().Properties.Values.Last());
+
+                var format = "d.M.yyyy. HH:mm:ss";
+                var dateTimeConverter = new IsoDateTimeConverter { DateTimeFormat = format };
+                var flight = JsonConvert.DeserializeObject<DomainModel.Flight>(node,dateTimeConverter);
                 var node2 = JsonConvert.SerializeObject(r[1].As<INode>().Properties);
-                var airportFrom = JsonConvert.DeserializeObject<DomainModel.Airport>(node);
+                var airportFrom = JsonConvert.DeserializeObject<DomainModel.Airport>(node2);
                 var node3 = JsonConvert.SerializeObject(r[2].As<INode>().Properties);
-                var airportTo = JsonConvert.DeserializeObject<DomainModel.Airport>(node);
+                var airportTo = JsonConvert.DeserializeObject<DomainModel.Airport>(node3);
                 flight.Start = airportFrom;
                 flight.Destination= airportTo;
 
