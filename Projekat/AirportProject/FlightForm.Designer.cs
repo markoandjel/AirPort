@@ -57,19 +57,19 @@
             // dgvAirports
             // 
             this.dgvAirports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAirports.Location = new System.Drawing.Point(447, 78);
+            this.dgvAirports.Location = new System.Drawing.Point(366, 50);
             this.dgvAirports.Name = "dgvAirports";
-            this.dgvAirports.Size = new System.Drawing.Size(383, 288);
+            this.dgvAirports.Size = new System.Drawing.Size(517, 316);
             this.dgvAirports.TabIndex = 0;
             this.dgvAirports.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAirports_RowHeaderMouseDoubleClick);
             // 
             // btnCreateFlight
             // 
-            this.btnCreateFlight.Location = new System.Drawing.Point(129, 372);
+            this.btnCreateFlight.Location = new System.Drawing.Point(129, 382);
             this.btnCreateFlight.Name = "btnCreateFlight";
             this.btnCreateFlight.Size = new System.Drawing.Size(100, 37);
             this.btnCreateFlight.TabIndex = 1;
-            this.btnCreateFlight.Text = "Create Flight";
+            this.btnCreateFlight.Text = "Create flight";
             this.btnCreateFlight.UseVisualStyleBackColor = true;
             this.btnCreateFlight.Click += new System.EventHandler(this.btnCreateFlight_Click);
             // 
@@ -121,7 +121,7 @@
             // 
             this.lblListOf.AutoSize = true;
             this.lblListOf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListOf.Location = new System.Drawing.Point(580, 55);
+            this.lblListOf.Location = new System.Drawing.Point(558, 27);
             this.lblListOf.Name = "lblListOf";
             this.lblListOf.Size = new System.Drawing.Size(130, 20);
             this.lblListOf.TabIndex = 4;
@@ -129,11 +129,11 @@
             // 
             // btnShowFlights
             // 
-            this.btnShowFlights.Location = new System.Drawing.Point(516, 395);
+            this.btnShowFlights.Location = new System.Drawing.Point(499, 382);
             this.btnShowFlights.Name = "btnShowFlights";
             this.btnShowFlights.Size = new System.Drawing.Size(119, 37);
             this.btnShowFlights.TabIndex = 1;
-            this.btnShowFlights.Text = "Show Flights";
+            this.btnShowFlights.Text = "Show flights";
             this.btnShowFlights.UseVisualStyleBackColor = true;
             this.btnShowFlights.Click += new System.EventHandler(this.btnShowFlights_Click);
             // 
@@ -190,6 +190,11 @@
             // numSeats
             // 
             this.numSeats.Location = new System.Drawing.Point(129, 333);
+            this.numSeats.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.numSeats.Name = "numSeats";
             this.numSeats.Size = new System.Drawing.Size(100, 20);
             this.numSeats.TabIndex = 12;
@@ -197,6 +202,11 @@
             // numPrice
             // 
             this.numPrice.Location = new System.Drawing.Point(129, 307);
+            this.numPrice.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.numPrice.Name = "numPrice";
             this.numPrice.Size = new System.Drawing.Size(100, 20);
             this.numPrice.TabIndex = 13;
@@ -225,7 +235,7 @@
             // 
             this.rbtnFrom.AutoSize = true;
             this.rbtnFrom.Checked = true;
-            this.rbtnFrom.Location = new System.Drawing.Point(654, 392);
+            this.rbtnFrom.Location = new System.Drawing.Point(642, 382);
             this.rbtnFrom.Name = "rbtnFrom";
             this.rbtnFrom.Size = new System.Drawing.Size(123, 17);
             this.rbtnFrom.TabIndex = 14;
@@ -236,7 +246,7 @@
             // rbtnTo
             // 
             this.rbtnTo.AutoSize = true;
-            this.rbtnTo.Location = new System.Drawing.Point(654, 415);
+            this.rbtnTo.Location = new System.Drawing.Point(642, 405);
             this.rbtnTo.Name = "rbtnTo";
             this.rbtnTo.Size = new System.Drawing.Size(113, 17);
             this.rbtnTo.TabIndex = 15;

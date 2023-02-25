@@ -33,6 +33,8 @@ namespace AirportProject
 
         private void FlightForm_Load(object sender, EventArgs e)
         {
+            dgvAirports.AutoSizeColumnsMode=DataGridViewAutoSizeColumnsMode.Fill;
+            dgvAirports.AutoSizeRowsMode=DataGridViewAutoSizeRowsMode.None;
             dgvAirports.DataSource=_airportController.GetAllAirports();
         }
 
