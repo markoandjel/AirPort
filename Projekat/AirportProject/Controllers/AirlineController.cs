@@ -11,7 +11,7 @@ namespace AirportProject.Controllers
 {
     public class AirlineController:Neo4jConnect
     {
-        private readonly IDriver _driver;
+        private new readonly IDriver _driver;
         private ISession _sessionAirline;
 
         public AirlineController()
@@ -22,7 +22,7 @@ namespace AirportProject.Controllers
         {
             _driver = driver;
             _sessionAirline = _driver.Session(conf => conf
-           .WithDatabase("airport"));
+           .WithDatabase("neo4j"));
         }
 
         public void CreateAirline(Airline a)
