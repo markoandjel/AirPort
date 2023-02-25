@@ -82,12 +82,12 @@ namespace AirportProject
                 , dgvAirports.SelectedCells[2].Value.ToString());
             if (rbtnFrom.Checked == true)
             {
-                ShowFlights showflighFormFrom = new ShowFlights(_klijent,airport);
+                ShowFlights showflighFormFrom = new ShowFlights(_klijent,airport,true);
                 showflighFormFrom.ShowDialog();
             }
             else if (rbtnTo.Checked == true)
             {
-                ShowFlights showflighFormTo = new ShowFlights(_klijent,airport);
+                ShowFlights showflighFormTo = new ShowFlights(_klijent,airport,false);
                 showflighFormTo.ShowDialog();
             }
         }
