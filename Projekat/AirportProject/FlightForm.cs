@@ -16,6 +16,7 @@ namespace AirportProject
     {
         private FlightController _flightController;
         private AirportController _airportController;
+        private Neo4jConnect _klijent;
 
         public FlightForm()
         {
@@ -24,6 +25,7 @@ namespace AirportProject
         }
         public FlightForm(Neo4jConnect klijent)
         {
+            _klijent = klijent;
             _flightController = new FlightController(klijent.Driver);
             _airportController = new AirportController(klijent.Driver);
             InitializeComponent();
@@ -38,18 +40,19 @@ namespace AirportProject
         {             
             Airport start=new Airport("", lblFlightFrom.Text.Substring(lblFlightFrom.Text.IndexOf(':')+1), "");
             Airport dest = new Airport("", lblFlightTo.Text.Substring(lblFlightTo.Text.IndexOf(':')+1), "");
-            
-            DateTime timeofArrival=dtpArival.Value.Date
-                .AddHours(dtpArrivalTime.Value.Hour)
-                .AddMinutes(dtpArrivalTime.Value.Minute);
 
-            DateTime timeofDeparture = dtpDeparture.Value.Date
-                .AddHours(dtpDepartureTime.Value.Hour)
-                .AddMinutes(dtpDepartureTime.Value.Minute);
+            DateTime timeofArrival = new DateTime(dtpArival.Value.Date.Year, 
+                dtpArival.Value.Date.Month, dtpArival.Value.Date.Day,
+                dtpArrivalTime.Value.Hour, dtpArrivalTime.Value.Minute,0);            
+
+            DateTime timeofDeparture = dtpDeparture.Value.Date;
+            timeofDeparture.AddHours(dtpDepartureTime.Value.Hour);
+            timeofDeparture.AddMinutes(dtpDepartureTime.Value.Minute);
             int seats = ((int)numSeats.Value);
             int price = ((int)numPrice.Value);
+            string code = String.Format("{0:d9}", (DateTime.Now.Ticks / 10) % 1000000000);
 
-            Flight flight = new Flight("asdf", dest, start, seats, seats, price, timeofArrival, timeofDeparture); 
+            Flight flight = new Flight(code, dest, start, seats, seats, price, timeofArrival, timeofDeparture); 
             _flightController.CreateFlight(flight);
         }
 
@@ -75,7 +78,26 @@ namespace AirportProject
 
         private void btnShowFlights_Click(object sender, EventArgs e)
         {
-            dgvAirports.DataSource = _flightController.GetAllFlights();
+            if(dgvAirports.SelectedRows.Count!=1)
+            {
+                MessageBox.Show("Please select one airport!");
+            }else
+            {
+                Airport airport = new Airport(dgvAirports.SelectedCells[0].Value.ToString()
+                , dgvAirports.SelectedCells[1].Value.ToString()
+                , dgvAirports.SelectedCells[2].Value.ToString());
+
+                if (rbtnFrom.Checked == true)
+                {
+                    ShowFlights showflighFormFrom = new ShowFlights(_klijent, airport);
+                    showflighFormFrom.ShowDialog();
+                }
+                else if (rbtnTo.Checked == true)
+                {
+                    ShowFlights showflighFormTo = new ShowFlights(_klijent, airport);
+                    showflighFormTo.ShowDialog();
+                }
+            }
         }
     }
 }
