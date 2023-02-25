@@ -156,27 +156,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
     <Compile Include="ShowFlights.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ShowFlights.Designer.cs">
       <DependentUpon>ShowFlights.cs</DependentUpon>
     </Compile>
-=======
-<<<<<<< HEAD
     <Compile Include="RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
-=======
->>>>>>> 53f583cae2eeffe0ad0903c57b78c789228ae4e7
     <EmbeddedResource Include="AirlineForm.resx">
       <DependentUpon>AirlineForm.cs</DependentUpon>
     </EmbeddedResource>
->>>>>>> 0ca5457442901007d36e75cf8b0f557d8a57dfc1
     <EmbeddedResource Include="AirportForm.resx">
       <DependentUpon>AirportForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -202,13 +196,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-<<<<<<< HEAD
     <EmbeddedResource Include="ShowFlights.resx">
       <DependentUpon>ShowFlights.cs</DependentUpon>
-=======
+    </EmbeddedResource>
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
->>>>>>> 53f583cae2eeffe0ad0903c57b78c789228ae4e7
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

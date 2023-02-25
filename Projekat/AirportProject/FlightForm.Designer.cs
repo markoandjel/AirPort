@@ -190,11 +190,6 @@
             // numSeats
             // 
             this.numSeats.Location = new System.Drawing.Point(129, 333);
-            this.numSeats.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
             this.numSeats.Name = "numSeats";
             this.numSeats.Size = new System.Drawing.Size(100, 20);
             this.numSeats.TabIndex = 12;
@@ -202,11 +197,6 @@
             // numPrice
             // 
             this.numPrice.Location = new System.Drawing.Point(129, 307);
-            this.numPrice.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
             this.numPrice.Name = "numPrice";
             this.numPrice.Size = new System.Drawing.Size(100, 20);
             this.numPrice.TabIndex = 13;

@@ -50,9 +50,8 @@ namespace AirportProject
             timeofDeparture.AddMinutes(dtpDepartureTime.Value.Minute);
             int seats = ((int)numSeats.Value);
             int price = ((int)numPrice.Value);
-            string code = String.Format("{0:d9}", (DateTime.Now.Ticks / 10) % 1000000000);
 
-            Flight flight = new Flight(code, dest, start, seats, seats, price, timeofArrival, timeofDeparture); 
+            Flight flight = new Flight("asdf", dest, start, seats, seats, price, timeofArrival, timeofDeparture); 
             _flightController.CreateFlight(flight);
         }
 
@@ -78,25 +77,18 @@ namespace AirportProject
 
         private void btnShowFlights_Click(object sender, EventArgs e)
         {
-            if(dgvAirports.SelectedRows.Count!=1)
-            {
-                MessageBox.Show("Please select one airport!");
-            }else
-            {
-                Airport airport = new Airport(dgvAirports.SelectedCells[0].Value.ToString()
+            Airport airport=new Airport(dgvAirports.SelectedCells[0].Value.ToString()
                 , dgvAirports.SelectedCells[1].Value.ToString()
                 , dgvAirports.SelectedCells[2].Value.ToString());
-
-                if (rbtnFrom.Checked == true)
-                {
-                    ShowFlights showflighFormFrom = new ShowFlights(_klijent, airport);
-                    showflighFormFrom.ShowDialog();
-                }
-                else if (rbtnTo.Checked == true)
-                {
-                    ShowFlights showflighFormTo = new ShowFlights(_klijent, airport);
-                    showflighFormTo.ShowDialog();
-                }
+            if (rbtnFrom.Checked == true)
+            {
+                ShowFlights showflighFormFrom = new ShowFlights(_klijent,airport);
+                showflighFormFrom.ShowDialog();
+            }
+            else if (rbtnTo.Checked == true)
+            {
+                ShowFlights showflighFormTo = new ShowFlights(_klijent,airport);
+                showflighFormTo.ShowDialog();
             }
         }
     }
