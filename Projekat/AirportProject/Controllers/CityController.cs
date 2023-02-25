@@ -69,17 +69,30 @@ namespace AirportProject.Controllers
                     countryNew = cityNew.Country,
 
                 });
-            ConnectDisconnectAirport(cityOld.Name, false);
-            ConnectDisconnectAirport(cityNew.Name, true);
+           // ConnectDisconnectAirport(cityOld.Name, false);
+           // ConnectDisconnectAirport(cityNew.Name, true);
         }
 
-        public void ConnectDisconnectAirport (String name, bool connect) 
+        public void ConnectDisconnectAirport (String name, bool connect, String airportCode="XXXX") 
         {
-            var readElements = _sessionCity.ExecuteRead(tx =>
-            {
-                var cursor = tx.Run(@"MATCH(a:Airport{city:$cityName}) RETURN a", new { cityName = name});
-                return cursor.ToList();
-            });
+            //ISession readElements;
+           // if (airportCode == "XXXX")
+           // {
+                var readElements = _sessionCity.ExecuteRead(tx =>
+                {
+                    var cursor = tx.Run(@"MATCH(a:Airport{city:$cityName}) RETURN a", new { cityName = name });
+                    return cursor.ToList();
+                });
+           // }
+           // else
+            //{
+                /*var readElements = _sessionCity.ExecuteRead(tx =>
+                {
+                    var cursor = tx.Run(@"MATCH(a:Airport{city:$cityName, code:$cityCode}) RETURN a", new { cityName = name, cityCode=airportCode });
+                    return cursor.ToList();
+                });*/
+
+           // }
 
             foreach(var e in readElements)
             {

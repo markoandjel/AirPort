@@ -54,5 +54,10 @@ namespace AirportProject
         {
             textBox2.UseSystemPasswordChar = true;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
