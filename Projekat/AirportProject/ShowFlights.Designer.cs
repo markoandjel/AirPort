@@ -35,22 +35,22 @@
             this.dtpDeparutreTime = new System.Windows.Forms.DateTimePicker();
             this.dtpArrivalTime = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblDestination = new System.Windows.Forms.Label();
-            this.numFreeSeats = new System.Windows.Forms.NumericUpDown();
-            this.numSeats = new System.Windows.Forms.NumericUpDown();
-            this.numPrice = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.btnUpdateFlight = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.numPrice = new System.Windows.Forms.NumericUpDown();
+            this.numSeats = new System.Windows.Forms.NumericUpDown();
+            this.numFreeSeats = new System.Windows.Forms.NumericUpDown();
+            this.lblDestination = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnDeleteFlight = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFlights)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numFreeSeats)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numSeats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSeats)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numFreeSeats)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvFlights
@@ -129,56 +129,42 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Update flight";
             // 
-            // label1
+            // btnUpdateFlight
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 84);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Departure date and time:";
+            this.btnUpdateFlight.Location = new System.Drawing.Point(145, 237);
+            this.btnUpdateFlight.Name = "btnUpdateFlight";
+            this.btnUpdateFlight.Size = new System.Drawing.Size(86, 33);
+            this.btnUpdateFlight.TabIndex = 15;
+            this.btnUpdateFlight.Text = "Update flight";
+            this.btnUpdateFlight.UseVisualStyleBackColor = true;
+            this.btnUpdateFlight.Click += new System.EventHandler(this.btnUpdateFlight_Click);
             // 
-            // label2
+            // label5
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 115);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Arrival date and time:";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(274, 170);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "FreeSeats: ";
             // 
-            // lblDestination
+            // label4
             // 
-            this.lblDestination.AutoSize = true;
-            this.lblDestination.Location = new System.Drawing.Point(24, 51);
-            this.lblDestination.Name = "lblDestination";
-            this.lblDestination.Size = new System.Drawing.Size(63, 13);
-            this.lblDestination.TabIndex = 8;
-            this.lblDestination.Text = "Destination:";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(151, 168);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(37, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Seats:";
             // 
-            // numFreeSeats
+            // label3
             // 
-            this.numFreeSeats.Location = new System.Drawing.Point(341, 168);
-            this.numFreeSeats.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.numFreeSeats.Name = "numFreeSeats";
-            this.numFreeSeats.Size = new System.Drawing.Size(64, 20);
-            this.numFreeSeats.TabIndex = 9;
-            // 
-            // numSeats
-            // 
-            this.numSeats.Location = new System.Drawing.Point(194, 166);
-            this.numSeats.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.numSeats.Name = "numSeats";
-            this.numSeats.Size = new System.Drawing.Size(64, 20);
-            this.numSeats.TabIndex = 10;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 168);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(34, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Price:";
             // 
             // numPrice
             // 
@@ -192,42 +178,56 @@
             this.numPrice.Size = new System.Drawing.Size(64, 20);
             this.numPrice.TabIndex = 11;
             // 
-            // label3
+            // numSeats
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 168);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 13);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Price:";
+            this.numSeats.Location = new System.Drawing.Point(194, 166);
+            this.numSeats.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numSeats.Name = "numSeats";
+            this.numSeats.Size = new System.Drawing.Size(64, 20);
+            this.numSeats.TabIndex = 10;
             // 
-            // label4
+            // numFreeSeats
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(151, 168);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 13);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Seats:";
+            this.numFreeSeats.Location = new System.Drawing.Point(341, 168);
+            this.numFreeSeats.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numFreeSeats.Name = "numFreeSeats";
+            this.numFreeSeats.Size = new System.Drawing.Size(64, 20);
+            this.numFreeSeats.TabIndex = 9;
             // 
-            // label5
+            // lblDestination
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(274, 170);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 13);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "FreeSeats: ";
+            this.lblDestination.AutoSize = true;
+            this.lblDestination.Location = new System.Drawing.Point(24, 51);
+            this.lblDestination.Name = "lblDestination";
+            this.lblDestination.Size = new System.Drawing.Size(63, 13);
+            this.lblDestination.TabIndex = 8;
+            this.lblDestination.Text = "Destination:";
             // 
-            // btnUpdateFlight
+            // label2
             // 
-            this.btnUpdateFlight.Location = new System.Drawing.Point(154, 237);
-            this.btnUpdateFlight.Name = "btnUpdateFlight";
-            this.btnUpdateFlight.Size = new System.Drawing.Size(86, 33);
-            this.btnUpdateFlight.TabIndex = 15;
-            this.btnUpdateFlight.Text = "Update flight";
-            this.btnUpdateFlight.UseVisualStyleBackColor = true;
-            this.btnUpdateFlight.Click += new System.EventHandler(this.btnUpdateFlight_Click);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 115);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(106, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Arrival date and time:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 84);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(124, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Departure date and time:";
             // 
             // btnDeleteFlight
             // 
@@ -253,9 +253,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvFlights)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numFreeSeats)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numSeats)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSeats)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numFreeSeats)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

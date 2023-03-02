@@ -33,6 +33,8 @@ namespace AirportProject
 
         private void FlightForm_Load(object sender, EventArgs e)
         {
+            dgvAirports.AutoSizeColumnsMode=DataGridViewAutoSizeColumnsMode.Fill;
+            dgvAirports.AutoSizeRowsMode=DataGridViewAutoSizeRowsMode.None;
             dgvAirports.DataSource=_airportController.GetAllAirports();
         }
 
@@ -82,12 +84,12 @@ namespace AirportProject
                 , dgvAirports.SelectedCells[2].Value.ToString());
             if (rbtnFrom.Checked == true)
             {
-                ShowFlights showflighFormFrom = new ShowFlights(_klijent,airport);
+                ShowFlights showflighFormFrom = new ShowFlights(_klijent,airport,true);
                 showflighFormFrom.ShowDialog();
             }
             else if (rbtnTo.Checked == true)
             {
-                ShowFlights showflighFormTo = new ShowFlights(_klijent,airport);
+                ShowFlights showflighFormTo = new ShowFlights(_klijent,airport,false);
                 showflighFormTo.ShowDialog();
             }
         }

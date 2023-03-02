@@ -11,7 +11,7 @@ namespace AirportProject.Controllers
 {
     public class AirlineController:Neo4jConnect
     {
-        private readonly IDriver _driver;
+        private new readonly IDriver _driver;
         private ISession _sessionAirline;
 
         public AirlineController()
