@@ -14,14 +14,19 @@ namespace AirportProject
 {
     public partial class AirlineForm : Form
     {
-        
 
+        private Neo4jConnect _klijent;
         private AirlineController _airlineController;
+        private PlaneController _planeController;
         private List<Airline> _listAirlines = new List<Airline>();
+
         public AirlineForm(Neo4jConnect klijent)
         {
+            _klijent = klijent;
             _airlineController = new AirlineController(klijent.Driver);
+            _planeController = new PlaneController(klijent.Driver);
             InitializeComponent();
+            UpdateTable();
         }
 
         private void UpdateTable()
@@ -81,6 +86,22 @@ namespace AirportProject
 
                 UpdateTable();
             }
+            else
+            {
+                MessageBox.Show("Morate odabrati jednu avio kompaniju!");
+            }
+        }
+
+        private void btnShowEditPlanes_Click(object sender, EventArgs e)
+        {
+            if (dgvAirline.SelectedCells.Count == 1)
+            {
+                string name = dgvAirline.SelectedCells[0].Value.ToString();
+                PlaneForm planeForm = new PlaneForm(_klijent,name);
+                planeForm.ShowDialog();
+
+            }
+
             else
             {
                 MessageBox.Show("Morate odabrati jednu avio kompaniju!");

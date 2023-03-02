@@ -75,24 +75,24 @@ namespace AirportProject.Controllers
 
         public void ConnectDisconnectAirport (String name, bool connect, String airportCode="XXXX") 
         {
-            //ISession readElements;
-           // if (airportCode == "XXXX")
-           // {
-                var readElements = _sessionCity.ExecuteRead(tx =>
+            List<IRecord> readElements;
+            if (airportCode == "XXXX")
+            {
+                readElements = _sessionCity.ExecuteRead(tx =>
                 {
                     var cursor = tx.Run(@"MATCH(a:Airport{city:$cityName}) RETURN a", new { cityName = name });
                     return cursor.ToList();
                 });
-           // }
-           // else
-            //{
-                /*var readElements = _sessionCity.ExecuteRead(tx =>
+            }
+            else
+            {
+                readElements = _sessionCity.ExecuteRead(tx =>
                 {
                     var cursor = tx.Run(@"MATCH(a:Airport{city:$cityName, code:$cityCode}) RETURN a", new { cityName = name, cityCode=airportCode });
                     return cursor.ToList();
-                });*/
+                });
 
-           // }
+            }
 
             foreach(var e in readElements)
             {
