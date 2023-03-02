@@ -34,6 +34,7 @@ namespace AirportProject.Controllers
             _session = _driver.Session(conf => conf
             .WithDefaultAccessMode(AccessMode.Write)
             .WithDatabase("neo4j"));
+            _cityController = new CityController(driver);
         }
 
         public void CreateAirport(DomainModel.Airport a)
@@ -63,11 +64,10 @@ namespace AirportProject.Controllers
 
         public void DeleteAirport(DomainModel.Airport a)
         {
-            var session = _driver.Session(conf => conf
-            .WithDatabase("airport"));
-            _cityController.ConnectDisconnectAirport(a.City,false);
-            var res = session.Run("MATCH (a:Airport {name:$name,city:$city,code:$code}) Delete a",new {name=a.Name,city=a.City,code=a.Code });
-            _cityController.ConnectDisconnectAirport(a.City, true);
+            
+            _cityController.ConnectDisconnectAirport(a.City,false, a.Code);
+            var res = _session.Run("MATCH (a:Airport {name:$name,city:$city,code:$code}) Delete a",new {name=a.Name,city=a.City,code=a.Code });
+            //_cityController.ConnectDisconnectAirport(a.City, true, a.Code);
 
         }
         public void UpdateAirport(DomainModel.Airport airportOld, DomainModel.Airport airportNew)

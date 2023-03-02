@@ -22,7 +22,7 @@ namespace AirportProject.Controllers
         {
             _driver = driver;
             _sessionAirline = _driver.Session(conf => conf
-           .WithDatabase("airport"));
+           .WithDatabase("neo4j"));
         }
 
         public void CreateAirline(Airline a)
