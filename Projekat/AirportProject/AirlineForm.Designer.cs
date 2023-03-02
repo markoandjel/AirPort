@@ -38,6 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnDeleteAirline = new System.Windows.Forms.Button();
             this.dgvAirline = new System.Windows.Forms.DataGridView();
+            this.btnShowEditPlanes = new System.Windows.Forms.Button();
             this.gbAdd.SuspendLayout();
             this.gbUpdate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAirline)).BeginInit();
@@ -136,14 +137,25 @@
             this.dgvAirline.Name = "dgvAirline";
             this.dgvAirline.RowHeadersWidth = 51;
             this.dgvAirline.RowTemplate.Height = 24;
-            this.dgvAirline.Size = new System.Drawing.Size(191, 344);
+            this.dgvAirline.Size = new System.Drawing.Size(285, 344);
             this.dgvAirline.TabIndex = 15;
+            // 
+            // btnShowEditPlanes
+            // 
+            this.btnShowEditPlanes.Location = new System.Drawing.Point(539, 381);
+            this.btnShowEditPlanes.Name = "btnShowEditPlanes";
+            this.btnShowEditPlanes.Size = new System.Drawing.Size(97, 45);
+            this.btnShowEditPlanes.TabIndex = 18;
+            this.btnShowEditPlanes.Text = "Show/Edit Planes";
+            this.btnShowEditPlanes.UseVisualStyleBackColor = true;
+            this.btnShowEditPlanes.Click += new System.EventHandler(this.btnShowEditPlanes_Click);
             // 
             // AirlineForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(818, 540);
+            this.Controls.Add(this.btnShowEditPlanes);
             this.Controls.Add(this.gbAdd);
             this.Controls.Add(this.gbUpdate);
             this.Controls.Add(this.btnDeleteAirline);
@@ -171,5 +183,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDeleteAirline;
         private System.Windows.Forms.DataGridView dgvAirline;
+        private System.Windows.Forms.Button btnShowEditPlanes;
     }
 }
