@@ -25,7 +25,7 @@ namespace AirportProject.DomainModel
         public Airline(string name)
         {
             Name = name;
-           
+
         }
     }
 }
