@@ -36,7 +36,6 @@
             this.labela1 = new System.Windows.Forms.Label();
             this.btnSwapDestinations = new System.Windows.Forms.Button();
             this.lblListOf = new System.Windows.Forms.Label();
-            this.btnShowAirports = new System.Windows.Forms.Button();
             this.btnShowFlights = new System.Windows.Forms.Button();
             this.dtpDeparture = new System.Windows.Forms.DateTimePicker();
             this.dtpArival = new System.Windows.Forms.DateTimePicker();
@@ -48,6 +47,8 @@
             this.numPrice = new System.Windows.Forms.NumericUpDown();
             this.dtpArrivalTime = new System.Windows.Forms.DateTimePicker();
             this.dtpDepartureTime = new System.Windows.Forms.DateTimePicker();
+            this.rbtnFrom = new System.Windows.Forms.RadioButton();
+            this.rbtnTo = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAirports)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSeats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).BeginInit();
@@ -126,21 +127,11 @@
             this.lblListOf.TabIndex = 4;
             this.lblListOf.Text = "List of all Airports";
             // 
-            // btnShowAirports
-            // 
-            this.btnShowAirports.Location = new System.Drawing.Point(496, 384);
-            this.btnShowAirports.Name = "btnShowAirports";
-            this.btnShowAirports.Size = new System.Drawing.Size(105, 37);
-            this.btnShowAirports.TabIndex = 1;
-            this.btnShowAirports.Text = "Show Airports";
-            this.btnShowAirports.UseVisualStyleBackColor = true;
-            this.btnShowAirports.Click += new System.EventHandler(this.btnCreateFlight_Click);
-            // 
             // btnShowFlights
             // 
-            this.btnShowFlights.Location = new System.Drawing.Point(665, 384);
+            this.btnShowFlights.Location = new System.Drawing.Point(516, 395);
             this.btnShowFlights.Name = "btnShowFlights";
-            this.btnShowFlights.Size = new System.Drawing.Size(105, 37);
+            this.btnShowFlights.Size = new System.Drawing.Size(119, 37);
             this.btnShowFlights.TabIndex = 1;
             this.btnShowFlights.Text = "Show Flights";
             this.btnShowFlights.UseVisualStyleBackColor = true;
@@ -230,11 +221,35 @@
             this.dtpDepartureTime.Size = new System.Drawing.Size(56, 20);
             this.dtpDepartureTime.TabIndex = 7;
             // 
+            // rbtnFrom
+            // 
+            this.rbtnFrom.AutoSize = true;
+            this.rbtnFrom.Checked = true;
+            this.rbtnFrom.Location = new System.Drawing.Point(654, 392);
+            this.rbtnFrom.Name = "rbtnFrom";
+            this.rbtnFrom.Size = new System.Drawing.Size(123, 17);
+            this.rbtnFrom.TabIndex = 14;
+            this.rbtnFrom.TabStop = true;
+            this.rbtnFrom.Text = "From selected airport";
+            this.rbtnFrom.UseVisualStyleBackColor = true;
+            // 
+            // rbtnTo
+            // 
+            this.rbtnTo.AutoSize = true;
+            this.rbtnTo.Location = new System.Drawing.Point(654, 415);
+            this.rbtnTo.Name = "rbtnTo";
+            this.rbtnTo.Size = new System.Drawing.Size(113, 17);
+            this.rbtnTo.TabIndex = 15;
+            this.rbtnTo.Text = "To selected airport";
+            this.rbtnTo.UseVisualStyleBackColor = true;
+            // 
             // FlightForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(895, 450);
+            this.Controls.Add(this.rbtnTo);
+            this.Controls.Add(this.rbtnFrom);
             this.Controls.Add(this.numPrice);
             this.Controls.Add(this.numSeats);
             this.Controls.Add(this.label5);
@@ -252,7 +267,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnShowFlights);
-            this.Controls.Add(this.btnShowAirports);
             this.Controls.Add(this.btnCreateFlight);
             this.Controls.Add(this.dgvAirports);
             this.Name = "FlightForm";
@@ -276,7 +290,6 @@
         private System.Windows.Forms.Label labela1;
         private System.Windows.Forms.Button btnSwapDestinations;
         private System.Windows.Forms.Label lblListOf;
-        private System.Windows.Forms.Button btnShowAirports;
         private System.Windows.Forms.Button btnShowFlights;
         private System.Windows.Forms.DateTimePicker dtpDeparture;
         private System.Windows.Forms.Label label2;
@@ -288,5 +301,7 @@
         private System.Windows.Forms.DateTimePicker dtpArrivalTime;
         private System.Windows.Forms.DateTimePicker dtpDepartureTime;
         public System.Windows.Forms.DateTimePicker dtpArival;
+        private System.Windows.Forms.RadioButton rbtnFrom;
+        private System.Windows.Forms.RadioButton rbtnTo;
     }
 }

@@ -21,24 +21,10 @@ namespace AirportProject
 
         public Form1()
         {
-
-           // _klijent = new Neo4jConnect("bolt://localhost:7687", "neo4j","bazicari");
-
             _klijent = new Neo4jConnect("bolt://87.250.63.38:7687", "neo4j","bazicari");
-
             InitializeComponent();
         }
 
-
-        private void btnAddAirport_Click(object sender, EventArgs e)
-        {
-            String name = "Sofia Airport";
-            String code = "SO";
-            String city = "Sofia";
-            DomainModel.Airport airport = new DomainModel.Airport(name, code, city);
-            AirportController A = new AirportController(_klijent.Driver);
-            A.CreateAirport(airport);
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -50,13 +36,6 @@ namespace AirportProject
             //_client.ConnectAsync();
             //_klijent = new Neo4jConnect("bolt://localhost:7687", "neo4j", "password");
 
-        }
-
-        private void btnGetAllAirports_Click(object sender, EventArgs e)
-        {
-            List<DomainModel.Airport> listAirports = new List<DomainModel.Airport>();
-            AirportController A = new AirportController(_klijent.Driver);
-            listAirports=A.GetAllAirports();
         }
 
         private void addPassenger_Click(object sender, EventArgs e)
@@ -82,15 +61,7 @@ namespace AirportProject
             //t.createTicket(ticket);
         }
 
-        private void btnUpdateAirport_Click(object sender, EventArgs e)
-        {
-            String name = "Sofia Airport";
-            String code = "SO";
-            String city = "Sofia";
-            DomainModel.Airport airport = new DomainModel.Airport(name, code, city);
-            AirportController A = new AirportController(_klijent.Driver);
-            A.UpdateAirport(airport, new DomainModel.Airport("Belgrade Airport","BGD","Belgrade"));
-        }
+     
 
         private void btnAirportManager_Click(object sender, EventArgs e)
         {
