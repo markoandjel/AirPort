@@ -9,13 +9,9 @@ namespace AirportProject.DomainModel
 
     public class Airport
     {
-        private String _name;
-        private String _code;
-        private String _city;
-
-        public String Name { get => _name; set => _name = value; }
-        public String Code { get => _code; set => _code = value; }
-        public String City { get => _city; set => _city = value; }
+        public String Name { get; set; }
+        public String Code { get; set; }
+        public String City { get; set; }
 
         public Airport()
         {

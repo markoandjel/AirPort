@@ -2,12 +2,8 @@
 using Neo4j.Driver;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using NHibernate.Util;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AirportProject.Controllers
 {
@@ -47,6 +43,35 @@ namespace AirportProject.Controllers
             var res = _session.ExecuteRead(tx =>
             {
                 Query query = new Query(string.Format("MATCH(a1: Airport{{code:\'{0}\'}} )-[r:FLIGHT]->(a2:Airport) RETURN r,a1,a2 LIMIT 25", airport.Code));
+                var cursor = tx.Run(query);
+                return cursor.ToList();
+            });
+            foreach (var r in res)
+            {
+                var node = JsonConvert.SerializeObject(r[0].As<IRelationship>().Properties);
+                //DateTime timeArrival = Convert.ToDateTime(r[0].As<IRelationship>().Properties.Values.First());
+                //DateTime timeDeparture = Convert.ToDateTime(r[0].As<IRelationship>().Properties.Values.Last());
+
+                var format = "d.M.yyyy. HH:mm:ss";
+                var dateTimeConverter = new IsoDateTimeConverter { DateTimeFormat = format };
+                var flight = JsonConvert.DeserializeObject<DomainModel.Flight>(node, dateTimeConverter);
+                var node2 = JsonConvert.SerializeObject(r[1].As<INode>().Properties);
+                var airportFrom = JsonConvert.DeserializeObject<DomainModel.Airport>(node2);
+                var node3 = JsonConvert.SerializeObject(r[2].As<INode>().Properties);
+                var airportTo = JsonConvert.DeserializeObject<DomainModel.Airport>(node3);
+                flight.Start = airportFrom;
+                flight.Destination = airportTo;
+
+                flights.Add(flight);
+            }
+            return flights;
+        }
+        public List<Flight> GetAllFlightsTo(Airport airport)
+        {
+            List<Flight> flights = new List<Flight>();
+            var res = _session.ExecuteRead(tx =>
+            {
+                Query query = new Query(string.Format("MATCH(a1: Airport )-[r:FLIGHT]->(a2:Airport {{code:'{0}'}}) RETURN r,a1,a2 LIMIT 25", airport.Code));
                 var cursor = tx.Run(query);
                 return cursor.ToList();
             });

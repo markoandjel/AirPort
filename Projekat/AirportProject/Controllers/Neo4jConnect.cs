@@ -1,16 +1,4 @@
-﻿using AirportProject;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using Neo4jClient;
-using Neo4j.Driver;
-using Neo4jClient.Cypher;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-using System.Security.Policy;
+﻿using Neo4j.Driver;
 
 namespace AirportProject.Controllers
 {
