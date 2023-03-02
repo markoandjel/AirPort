@@ -1,21 +1,7 @@
-﻿using AirportProject.DomainModel;
-using AirportProject;
-using System;
+﻿using Neo4j.Driver;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using AirportProject.Controllers;
-using Neo4j.Driver;
-using Neo4jClient;
-using Neo4jClient.Cypher;
-using System.Windows.Forms;
-using NHibernate.Loader.Custom;
-using NHibernate.Mapping;
-using NHibernate.Util;
-using Newtonsoft.Json;
-using AirportProject.Controllers;
 
 namespace AirportProject.Controllers
 {
