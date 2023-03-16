@@ -1,28 +1,25 @@
-﻿using AirportProject.DomainModel;
-using AirportProject.Controllers;
-using Neo4j.Driver;
+﻿using AirportProject.Controllers;
+using AirportProject.DomainModel;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Net.WebRequestMethods;
-using Neo4jClient;
 
 namespace AirportProject
 {
     public partial class Form1 : Form
     {
         private Neo4jConnect _klijent;
-
+        private RedisConnect redisConnect;
         public Form1()
         {
-            _klijent = new Neo4jConnect("bolt://87.250.63.38:7687", "neo4j","bazicari");
             InitializeComponent();
+            _klijent = new Neo4jConnect("bolt://87.250.63.38:7687", "neo4j","bazicari");
+            redisConnect = new RedisConnect("localhost:6379");
+            bool connected = redisConnect.Connect();
+            if (!connected)
+            {
+                MessageBox.Show("Aj dodji kasnije ne mogu se povezujem sad");
+            }
+           // InitializeComponent();
         }
 
 

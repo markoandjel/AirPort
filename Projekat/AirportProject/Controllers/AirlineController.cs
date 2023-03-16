@@ -1,17 +1,14 @@
 ﻿using AirportProject.DomainModel;
 using Neo4j.Driver;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AirportProject.Controllers
 {
     public class AirlineController:Neo4jConnect
     {
-        private readonly IDriver _driver;
+        private new readonly IDriver _driver;
         private ISession _sessionAirline;
 
         public AirlineController()

@@ -76,7 +76,7 @@
             this.btnCreateFlight.Name = "btnCreateFlight";
             this.btnCreateFlight.Size = new System.Drawing.Size(133, 46);
             this.btnCreateFlight.TabIndex = 1;
-            this.btnCreateFlight.Text = "Create Flight";
+            this.btnCreateFlight.Text = "Create flight";
             this.btnCreateFlight.UseVisualStyleBackColor = true;
             this.btnCreateFlight.Click += new System.EventHandler(this.btnCreateFlight_Click);
             // 
@@ -147,7 +147,7 @@
             this.btnShowFlights.Name = "btnShowFlights";
             this.btnShowFlights.Size = new System.Drawing.Size(214, 46);
             this.btnShowFlights.TabIndex = 1;
-            this.btnShowFlights.Text = "Show Flights";
+            this.btnShowFlights.Text = "Show flights";
             this.btnShowFlights.UseVisualStyleBackColor = true;
             this.btnShowFlights.Click += new System.EventHandler(this.btnShowFlights_Click);
             // 
@@ -209,16 +209,24 @@
             // 
             // numSeats
             // 
-            this.numSeats.Location = new System.Drawing.Point(172, 410);
-            this.numSeats.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numSeats.Location = new System.Drawing.Point(129, 333);
+            this.numSeats.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.numSeats.Name = "numSeats";
             this.numSeats.Size = new System.Drawing.Size(133, 22);
             this.numSeats.TabIndex = 12;
             // 
             // numPrice
             // 
-            this.numPrice.Location = new System.Drawing.Point(172, 378);
-            this.numPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numPrice.Location = new System.Drawing.Point(129, 307);
+            this.numPrice.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.numPrice.Name = "numPrice";
             this.numPrice.Size = new System.Drawing.Size(133, 22);
             this.numPrice.TabIndex = 13;

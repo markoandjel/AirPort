@@ -30,14 +30,11 @@
         {
             this.btnAddAirport = new System.Windows.Forms.Button();
             this.tbxName = new System.Windows.Forms.TextBox();
-            this.tbxCity = new System.Windows.Forms.TextBox();
-            this.tbxCode = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.lblCity = new System.Windows.Forms.Label();
             this.lblCode = new System.Windows.Forms.Label();
             this.btnUpdateAirport = new System.Windows.Forms.Button();
             this.tbxUpdateName = new System.Windows.Forms.TextBox();
-            this.tbxUpdateCity = new System.Windows.Forms.TextBox();
             this.tbxUpdateCode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -198,7 +195,6 @@
             this.gbxUpdateAirport.Controls.Add(this.label2);
             this.gbxUpdateAirport.Controls.Add(this.label1);
             this.gbxUpdateAirport.Controls.Add(this.tbxUpdateCode);
-            this.gbxUpdateAirport.Controls.Add(this.tbxUpdateCity);
             this.gbxUpdateAirport.Controls.Add(this.tbxUpdateName);
             this.gbxUpdateAirport.Controls.Add(this.btnUpdateAirport);
             this.gbxUpdateAirport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -216,12 +212,12 @@
             // 
             // gbxAddAirport
             // 
+            this.gbxAddAirport.Controls.Add(this.lblCitySelected);
             this.gbxAddAirport.BackColor = System.Drawing.SystemColors.Control;
             this.gbxAddAirport.Controls.Add(this.lblCode);
             this.gbxAddAirport.Controls.Add(this.lblCity);
             this.gbxAddAirport.Controls.Add(this.lblName);
             this.gbxAddAirport.Controls.Add(this.tbxCode);
-            this.gbxAddAirport.Controls.Add(this.tbxCity);
             this.gbxAddAirport.Controls.Add(this.tbxName);
             this.gbxAddAirport.Controls.Add(this.btnAddAirport);
             this.gbxAddAirport.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -314,6 +310,7 @@
             this.gbxAddAirport.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAirports)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCities)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -322,20 +319,23 @@
 
         private System.Windows.Forms.Button btnAddAirport;
         private System.Windows.Forms.TextBox tbxName;
-        private System.Windows.Forms.TextBox tbxCity;
-        private System.Windows.Forms.TextBox tbxCode;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblCity;
         private System.Windows.Forms.Label lblCode;
         private System.Windows.Forms.Button btnUpdateAirport;
         private System.Windows.Forms.TextBox tbxUpdateName;
-        private System.Windows.Forms.TextBox tbxUpdateCity;
         private System.Windows.Forms.TextBox tbxUpdateCode;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox gbxUpdateAirport;
         private System.Windows.Forms.GroupBox gbxAddAirport;
+        private System.Windows.Forms.Label lblUpdateCity;
+        private System.Windows.Forms.Label lblCitySelected;
+        private System.Windows.Forms.TextBox tbxCode;
+        private System.Windows.Forms.DataGridView dgvCities;
+        private System.Windows.Forms.Button btnUpdateCity;
+        private System.Windows.Forms.Button btnAddCity;
         private System.Windows.Forms.Button btnDeleteAirport;
         private System.Windows.Forms.DataGridView dgvAirports;
         private System.Windows.Forms.Panel panel1;
