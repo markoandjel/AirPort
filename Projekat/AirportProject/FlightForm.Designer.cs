@@ -49,11 +49,14 @@
             this.dtpDepartureTime = new System.Windows.Forms.DateTimePicker();
             this.rbtnFrom = new System.Windows.Forms.RadioButton();
             this.rbtnTo = new System.Windows.Forms.RadioButton();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dgvAirlines = new System.Windows.Forms.DataGridView();
+            this.label98 = new System.Windows.Forms.Label();
+            this.lblAirlineCode = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAirports)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSeats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).BeginInit();
-            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAirlines)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvAirports
@@ -71,8 +74,7 @@
             // 
             // btnCreateFlight
             // 
-            this.btnCreateFlight.Location = new System.Drawing.Point(172, 458);
-            this.btnCreateFlight.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCreateFlight.Location = new System.Drawing.Point(142, 382);
             this.btnCreateFlight.Name = "btnCreateFlight";
             this.btnCreateFlight.Size = new System.Drawing.Size(133, 46);
             this.btnCreateFlight.TabIndex = 1;
@@ -190,8 +192,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(64, 382);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(25, 323);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 16);
             this.label4.TabIndex = 11;
@@ -200,8 +201,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(64, 416);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(25, 349);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 16);
             this.label5.TabIndex = 11;
@@ -209,7 +209,7 @@
             // 
             // numSeats
             // 
-            this.numSeats.Location = new System.Drawing.Point(142, 414);
+            this.numSeats.Location = new System.Drawing.Point(110, 347);
             this.numSeats.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -221,7 +221,7 @@
             // 
             // numPrice
             // 
-            this.numPrice.Location = new System.Drawing.Point(142, 376);
+            this.numPrice.Location = new System.Drawing.Point(110, 321);
             this.numPrice.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -277,28 +277,54 @@
             this.rbtnTo.Text = "To selected airport";
             this.rbtnTo.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // label6
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.panel1.Controls.Add(this.rbtnTo);
-            this.panel1.Controls.Add(this.rbtnFrom);
-            this.panel1.Controls.Add(this.lblListOf);
-            this.panel1.Controls.Add(this.btnShowFlights);
-            this.panel1.Controls.Add(this.dgvAirports);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Font = new System.Drawing.Font("Century Gothic", 13.8F);
-            this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.panel1.Location = new System.Drawing.Point(531, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(565, 552);
-            this.panel1.TabIndex = 16;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(916, 27);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(126, 20);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "List of all Airlines";
+            // 
+            // dgvAirlines
+            // 
+            this.dgvAirlines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAirlines.Location = new System.Drawing.Point(906, 50);
+            this.dgvAirlines.Name = "dgvAirlines";
+            this.dgvAirlines.Size = new System.Drawing.Size(147, 316);
+            this.dgvAirlines.TabIndex = 16;
+            this.dgvAirlines.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAirlines_RowHeaderMouseDoubleClick);
+            // 
+            // label98
+            // 
+            this.label98.AutoSize = true;
+            this.label98.Location = new System.Drawing.Point(25, 296);
+            this.label98.Name = "label98";
+            this.label98.Size = new System.Drawing.Size(69, 13);
+            this.label98.TabIndex = 18;
+            this.label98.Text = "Airline Code: ";
+            // 
+            // lblAirlineCode
+            // 
+            this.lblAirlineCode.AutoSize = true;
+            this.lblAirlineCode.Location = new System.Drawing.Point(121, 296);
+            this.lblAirlineCode.Name = "lblAirlineCode";
+            this.lblAirlineCode.Size = new System.Drawing.Size(35, 13);
+            this.lblAirlineCode.TabIndex = 19;
+            this.lblAirlineCode.Text = "label7";
             // 
             // FlightForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1096, 552);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1065, 457);
+            this.Controls.Add(this.lblAirlineCode);
+            this.Controls.Add(this.label98);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.dgvAirlines);
+            this.Controls.Add(this.rbtnTo);
+            this.Controls.Add(this.rbtnFrom);
             this.Controls.Add(this.numPrice);
             this.Controls.Add(this.numSeats);
             this.Controls.Add(this.label5);
@@ -323,8 +349,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAirports)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSeats)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAirlines)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,6 +378,9 @@
         public System.Windows.Forms.DateTimePicker dtpArival;
         private System.Windows.Forms.RadioButton rbtnFrom;
         private System.Windows.Forms.RadioButton rbtnTo;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridView dgvAirlines;
+        private System.Windows.Forms.Label label98;
+        private System.Windows.Forms.Label lblAirlineCode;
     }
 }

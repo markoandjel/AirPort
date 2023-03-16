@@ -16,6 +16,7 @@ namespace AirportProject
     {
         private FlightController _flightController;
         private AirportController _airportController;
+        private AirlineController _airlineController;
         private Neo4jConnect _klijent;
 
         public FlightForm()
@@ -28,6 +29,7 @@ namespace AirportProject
             _klijent = klijent;
             _flightController = new FlightController(klijent.Driver);
             _airportController = new AirportController(klijent.Driver);
+            _airlineController = new AirlineController(klijent.Driver);
             InitializeComponent();
         }
 
@@ -36,6 +38,8 @@ namespace AirportProject
             dgvAirports.AutoSizeColumnsMode=DataGridViewAutoSizeColumnsMode.Fill;
             dgvAirports.AutoSizeRowsMode=DataGridViewAutoSizeRowsMode.None;
             dgvAirports.DataSource=_airportController.GetAllAirports();
+            dgvAirlines.DataSource=_airlineController.GetAllAirlines();
+            lblAirlineCode.Text = "";
         }
 
         private void btnCreateFlight_Click(object sender, EventArgs e)
@@ -45,16 +49,27 @@ namespace AirportProject
 
             DateTime timeofArrival = new DateTime(dtpArival.Value.Date.Year, 
                 dtpArival.Value.Date.Month, dtpArival.Value.Date.Day,
-                dtpArrivalTime.Value.Hour, dtpArrivalTime.Value.Minute,0);            
+                dtpArrivalTime.Value.Hour, dtpArrivalTime.Value.Minute,0);
 
-            DateTime timeofDeparture = dtpDeparture.Value.Date;
-            timeofDeparture.AddHours(dtpDepartureTime.Value.Hour);
-            timeofDeparture.AddMinutes(dtpDepartureTime.Value.Minute);
+            DateTime timeofDeparture = new DateTime(dtpDeparture.Value.Date.Year,
+                dtpDeparture.Value.Date.Month, dtpDeparture.Value.Date.Day,
+                dtpDepartureTime.Value.Hour, dtpDepartureTime.Value.Minute, 0);
             int seats = ((int)numSeats.Value);
             int price = ((int)numPrice.Value);
 
-            Flight flight = new Flight("asdf", dest, start, seats, seats, price, timeofArrival, timeofDeparture); 
+            if (lblAirlineCode.Text == "")
+            {
+                MessageBox.Show("Please select Airline");
+                return;
+            }
+
+            string airlineCode = lblAirlineCode.Text;
+
+            string id= String.Format("{0:d9}", (DateTime.Now.Ticks / 10) % 1000000000);
+
+            Flight flight = new Flight(id, dest, start, seats, seats, price, timeofArrival, timeofDeparture, airlineCode); 
             _flightController.CreateFlight(flight);
+            MessageBox.Show("Successfully created a flight");
         }
 
         private void btnSwapDestinations_Click(object sender, EventArgs e)
@@ -79,6 +94,11 @@ namespace AirportProject
 
         private void btnShowFlights_Click(object sender, EventArgs e)
         {
+            if (dgvAirports.SelectedCells.Count!=3)
+            {
+                MessageBox.Show("Please select one airport");
+                return;
+            }    
             Airport airport=new Airport(dgvAirports.SelectedCells[0].Value.ToString()
                 , dgvAirports.SelectedCells[1].Value.ToString()
                 , dgvAirports.SelectedCells[2].Value.ToString());
@@ -92,6 +112,11 @@ namespace AirportProject
                 ShowFlights showflighFormTo = new ShowFlights(_klijent,airport,false);
                 showflighFormTo.ShowDialog();
             }
+        }
+
+        private void dgvAirlines_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            lblAirlineCode.Text = dgvAirlines.SelectedCells[0].Value.ToString();    
         }
     }
 }

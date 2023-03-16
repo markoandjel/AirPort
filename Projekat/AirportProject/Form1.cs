@@ -13,12 +13,12 @@ namespace AirportProject
         {
             InitializeComponent();
             _klijent = new Neo4jConnect("bolt://87.250.63.38:7687", "neo4j","bazicari");
-            redisConnect = new RedisConnect("localhost:6379");
-            bool connected = redisConnect.Connect();
-            if (!connected)
-            {
-                MessageBox.Show("Aj dodji kasnije ne mogu se povezujem sad");
-            }
+            //redisConnect = new RedisConnect("localhost:6379");
+            //bool connected = redisConnect.Connect();
+            //if (!connected)
+            //{
+               // MessageBox.Show("Aj dodji kasnije ne mogu se povezujem sad");
+            //}
            // InitializeComponent();
         }
 
