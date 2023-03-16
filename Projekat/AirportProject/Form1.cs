@@ -86,5 +86,15 @@ namespace AirportProject
             AirlineForm airlineForm=new AirlineForm(_klijent);
             airlineForm.ShowDialog();
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
