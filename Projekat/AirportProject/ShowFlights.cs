@@ -36,6 +36,7 @@ namespace AirportProject
             dgvFlights.Columns.Add("Price", "Price");
             dgvFlights.Columns.Add("FreeSeats", "FreeSeats");
             dgvFlights.Columns.Add("Seats", "Seats");
+            dgvFlights.Columns.Add("Airline", "Airline");
             dgvFlights.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             dgvFlights.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
@@ -44,7 +45,7 @@ namespace AirportProject
                 _flights = _flightController.GetAllFlightsFrom(_airport);
                 foreach (Flight f in _flights)
                 {
-                    dgvFlights.Rows.Add(f.Destination.Name, f.TimeOfDeparture, f.TimeOfArival, f.Price, f.FreeSeats, f.NumOfSeats);
+                    dgvFlights.Rows.Add(f.Destination.Name, f.TimeOfDeparture, f.TimeOfArival, f.Price, f.FreeSeats, f.NumOfSeats, f.AirlineCode);
                 }
                 lblAirport.Text += "departuring from " + _airport.Name.ToString();
             }
@@ -53,7 +54,7 @@ namespace AirportProject
                 _flights = _flightController.GetAllFlightsTo(_airport);
                 foreach (Flight f in _flights)
                 {
-                    dgvFlights.Rows.Add(f.Start.Name, f.TimeOfDeparture, f.TimeOfArival, f.Price, f.FreeSeats, f.NumOfSeats);
+                    dgvFlights.Rows.Add(f.Start.Name, f.TimeOfDeparture, f.TimeOfArival, f.Price, f.FreeSeats, f.NumOfSeats, f.AirlineCode);
                 }
                 lblAirport.Text += "arriving from " + _airport.Name.ToString();
             }
@@ -73,7 +74,7 @@ namespace AirportProject
             dgvFlights.Rows.Clear();
             foreach (Flight f in _flights)
             {
-                dgvFlights.Rows.Add(f.Destination.Name, f.TimeOfDeparture, f.TimeOfArival, f.Price, f.FreeSeats, f.NumOfSeats);
+                dgvFlights.Rows.Add(f.Destination.Name, f.TimeOfDeparture, f.TimeOfArival, f.Price, f.FreeSeats, f.NumOfSeats, f.AirlineCode);
             }
         }
 
@@ -138,7 +139,7 @@ namespace AirportProject
                     _flights = _flightController.GetAllFlightsFrom(_airport);
                     foreach (Flight f in _flights)
                     {
-                        dgvFlights.Rows.Add(f.Destination.Name, f.TimeOfDeparture, f.TimeOfArival, f.Price, f.FreeSeats, f.NumOfSeats);
+                        dgvFlights.Rows.Add(f.Destination.Name, f.TimeOfDeparture, f.TimeOfArival, f.Price, f.FreeSeats, f.NumOfSeats,f.AirlineCode);
                     }
                 }
                 else
@@ -146,7 +147,7 @@ namespace AirportProject
                     _flights = _flightController.GetAllFlightsTo(_airport);
                     foreach (Flight f in _flights)
                     {
-                        dgvFlights.Rows.Add(f.Start.Name, f.TimeOfDeparture, f.TimeOfArival, f.Price, f.FreeSeats, f.NumOfSeats);
+                        dgvFlights.Rows.Add(f.Start.Name, f.TimeOfDeparture, f.TimeOfArival, f.Price, f.FreeSeats, f.NumOfSeats, f.AirlineCode);
                     }
                 }
 
