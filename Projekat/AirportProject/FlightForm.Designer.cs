@@ -62,7 +62,7 @@
             this.dgvAirports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAirports.GridColor = System.Drawing.Color.LightGray;
             this.dgvAirports.Location = new System.Drawing.Point(52, 94);
-            this.dgvAirports.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvAirports.Margin = new System.Windows.Forms.Padding(4);
             this.dgvAirports.Name = "dgvAirports";
             this.dgvAirports.RowHeadersWidth = 51;
             this.dgvAirports.Size = new System.Drawing.Size(432, 354);
@@ -72,7 +72,7 @@
             // btnCreateFlight
             // 
             this.btnCreateFlight.Location = new System.Drawing.Point(172, 458);
-            this.btnCreateFlight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCreateFlight.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateFlight.Name = "btnCreateFlight";
             this.btnCreateFlight.Size = new System.Drawing.Size(133, 46);
             this.btnCreateFlight.TabIndex = 1;
@@ -121,7 +121,7 @@
             // btnSwapDestinations
             // 
             this.btnSwapDestinations.Location = new System.Drawing.Point(104, 158);
-            this.btnSwapDestinations.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSwapDestinations.Margin = new System.Windows.Forms.Padding(4);
             this.btnSwapDestinations.Name = "btnSwapDestinations";
             this.btnSwapDestinations.Size = new System.Drawing.Size(161, 28);
             this.btnSwapDestinations.TabIndex = 6;
@@ -143,7 +143,7 @@
             // btnShowFlights
             // 
             this.btnShowFlights.Location = new System.Drawing.Point(16, 479);
-            this.btnShowFlights.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnShowFlights.Margin = new System.Windows.Forms.Padding(4);
             this.btnShowFlights.Name = "btnShowFlights";
             this.btnShowFlights.Size = new System.Drawing.Size(214, 46);
             this.btnShowFlights.TabIndex = 1;
@@ -154,7 +154,7 @@
             // dtpDeparture
             // 
             this.dtpDeparture.Location = new System.Drawing.Point(165, 260);
-            this.dtpDeparture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpDeparture.Margin = new System.Windows.Forms.Padding(4);
             this.dtpDeparture.Name = "dtpDeparture";
             this.dtpDeparture.Size = new System.Drawing.Size(231, 22);
             this.dtpDeparture.TabIndex = 7;
@@ -162,7 +162,7 @@
             // dtpArival
             // 
             this.dtpArival.Location = new System.Drawing.Point(165, 316);
-            this.dtpArival.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpArival.Margin = new System.Windows.Forms.Padding(4);
             this.dtpArival.Name = "dtpArival";
             this.dtpArival.Size = new System.Drawing.Size(231, 22);
             this.dtpArival.TabIndex = 8;
@@ -209,7 +209,7 @@
             // 
             // numSeats
             // 
-            this.numSeats.Location = new System.Drawing.Point(129, 333);
+            this.numSeats.Location = new System.Drawing.Point(142, 414);
             this.numSeats.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -221,7 +221,7 @@
             // 
             // numPrice
             // 
-            this.numPrice.Location = new System.Drawing.Point(129, 307);
+            this.numPrice.Location = new System.Drawing.Point(142, 376);
             this.numPrice.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -236,7 +236,7 @@
             this.dtpArrivalTime.CustomFormat = "HH:mm";
             this.dtpArrivalTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpArrivalTime.Location = new System.Drawing.Point(405, 318);
-            this.dtpArrivalTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpArrivalTime.Margin = new System.Windows.Forms.Padding(4);
             this.dtpArrivalTime.Name = "dtpArrivalTime";
             this.dtpArrivalTime.ShowUpDown = true;
             this.dtpArrivalTime.Size = new System.Drawing.Size(73, 22);
@@ -247,7 +247,7 @@
             this.dtpDepartureTime.CustomFormat = "HH:mm";
             this.dtpDepartureTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDepartureTime.Location = new System.Drawing.Point(405, 260);
-            this.dtpDepartureTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpDepartureTime.Margin = new System.Windows.Forms.Padding(4);
             this.dtpDepartureTime.Name = "dtpDepartureTime";
             this.dtpDepartureTime.ShowUpDown = true;
             this.dtpDepartureTime.Size = new System.Drawing.Size(73, 22);
@@ -258,7 +258,7 @@
             this.rbtnFrom.AutoSize = true;
             this.rbtnFrom.Checked = true;
             this.rbtnFrom.Location = new System.Drawing.Point(253, 469);
-            this.rbtnFrom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnFrom.Margin = new System.Windows.Forms.Padding(4);
             this.rbtnFrom.Name = "rbtnFrom";
             this.rbtnFrom.Size = new System.Drawing.Size(274, 31);
             this.rbtnFrom.TabIndex = 14;
@@ -270,7 +270,7 @@
             // 
             this.rbtnTo.AutoSize = true;
             this.rbtnTo.Location = new System.Drawing.Point(253, 508);
-            this.rbtnTo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbtnTo.Margin = new System.Windows.Forms.Padding(4);
             this.rbtnTo.Name = "rbtnTo";
             this.rbtnTo.Size = new System.Drawing.Size(245, 31);
             this.rbtnTo.TabIndex = 15;
@@ -316,7 +316,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCreateFlight);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FlightForm";
             this.Text = "FlightForm";
             this.Load += new System.EventHandler(this.FlightForm_Load);
