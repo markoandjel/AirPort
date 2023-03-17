@@ -41,6 +41,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnExit = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlane)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -49,10 +50,12 @@
             // btnCreatePlane
             // 
             this.btnCreatePlane.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnCreatePlane.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreatePlane.ForeColor = System.Drawing.Color.White;
-            this.btnCreatePlane.Location = new System.Drawing.Point(218, 263);
+            this.btnCreatePlane.Location = new System.Drawing.Point(265, 279);
+            this.btnCreatePlane.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreatePlane.Name = "btnCreatePlane";
-            this.btnCreatePlane.Size = new System.Drawing.Size(127, 45);
+            this.btnCreatePlane.Size = new System.Drawing.Size(220, 55);
             this.btnCreatePlane.TabIndex = 0;
             this.btnCreatePlane.Text = "Create Plane";
             this.btnCreatePlane.UseVisualStyleBackColor = false;
@@ -61,11 +64,12 @@
             // btnDeletePlane
             // 
             this.btnDeletePlane.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnDeletePlane.Font = new System.Drawing.Font("Century Gothic", 13.8F);
+            this.btnDeletePlane.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeletePlane.ForeColor = System.Drawing.Color.White;
-            this.btnDeletePlane.Location = new System.Drawing.Point(96, 359);
+            this.btnDeletePlane.Location = new System.Drawing.Point(133, 335);
+            this.btnDeletePlane.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeletePlane.Name = "btnDeletePlane";
-            this.btnDeletePlane.Size = new System.Drawing.Size(203, 45);
+            this.btnDeletePlane.Size = new System.Drawing.Size(271, 55);
             this.btnDeletePlane.TabIndex = 1;
             this.btnDeletePlane.Text = "Delete Plane";
             this.btnDeletePlane.UseVisualStyleBackColor = false;
@@ -74,10 +78,12 @@
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnUpdate.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(65, 263);
+            this.btnUpdate.Location = new System.Drawing.Point(25, 279);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(127, 45);
+            this.btnUpdate.Size = new System.Drawing.Size(220, 55);
             this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "Update Plane";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -88,39 +94,44 @@
             this.dgvPlane.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvPlane.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPlane.GridColor = System.Drawing.Color.LightGray;
-            this.dgvPlane.Location = new System.Drawing.Point(29, 38);
+            this.dgvPlane.Location = new System.Drawing.Point(39, 56);
+            this.dgvPlane.Margin = new System.Windows.Forms.Padding(4);
             this.dgvPlane.Name = "dgvPlane";
             this.dgvPlane.RowHeadersWidth = 51;
             this.dgvPlane.RowTemplate.Height = 24;
-            this.dgvPlane.Size = new System.Drawing.Size(339, 302);
+            this.dgvPlane.Size = new System.Drawing.Size(452, 250);
             this.dgvPlane.TabIndex = 3;
             // 
             // tbxManufacturer
             // 
-            this.tbxManufacturer.Location = new System.Drawing.Point(218, 89);
+            this.tbxManufacturer.Location = new System.Drawing.Point(242, 86);
+            this.tbxManufacturer.Margin = new System.Windows.Forms.Padding(4);
             this.tbxManufacturer.Name = "tbxManufacturer";
-            this.tbxManufacturer.Size = new System.Drawing.Size(183, 36);
+            this.tbxManufacturer.Size = new System.Drawing.Size(243, 36);
             this.tbxManufacturer.TabIndex = 4;
             // 
             // tbxModel
             // 
-            this.tbxModel.Location = new System.Drawing.Point(218, 142);
+            this.tbxModel.Location = new System.Drawing.Point(242, 151);
+            this.tbxModel.Margin = new System.Windows.Forms.Padding(4);
             this.tbxModel.Name = "tbxModel";
-            this.tbxModel.Size = new System.Drawing.Size(183, 36);
+            this.tbxModel.Size = new System.Drawing.Size(243, 36);
             this.tbxModel.TabIndex = 5;
             this.tbxModel.TextChanged += new System.EventHandler(this.tbxModel_TextChanged);
             // 
             // tbxCode
             // 
-            this.tbxCode.Location = new System.Drawing.Point(218, 193);
+            this.tbxCode.Location = new System.Drawing.Point(242, 214);
+            this.tbxCode.Margin = new System.Windows.Forms.Padding(4);
             this.tbxCode.Name = "tbxCode";
-            this.tbxCode.Size = new System.Drawing.Size(183, 36);
+            this.tbxCode.Size = new System.Drawing.Size(243, 36);
             this.tbxCode.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 98);
+            this.label1.Location = new System.Drawing.Point(20, 89);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(174, 27);
             this.label1.TabIndex = 7;
@@ -129,7 +140,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(99, 151);
+            this.label2.Location = new System.Drawing.Point(101, 160);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 27);
             this.label2.TabIndex = 8;
@@ -138,7 +150,8 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(109, 202);
+            this.label3.Location = new System.Drawing.Point(106, 223);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 27);
             this.label3.TabIndex = 9;
@@ -147,15 +160,17 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Controls.Add(this.dgvPlane);
             this.panel1.Controls.Add(this.btnDeletePlane);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.panel1.Location = new System.Drawing.Point(438, 0);
+            this.panel1.Location = new System.Drawing.Point(584, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(414, 416);
+            this.panel1.Size = new System.Drawing.Size(552, 419);
             this.panel1.TabIndex = 10;
             // 
             // btnExit
@@ -165,9 +180,10 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Bold);
             this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnExit.Location = new System.Drawing.Point(374, 0);
+            this.btnExit.Location = new System.Drawing.Point(499, 0);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(40, 43);
+            this.btnExit.Size = new System.Drawing.Size(53, 53);
             this.btnExit.TabIndex = 4;
             this.btnExit.Text = "X";
             this.btnExit.UseVisualStyleBackColor = false;
@@ -185,23 +201,37 @@
             this.groupBox1.Controls.Add(this.btnCreatePlane);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 13.8F);
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(46, 56);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(420, 356);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(504, 350);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Create and Update";
             // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(585, 419);
+            this.panel2.TabIndex = 12;
+            // 
             // PlaneForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(852, 416);
+            this.ClientSize = new System.Drawing.Size(1136, 419);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PlaneForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PlaneForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlane)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -226,5 +256,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

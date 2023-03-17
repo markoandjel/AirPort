@@ -41,10 +41,12 @@
             this.btnShowEditPlanes = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnExit = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.gbAdd.SuspendLayout();
             this.gbUpdate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAirline)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbAdd
@@ -54,7 +56,7 @@
             this.gbAdd.Controls.Add(this.label3);
             this.gbAdd.Font = new System.Drawing.Font("Century Gothic", 13.8F);
             this.gbAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.gbAdd.Location = new System.Drawing.Point(12, 233);
+            this.gbAdd.Location = new System.Drawing.Point(9, 230);
             this.gbAdd.Name = "gbAdd";
             this.gbAdd.Size = new System.Drawing.Size(354, 166);
             this.gbAdd.TabIndex = 17;
@@ -73,9 +75,9 @@
             this.btnAddAirline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnAddAirline.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnAddAirline.ForeColor = System.Drawing.Color.White;
-            this.btnAddAirline.Location = new System.Drawing.Point(158, 104);
+            this.btnAddAirline.Location = new System.Drawing.Point(67, 104);
             this.btnAddAirline.Name = "btnAddAirline";
-            this.btnAddAirline.Size = new System.Drawing.Size(127, 44);
+            this.btnAddAirline.Size = new System.Drawing.Size(223, 44);
             this.btnAddAirline.TabIndex = 3;
             this.btnAddAirline.Text = "Add Airline";
             this.btnAddAirline.UseVisualStyleBackColor = false;
@@ -97,7 +99,7 @@
             this.gbUpdate.Controls.Add(this.label1);
             this.gbUpdate.Font = new System.Drawing.Font("Century Gothic", 13.8F);
             this.gbUpdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.gbUpdate.Location = new System.Drawing.Point(12, 33);
+            this.gbUpdate.Location = new System.Drawing.Point(9, 30);
             this.gbUpdate.Name = "gbUpdate";
             this.gbUpdate.Size = new System.Drawing.Size(354, 166);
             this.gbUpdate.TabIndex = 16;
@@ -116,9 +118,9 @@
             this.btnUpdateAirline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnUpdateAirline.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnUpdateAirline.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateAirline.Location = new System.Drawing.Point(163, 104);
+            this.btnUpdateAirline.Location = new System.Drawing.Point(67, 104);
             this.btnUpdateAirline.Name = "btnUpdateAirline";
-            this.btnUpdateAirline.Size = new System.Drawing.Size(127, 44);
+            this.btnUpdateAirline.Size = new System.Drawing.Size(223, 44);
             this.btnUpdateAirline.TabIndex = 1;
             this.btnUpdateAirline.Text = "Update Airline";
             this.btnUpdateAirline.UseVisualStyleBackColor = false;
@@ -174,6 +176,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Controls.Add(this.btnShowEditPlanes);
             this.panel1.Controls.Add(this.btnDeleteAirline);
@@ -200,16 +203,27 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.gbAdd);
+            this.panel2.Controls.Add(this.gbUpdate);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(400, 460);
+            this.panel2.TabIndex = 20;
+            // 
             // AirlineForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(825, 460);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.gbAdd);
-            this.Controls.Add(this.gbUpdate);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AirlineForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Airline Manager";
             this.gbAdd.ResumeLayout(false);
             this.gbAdd.PerformLayout();
@@ -217,6 +231,7 @@
             this.gbUpdate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAirline)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -236,5 +251,6 @@
         private System.Windows.Forms.Button btnShowEditPlanes;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Panel panel2;
     }
 }
