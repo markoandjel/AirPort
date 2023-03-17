@@ -58,7 +58,7 @@
             this.dgvFlights.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFlights.Location = new System.Drawing.Point(449, 77);
             this.dgvFlights.Name = "dgvFlights";
-            this.dgvFlights.Size = new System.Drawing.Size(562, 304);
+            this.dgvFlights.Size = new System.Drawing.Size(622, 304);
             this.dgvFlights.TabIndex = 0;
             this.dgvFlights.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvFlights_RowHeaderMouseDoubleClick);
             // 
@@ -237,12 +237,13 @@
             this.btnDeleteFlight.TabIndex = 7;
             this.btnDeleteFlight.Text = "Delete flight";
             this.btnDeleteFlight.UseVisualStyleBackColor = true;
+            this.btnDeleteFlight.Click += new System.EventHandler(this.btnDeleteFlight_Click);
             // 
             // ShowFlights
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1023, 450);
+            this.ClientSize = new System.Drawing.Size(1083, 450);
             this.Controls.Add(this.btnDeleteFlight);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblAirport);

@@ -21,8 +21,8 @@ namespace AirportProject.Controllers
         public void CreateFlight(Flight f)
         {
             Query query = new Query(string.Format("MATCH (a1: Airport),(a2: Airport) WHERE a1.code=\"{0}\" AND a2.code=\"{1}\" " +
-                "MERGE (a1)-[r:FLIGHT {{ code:\"{2}\",timeofdeparture:\"{3}\",timeofarival:\"{4}\",price:\"{5}\",freeseats:\"{6}\",numofseats:\"{7}\"}}]->(a2) RETURN r",
-                f.Start.Code, f.Destination.Code, f.Code, f.TimeOfDeparture.ToString(), f.TimeOfArival.ToString(), f.Price, f.FreeSeats, f.NumOfSeats));
+                "MERGE (a1)-[r:FLIGHT {{ code:\"{2}\",timeofdeparture:\"{3}\",timeofarival:\"{4}\",price:\"{5}\",freeseats:\"{6}\",numofseats:\"{7}\",airlinecode:\"{8}\"}}]->(a2) RETURN r",
+                f.Start.Code, f.Destination.Code, f.Code, f.TimeOfDeparture.ToString(), f.TimeOfArival.ToString(), f.Price, f.FreeSeats, f.NumOfSeats,f.AirlineCode));
             _session.Run(query);
         }
         public void UpdateFlight(Flight f)
@@ -34,7 +34,7 @@ namespace AirportProject.Controllers
         }
         public void DeleteFlight(Flight f)
         {
-            Query query = new Query(string.Format("MATCH (a:Airport {{code:\'{0}\'}})-[f:FLIGHT {{code:{1} }}]->(a2:Airport {{code:{2}}})", f.Start.Code, f.Code, f.Destination.Code));
+            Query query = new Query(string.Format("MATCH (a:Airport {{code:\'{0}\'}})-[f:FLIGHT {{code:\'{1}\' }}]->(a2:Airport {{code:\'{2}\'}}) Delete f", f.Start.Code, f.Code, f.Destination.Code));
             _session.Run(query);
         }
         public List<Flight> GetAllFlightsFrom(Airport airport)
@@ -61,6 +61,7 @@ namespace AirportProject.Controllers
                 var airportTo = JsonConvert.DeserializeObject<DomainModel.Airport>(node3);
                 flight.Start = airportFrom;
                 flight.Destination = airportTo;
+
 
                 flights.Add(flight);
             }
