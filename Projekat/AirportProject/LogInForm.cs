@@ -1,13 +1,36 @@
 ﻿using AirportProject.Controllers;
+using StackExchange.Redis;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace AirportProject
 {
     public partial class LogInForm : Form
     {
         private readonly RedisConnect redis;
+
+
+        private string ExtractSalt(RedisValue hashedPassword)
+        {
+            // Extract the salt value from the hashed password string
+            int startIndex = hashedPassword.ToString().LastIndexOf("$") + 1;
+            int endIndex = startIndex + 22;
+            string salt = hashedPassword.ToString().Substring(startIndex, 22);
+            return salt;
+        }
+
+        private string HashPassword(string password, string salt)
+        {
+            // Concatenate the password and salt values
+            string saltedPassword = password + salt;
+
+            // Hash the salted password value using a secure hash function, such as bcrypt
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(saltedPassword);
+
+            return hashedPassword;
+        }
         public LogInForm()
         {
             InitializeComponent();
@@ -19,6 +42,23 @@ namespace AirportProject
                 MessageBox.Show("Aj dodji kasnije ne mogu se povezujem sad");
             }
         }
+
+        private bool LoginUser(string username, string password)
+        {
+            IDatabase db = redis.GetDatabase();
+            RedisValue hashedPassword = db.HashGet("users", username);
+
+            if (hashedPassword.IsNullOrEmpty)
+            {
+                return false;
+            }
+
+            string salt = ExtractSalt(hashedPassword);
+            string hashedInputPassword = HashPassword(password, salt);
+
+            return BCrypt.Net.BCrypt.Verify(hashedInputPassword, hashedPassword);
+        }
+
 
         private void closeBtn_Click(object sender, EventArgs e)
         {
@@ -58,7 +98,9 @@ namespace AirportProject
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            RegisterForm forma = new RegisterForm();
+            forma.Show();
+            this.Hide();
         }
 
         private void prijaviseBtn_Click(object sender, EventArgs e)
@@ -68,25 +110,18 @@ namespace AirportProject
 
             //string sacuvanalozinka = redis.Get(kor_ime);
 
-            if (redis.Exists(kor_ime))
+            if (LoginUser(kor_ime, lozinka))
             {
-                string sacuvanalozinka = redis.Get(kor_ime);
-                if (BCrypt.Net.BCrypt.Verify(lozinka, sacuvanalozinka))
-                {
-                    MessageBox.Show("Upadaj momak");
-                    Form1 forma = new Form1();
-                    forma.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    MessageBox.Show("Ne radi be ");
-                }
-
-
+                MessageBox.Show("Login successful.");
+                Form1 forma = new Form1();
+                forma.Show();
+                this.Hide();
             }
             else
-                MessageBox.Show("Proveri juzernejm nema ga u bazu ovamo");
+            {
+                MessageBox.Show("Invalid username or password.");
+            }
+      
 
         }
 
