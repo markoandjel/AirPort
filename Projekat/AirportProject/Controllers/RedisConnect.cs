@@ -27,5 +27,28 @@ namespace AirportProject.Controllers
         {
             connection.Close();
         }
+
+        public string Get(string key)
+        {
+            IDatabase db = connection.GetDatabase();
+            return db.StringGet(key);
+        }
+
+        public void Set(string key, string value)
+        {
+            IDatabase db = connection.GetDatabase();
+            db.StringSet(key, value);
+        }
+
+        public bool Exists(string key)
+        {
+            IDatabase db = connection.GetDatabase();
+            return db.KeyExists(key);
+        }
+
+        public ISubscriber PubSub()
+        {
+            return connection.GetSubscriber();
+        }
     }
 }

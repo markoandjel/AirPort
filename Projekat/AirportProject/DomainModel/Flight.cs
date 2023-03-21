@@ -48,6 +48,11 @@ namespace AirportProject.DomainModel
             AirlineCode= airlineCode;
         }
 
+        public Flight DeepCopy()
+        {
+            return (Flight)this.MemberwiseClone();
+        }
+
        
     }
 }
