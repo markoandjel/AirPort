@@ -35,7 +35,6 @@
             this.btnFlightManager = new System.Windows.Forms.Button();
             this.btnCityManager = new System.Windows.Forms.Button();
             this.btnAirlineManager = new System.Windows.Forms.Button();
-            this.PubSubRedis = new System.Windows.Forms.Button();
             this.cbxAirports = new System.Windows.Forms.ComboBox();
             this.lblSelectAirport = new System.Windows.Forms.Label();
             this.dgvMessages = new System.Windows.Forms.DataGridView();
@@ -112,16 +111,6 @@
             this.btnAirlineManager.UseVisualStyleBackColor = false;
             this.btnAirlineManager.Click += new System.EventHandler(this.btnAirlineManager_Click);
             // 
-            // PubSubRedis
-            // 
-            this.PubSubRedis.Location = new System.Drawing.Point(412, 400);
-            this.PubSubRedis.Name = "PubSubRedis";
-            this.PubSubRedis.Size = new System.Drawing.Size(156, 45);
-            this.PubSubRedis.TabIndex = 8;
-            this.PubSubRedis.Text = "PubSubRedis";
-            this.PubSubRedis.UseVisualStyleBackColor = true;
-            this.PubSubRedis.Click += new System.EventHandler(this.PubSubRedis_Click);
-            // 
             // cbxAirports
             // 
             this.cbxAirports.FormattingEnabled = true;
@@ -148,23 +137,22 @@
             this.Message});
             this.dgvMessages.Location = new System.Drawing.Point(345, 156);
             this.dgvMessages.Name = "dgvMessages";
-            this.dgvMessages.Size = new System.Drawing.Size(592, 150);
+            this.dgvMessages.Size = new System.Drawing.Size(888, 150);
             this.dgvMessages.TabIndex = 12;
             // 
             // Message
             // 
-            this.Message.HeaderText = "Message";
+            this.Message.HeaderText = "Messages";
             this.Message.Name = "Message";
             // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1047, 472);
+            this.ClientSize = new System.Drawing.Size(1245, 472);
             this.Controls.Add(this.dgvMessages);
             this.Controls.Add(this.lblSelectAirport);
             this.Controls.Add(this.cbxAirports);
-            this.Controls.Add(this.PubSubRedis);
             this.Controls.Add(this.btnAirlineManager);
             this.Controls.Add(this.btnCityManager);
             this.Controls.Add(this.btnFlightManager);
@@ -188,7 +176,6 @@
         private System.Windows.Forms.Button btnFlightManager;
         private System.Windows.Forms.Button btnCityManager;
         private System.Windows.Forms.Button btnAirlineManager;
-        private System.Windows.Forms.Button PubSubRedis;
         private System.Windows.Forms.ComboBox cbxAirports;
         private System.Windows.Forms.Label lblSelectAirport;
         private System.Windows.Forms.DataGridView dgvMessages;
