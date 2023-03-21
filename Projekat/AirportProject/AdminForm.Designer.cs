@@ -142,6 +142,7 @@
             // 
             // dgvMessages
             // 
+            this.dgvMessages.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvMessages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMessages.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Message});

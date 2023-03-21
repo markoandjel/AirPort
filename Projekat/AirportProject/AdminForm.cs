@@ -42,6 +42,7 @@ namespace AirportProject
             {
                 cbxAirports.Items.Add(p.Name);
             }
+            dgvMessages.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void addPassenger_Click(object sender, EventArgs e)

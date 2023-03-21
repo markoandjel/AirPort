@@ -72,6 +72,8 @@ namespace AirportProject
                 return;
             }
             var index = dgvFlights.SelectedRows[0].Index;
+
+            var flightMessage = _flights[index].DeepCopy();
             _flightController.DeleteFlight(_flights[index]);
             _flights.RemoveAt(index);
             dgvFlights.Rows.Clear();
@@ -79,6 +81,9 @@ namespace AirportProject
             {
                 dgvFlights.Rows.Add(f.Destination.Name, f.TimeOfDeparture, f.TimeOfArival, f.Price, f.FreeSeats, f.NumOfSeats, f.AirlineCode);
             }
+            string message = String.Format("Flight from {0} to {1} is not operable anymore",
+                flightMessage.Start.Name, flightMessage.Destination.Name,flightMessage);
+            RedisMessage(flightMessage.Code,message);
         }
 
         private void dgvFlights_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -163,15 +168,15 @@ namespace AirportProject
                     RedisMessage(flight.Code, String.Format("Flight from {0} to {1} have changed price from {2} to {3}"
                         ,flight.Start.Name,flight.Destination.Name,messageFlight.Price,flight.Price));
                 }
-                else if(messageFlight.TimeOfArival!=flight.TimeOfArival) 
+                if(messageFlight.TimeOfArival!=flight.TimeOfArival) 
                 {
-                    RedisMessage(flight.Code, String.Format("Flight from {0} to {1} have changed price from {2} to {3}"
-                        , flight.Start.Name, flight.Destination.Name, messageFlight.Price, flight.Price));
+                    RedisMessage(flight.Code, String.Format("Flight from {0} to {1} have changed time of arrival from {2} to {3}"
+                        , flight.Start.Name, flight.Destination.Name, messageFlight.TimeOfArival.ToString(), flight.TimeOfArival.ToString()));
                 }
-                else if(messageFlight.TimeOfDeparture!=flight.TimeOfDeparture) 
+                if(messageFlight.TimeOfDeparture!=flight.TimeOfDeparture) 
                 {
-                    RedisMessage(flight.Code, String.Format("Flight from {0} to {1} have changed price from {2} to {3}"
-                        , flight.Start.Name, flight.Destination.Name, messageFlight.Price, flight.Price));
+                    RedisMessage(flight.Code, String.Format("Flight from {0} to {1} have changed time of departure from {2} to {3}"
+                        , flight.Start.Name, flight.Destination.Name, messageFlight.TimeOfDeparture.ToString(), flight.TimeOfDeparture.ToString()));
                 }                
             }
         }
