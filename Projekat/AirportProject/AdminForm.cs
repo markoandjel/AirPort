@@ -1,15 +1,18 @@
 ﻿using AirportProject.Controllers;
 using AirportProject.DomainModel;
+using StackExchange.Redis;
 using System;
+using System.Collections.Generic;
+using System.Reflection.Emit;
 using System.Windows.Forms;
 
 namespace AirportProject
 {
-    public partial class Form1 : Form
+    public partial class AdminForm : Form
     {
         private Neo4jConnect _klijent;
         private RedisConnect redisConnect;
-        public Form1()
+        public AdminForm()
         {
             //InitializeComponent();
             _klijent = new Neo4jConnect("bolt://87.250.63.38:7687", "neo4j","bazicari");
@@ -33,8 +36,12 @@ namespace AirportProject
             //_client.ConnectAsync();
             //_klijent = new Neo4jConnect("bolt://localhost:7687", "neo4j", "password");
 
-            
-
+            AirportController a = new AirportController(_klijent.Driver);
+            var airports=a.GetAllAirports();
+            foreach(var p in airports)
+            {
+                cbxAirports.Items.Add(p.Name);
+            }
         }
 
         private void addPassenger_Click(object sender, EventArgs e)
@@ -70,7 +77,7 @@ namespace AirportProject
 
         private void btnFlightManager_Click(object sender, EventArgs e)
         {
-            FlightForm flighForm = new FlightForm(_klijent);
+            FlightForm flighForm = new FlightForm(_klijent,redisConnect);
             flighForm.ShowDialog();
         }
 
@@ -90,6 +97,38 @@ namespace AirportProject
         {
             PubSubForma flighForm = new PubSubForma(redisConnect);
             flighForm.ShowDialog();
+        }
+
+        private void cbxAirports_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dgvMessages.Rows.Clear();
+            ISubscriber p = redisConnect.PubSub();
+
+            p.UnsubscribeAll();
+
+            AirportController a = new AirportController(_klijent.Driver);
+            var airports = a.GetAllAirports();
+            Airport selectAirport = airports.Find(x => x.Name == cbxAirports.SelectedItem.ToString());
+
+            FlightController flights = new FlightController(_klijent.Driver);
+
+            foreach (var v in flights.GetAllFlightsFrom(selectAirport))
+            {
+                string j = v.Code;
+                p.Subscribe(j, (channel, message) =>
+                {
+                    dgvMessages.Invoke(new Action(() => { dgvMessages.Rows.Add(message);}));
+                });
+            }
+
+            foreach (var v in flights.GetAllFlightsTo(selectAirport))
+            {
+                string j = v.Code;
+                p.Subscribe(j, (channel, message) =>
+                {
+                    dgvMessages.Invoke(new Action(() => { dgvMessages.Rows.Add(message); }));
+                });
+            }
         }
     }
 }

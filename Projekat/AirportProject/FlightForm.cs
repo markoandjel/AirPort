@@ -18,19 +18,21 @@ namespace AirportProject
         private AirportController _airportController;
         private AirlineController _airlineController;
         private Neo4jConnect _klijent;
+        private RedisConnect redisConnect;
 
         public FlightForm()
         {
             InitializeComponent();
         
         }
-        public FlightForm(Neo4jConnect klijent)
+        public FlightForm(Neo4jConnect klijent, RedisConnect redisConnect)
         {
             _klijent = klijent;
             _flightController = new FlightController(klijent.Driver);
             _airportController = new AirportController(klijent.Driver);
             _airlineController = new AirlineController(klijent.Driver);
             InitializeComponent();
+            this.redisConnect = redisConnect;
         }
 
         private void FlightForm_Load(object sender, EventArgs e)
@@ -104,12 +106,12 @@ namespace AirportProject
                 , dgvAirports.SelectedCells[2].Value.ToString());
             if (rbtnFrom.Checked == true)
             {
-                ShowFlights showflighFormFrom = new ShowFlights(_klijent,airport,true);
+                ShowFlights showflighFormFrom = new ShowFlights(_klijent,airport,true, redisConnect);
                 showflighFormFrom.ShowDialog();
             }
             else if (rbtnTo.Checked == true)
             {
-                ShowFlights showflighFormTo = new ShowFlights(_klijent,airport,false);
+                ShowFlights showflighFormTo = new ShowFlights(_klijent,airport,false, redisConnect);
                 showflighFormTo.ShowDialog();
             }
         }

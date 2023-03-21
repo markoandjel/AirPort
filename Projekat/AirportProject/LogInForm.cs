@@ -84,7 +84,7 @@ namespace AirportProject
                 if (BCrypt.Net.BCrypt.Verify(lozinka, sacuvanalozinka))
                 {
                     MessageBox.Show("Upadaj momak");
-                    Form1 forma = new Form1();
+                    AdminForm forma = new AdminForm();
                     forma.Show();
                     this.Hide();
                 }
