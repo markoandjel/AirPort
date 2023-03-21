@@ -94,12 +94,6 @@ namespace AirportProject
             airlineForm.ShowDialog();
         }
 
-        private void PubSubRedis_Click(object sender, EventArgs e)
-        {
-            PubSubForma flighForm = new PubSubForma(redisConnect);
-            flighForm.ShowDialog();
-        }
-
         private void cbxAirports_SelectedIndexChanged(object sender, EventArgs e)
         {
             dgvMessages.Rows.Clear();
