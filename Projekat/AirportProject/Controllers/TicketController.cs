@@ -1,18 +1,22 @@
 ﻿using AirportProject.DomainModel;
 using Neo4j.Driver;
 using Newtonsoft.Json;
+using StackExchange.Redis;
+using System;
 
 namespace AirportProject.Controllers
 {
     public class TicketController : Neo4jConnect
     {
         private readonly IDriver _driver;
+        private readonly ConnectionMultiplexer _redis;
+        private readonly IDatabase db;
 
         public TicketController()
         {
 
         }
-
+        
         public TicketController(IDriver driver)
         {
             _driver = driver;

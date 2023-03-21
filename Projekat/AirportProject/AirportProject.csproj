@@ -179,6 +179,8 @@
     <Compile Include="DomainModel\Airport.cs" />
     <Compile Include="DomainModel\City.cs" />
     <Compile Include="DomainModel\Plane.cs" />
+    <Compile Include="DomainModel\Session.cs" />
+    <Compile Include="DomainModel\SessionRepository.cs" />
     <Compile Include="DomainModel\Ticket.cs" />
     <Compile Include="DomainModel\Flight.cs" />
     <Compile Include="DomainModel\Passenger.cs" />
@@ -221,6 +223,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings1.settings</DependentUpon>
+    </Compile>
     <Compile Include="ShowFlights.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -280,6 +287,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Settings1.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
