@@ -45,5 +45,10 @@ namespace AirportProject.Controllers
             IDatabase db = connection.GetDatabase();
             return db.KeyExists(key);
         }
+
+        public ISubscriber PubSub()
+        {
+            return connection.GetSubscriber();
+        }
     }
 }

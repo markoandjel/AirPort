@@ -11,15 +11,15 @@ namespace AirportProject
         private RedisConnect redisConnect;
         public Form1()
         {
-            InitializeComponent();
+            //InitializeComponent();
             _klijent = new Neo4jConnect("bolt://87.250.63.38:7687", "neo4j","bazicari");
-            //redisConnect = new RedisConnect("localhost:6379");
-            //bool connected = redisConnect.Connect();
-            //if (!connected)
-            //{
-               // MessageBox.Show("Aj dodji kasnije ne mogu se povezujem sad");
-            //}
-           // InitializeComponent();
+            redisConnect = new RedisConnect("87.250.63.38:6379");
+            bool connected = redisConnect.Connect();
+            if (!connected)
+            {
+                MessageBox.Show("Aj dodji kasnije ne mogu se povezujem sad");
+            }
+            InitializeComponent();
         }
 
 
@@ -32,6 +32,8 @@ namespace AirportProject
             //_client = new GraphClient(new Uri(url), username, password);
             //_client.ConnectAsync();
             //_klijent = new Neo4jConnect("bolt://localhost:7687", "neo4j", "password");
+
+            
 
         }
 
@@ -82,6 +84,12 @@ namespace AirportProject
         {
             AirlineForm airlineForm=new AirlineForm(_klijent);
             airlineForm.ShowDialog();
+        }
+
+        private void PubSubRedis_Click(object sender, EventArgs e)
+        {
+            PubSubForma flighForm = new PubSubForma(redisConnect);
+            flighForm.ShowDialog();
         }
     }
 }
