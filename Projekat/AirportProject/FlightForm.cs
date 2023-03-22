@@ -58,6 +58,8 @@ namespace AirportProject
             DateTime timeofDeparture = new DateTime(dtpDeparture.Value.Date.Year,
                 dtpDeparture.Value.Date.Month, dtpDeparture.Value.Date.Day,
                 dtpDepartureTime.Value.Hour, dtpDepartureTime.Value.Minute, 0);
+
+            
             int seats = ((int)numSeats.Value);
             int price = ((int)numPrice.Value);
 
