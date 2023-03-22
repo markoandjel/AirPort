@@ -49,7 +49,7 @@ namespace AirportProject
                     session = new Session(sessionId, username);
                     sessionRepo.Save(session);
                     MessageBox.Show("Uspeo si konju, pogledaj bazu dal pamti dobro");
-                    Form1 forma = new Form1(session, redis);
+                    AdminForm forma = new AdminForm(session, redis);
                     forma.Show();
                     this.Hide();
                     return true;
