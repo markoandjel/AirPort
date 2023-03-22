@@ -90,13 +90,36 @@ namespace AirportProject
             }
             else
             {
-                MessageBox.Show("Morate odabrati jedan aerodrom!");
+                MessageBox.Show("Morate odabrati jedan grad!");
             }
         }
 
         private void CityForm_Load(object sender, EventArgs e)
         {
             UpdateTable();
+        }
+
+        private void btnConnectToAirports_Click(object sender, EventArgs e)
+        {
+            if (dgvCity.SelectedCells.Count == 2)
+            {
+                string name = dgvCity.SelectedCells[0].Value.ToString();
+                _cityController.ConnectDisconnectAirport(name, true);
+            }
+            else
+                MessageBox.Show("Morate odabrati jedan grad!");
+            
+        }
+
+        private void btnDisconnectAirports_Click(object sender, EventArgs e)
+        {
+            if (dgvCity.SelectedCells.Count == 2)
+            {
+                string name = dgvCity.SelectedCells[0].Value.ToString();
+                _cityController.ConnectDisconnectAirport(name, false);
+            }
+            else
+                MessageBox.Show("Morate odabrati jedan grad!");
         }
     }
 }

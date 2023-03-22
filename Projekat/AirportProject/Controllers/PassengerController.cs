@@ -1,10 +1,5 @@
 ﻿using AirportProject.DomainModel;
 using Neo4j.Driver;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AirportProject.Controllers
 {
@@ -26,7 +21,7 @@ namespace AirportProject.Controllers
             
             var session = _driver.Session(conf=>conf
             .WithDefaultAccessMode(AccessMode.Write)
-            .WithDatabase("airport"))
+            .WithDatabase("neo4j"))
             .Run("CREATE (p:Passenger {name: $name,passport: $passportNumber})", new { name = p.Name, passportNumber = p.PassportNumber });
         }
 

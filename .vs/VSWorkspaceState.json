@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Projekat",
+    "\\Projekat\\AirportProject",
+    "\\Projekat\\AirportProject\\Controllers",
+    "\\Projekat\\AirportProject\\DomainModel"
   ],
-  "SelectedNode": "\\D:\\AirPort",
   "PreviewInSolutionExplorer": false
 }

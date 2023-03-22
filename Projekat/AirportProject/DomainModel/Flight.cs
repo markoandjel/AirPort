@@ -17,7 +17,9 @@ namespace AirportProject.DomainModel
         private int _timeInMinutes;
         private DateTime _timeOfDeparture;
         private DateTime _timeOfArival;
+        private string _airlineCode;
 
+        public string AirlineCode { get => _airlineCode; set=>_airlineCode = value; }
         public string Code { get => _code; set => _code = value; }
         public Airport Destination { get => _destination; set => _destination = value; }
         public Airport Start { get => _start; set => _start = value; }
@@ -32,7 +34,7 @@ namespace AirportProject.DomainModel
         {
         }
 
-        public Flight(string code, Airport destination, Airport start, int numOfSeats, int freeSeats, int price,DateTime timeOfArival, DateTime timeOfDeparture )
+        public Flight(string code, Airport destination, Airport start, int numOfSeats, int freeSeats, int price,DateTime timeOfArival, DateTime timeOfDeparture, string airlineCode )
         {
             Price=price; 
             TimeInMinutes= (timeOfArival - timeOfDeparture).Minutes;
@@ -43,7 +45,12 @@ namespace AirportProject.DomainModel
             FreeSeats= freeSeats;
             TimeOfArival= timeOfArival;
             TimeOfDeparture= timeOfDeparture;
-            
+            AirlineCode= airlineCode;
+        }
+
+        public Flight DeepCopy()
+        {
+            return (Flight)this.MemberwiseClone();
         }
 
        

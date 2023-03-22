@@ -1,26 +1,15 @@
-﻿using AirportProject.DomainModel;
-using AirportProject;
-using System;
+﻿using Neo4j.Driver;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using AirportProject.Controllers;
-using Neo4j.Driver;
-using Neo4jClient;
-using Neo4jClient.Cypher;
-using System.Windows.Forms;
-using NHibernate.Loader.Custom;
-using NHibernate.Mapping;
-using NHibernate.Util;
-using Newtonsoft.Json;
 
 namespace AirportProject.Controllers
 {
     public class AirportController
     {
+        private CityController _cityController;
         private readonly IDriver _driver;
+        private readonly ISession _session;
         public AirportController()
         { 
 
@@ -28,23 +17,24 @@ namespace AirportProject.Controllers
         public AirportController(IDriver driver)
         {
             _driver = driver;
+            _session = _driver.Session(conf => conf
+            .WithDefaultAccessMode(AccessMode.Write)
+            .WithDatabase("neo4j"));
+            _cityController = new CityController(driver);
         }
 
         public void CreateAirport(DomainModel.Airport a)
         {
-            var session = _driver.Session(conf => conf
-            .WithDefaultAccessMode(AccessMode.Write)
-            .WithDatabase("airport"))
+            _session
             .Run("MERGE (a:Airport {name: $name,city: $city,code: $code})", new { name = a.Name, code = a.Code, city = a.City });
+            _cityController.ConnectDisconnectAirport(a.City, true);
         }
 
         public List<DomainModel.Airport> GetAllAirports()
         {
-            var session = _driver.Session(conf => conf
-            .WithDatabase("airport"));
 
             var airports = new List<DomainModel.Airport>();
-            var res = session.ExecuteRead(tx =>
+            var res = _session.ExecuteRead(tx =>
             {
                 var cursor = tx.Run(@"MATCH(n: Airport) RETURN n LIMIT 25");
                 return cursor.ToList();
@@ -60,16 +50,15 @@ namespace AirportProject.Controllers
 
         public void DeleteAirport(DomainModel.Airport a)
         {
-            var session = _driver.Session(conf => conf
-            .WithDatabase("airport"));
-            var res = session.Run("MATCH (a:Airport {name:$name,city:$city,code:$code}) Delete a",new {name=a.Name,city=a.City,code=a.Code });
+            
+            _cityController.ConnectDisconnectAirport(a.City,false, a.Code);
+            var res = _session.Run("MATCH (a:Airport {name:$name,city:$city,code:$code}) Delete a",new {name=a.Name,city=a.City,code=a.Code });
+            //_cityController.ConnectDisconnectAirport(a.City, true, a.Code);
 
         }
         public void UpdateAirport(DomainModel.Airport airportOld, DomainModel.Airport airportNew)
         {
-            var session = _driver.Session(conf => conf
-                        .WithDatabase("airport"));
-            var res = session.Run("MATCH (a:Airport {name:$name,city:$city,code:$code}) SET a.name=$nameNew,a.city=$cityNew,a.code=$codeNew", 
+            var res = _session.Run("MATCH (a:Airport {name:$name,city:$city,code:$code}) SET a.name=$nameNew,a.city=$cityNew,a.code=$codeNew", 
                 new { name = airportOld.Name, city = airportOld.City, code = airportOld.Code,
                     nameNew=airportNew.Name,cityNew=airportNew.City,codeNew=airportNew.Code});
         }
