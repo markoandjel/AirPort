@@ -51,11 +51,13 @@
             this.btnAddCity = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAirports)).BeginInit();
             this.gbxUpdateAirport.SuspendLayout();
             this.gbxAddAirport.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCities)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAddAirport
@@ -64,7 +66,7 @@
             this.btnAddAirport.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddAirport.ForeColor = System.Drawing.Color.White;
             this.btnAddAirport.Location = new System.Drawing.Point(112, 190);
-            this.btnAddAirport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddAirport.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddAirport.Name = "btnAddAirport";
             this.btnAddAirport.Size = new System.Drawing.Size(219, 39);
             this.btnAddAirport.TabIndex = 0;
@@ -77,7 +79,7 @@
             this.dgvAirports.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvAirports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAirports.Location = new System.Drawing.Point(28, 29);
-            this.dgvAirports.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvAirports.Margin = new System.Windows.Forms.Padding(4);
             this.dgvAirports.Name = "dgvAirports";
             this.dgvAirports.RowHeadersWidth = 51;
             this.dgvAirports.Size = new System.Drawing.Size(596, 474);
@@ -87,7 +89,7 @@
             // tbxName
             // 
             this.tbxName.Location = new System.Drawing.Point(112, 43);
-            this.tbxName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxName.Margin = new System.Windows.Forms.Padding(4);
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(278, 36);
             this.tbxName.TabIndex = 3;
@@ -128,7 +130,7 @@
             this.btnDeleteAirport.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteAirport.ForeColor = System.Drawing.Color.White;
             this.btnDeleteAirport.Location = new System.Drawing.Point(202, 511);
-            this.btnDeleteAirport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteAirport.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteAirport.Name = "btnDeleteAirport";
             this.btnDeleteAirport.Size = new System.Drawing.Size(222, 39);
             this.btnDeleteAirport.TabIndex = 0;
@@ -142,7 +144,7 @@
             this.btnUpdateAirport.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateAirport.ForeColor = System.Drawing.Color.White;
             this.btnUpdateAirport.Location = new System.Drawing.Point(101, 190);
-            this.btnUpdateAirport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdateAirport.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdateAirport.Name = "btnUpdateAirport";
             this.btnUpdateAirport.Size = new System.Drawing.Size(219, 39);
             this.btnUpdateAirport.TabIndex = 0;
@@ -153,7 +155,7 @@
             // tbxUpdateName
             // 
             this.tbxUpdateName.Location = new System.Drawing.Point(101, 43);
-            this.tbxUpdateName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxUpdateName.Margin = new System.Windows.Forms.Padding(4);
             this.tbxUpdateName.Name = "tbxUpdateName";
             this.tbxUpdateName.Size = new System.Drawing.Size(280, 36);
             this.tbxUpdateName.TabIndex = 3;
@@ -161,7 +163,7 @@
             // tbxUpdateCode
             // 
             this.tbxUpdateCode.Location = new System.Drawing.Point(103, 131);
-            this.tbxUpdateCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxUpdateCode.Margin = new System.Windows.Forms.Padding(4);
             this.tbxUpdateCode.Name = "tbxUpdateCode";
             this.tbxUpdateCode.Size = new System.Drawing.Size(278, 36);
             this.tbxUpdateCode.TabIndex = 5;
@@ -192,7 +194,7 @@
             this.label3.Location = new System.Drawing.Point(8, 134);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 34);
+            this.label3.Size = new System.Drawing.Size(77, 27);
             this.label3.TabIndex = 6;
             this.label3.Text = "Code";
             // 
@@ -207,10 +209,10 @@
             this.gbxUpdateAirport.Controls.Add(this.label3);
             this.gbxUpdateAirport.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxUpdateAirport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.gbxUpdateAirport.Location = new System.Drawing.Point(13, 13);
-            this.gbxUpdateAirport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbxUpdateAirport.Location = new System.Drawing.Point(9, 10);
+            this.gbxUpdateAirport.Margin = new System.Windows.Forms.Padding(4);
             this.gbxUpdateAirport.Name = "gbxUpdateAirport";
-            this.gbxUpdateAirport.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbxUpdateAirport.Padding = new System.Windows.Forms.Padding(4);
             this.gbxUpdateAirport.Size = new System.Drawing.Size(389, 278);
             this.gbxUpdateAirport.TabIndex = 7;
             this.gbxUpdateAirport.TabStop = false;
@@ -222,7 +224,7 @@
             this.lblUpdateCity.Location = new System.Drawing.Point(101, 90);
             this.lblUpdateCity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUpdateCity.Name = "lblUpdateCity";
-            this.lblUpdateCity.Size = new System.Drawing.Size(0, 34);
+            this.lblUpdateCity.Size = new System.Drawing.Size(0, 27);
             this.lblUpdateCity.TabIndex = 7;
             this.lblUpdateCity.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -237,10 +239,10 @@
             this.gbxAddAirport.Controls.Add(this.btnAddAirport);
             this.gbxAddAirport.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxAddAirport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.gbxAddAirport.Location = new System.Drawing.Point(4, 299);
-            this.gbxAddAirport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbxAddAirport.Location = new System.Drawing.Point(0, 296);
+            this.gbxAddAirport.Margin = new System.Windows.Forms.Padding(4);
             this.gbxAddAirport.Name = "gbxAddAirport";
-            this.gbxAddAirport.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbxAddAirport.Padding = new System.Windows.Forms.Padding(4);
             this.gbxAddAirport.Size = new System.Drawing.Size(398, 278);
             this.gbxAddAirport.TabIndex = 8;
             this.gbxAddAirport.TabStop = false;
@@ -252,13 +254,13 @@
             this.lblCitySelected.Location = new System.Drawing.Point(120, 69);
             this.lblCitySelected.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCitySelected.Name = "lblCitySelected";
-            this.lblCitySelected.Size = new System.Drawing.Size(0, 34);
+            this.lblCitySelected.Size = new System.Drawing.Size(0, 27);
             this.lblCitySelected.TabIndex = 7;
             // 
             // tbxCode
             // 
             this.tbxCode.Location = new System.Drawing.Point(112, 131);
-            this.tbxCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxCode.Margin = new System.Windows.Forms.Padding(4);
             this.tbxCode.Name = "tbxCode";
             this.tbxCode.Size = new System.Drawing.Size(278, 36);
             this.tbxCode.TabIndex = 5;
@@ -268,7 +270,7 @@
             this.dgvCities.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvCities.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCities.Location = new System.Drawing.Point(1085, 31);
-            this.dgvCities.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvCities.Margin = new System.Windows.Forms.Padding(4);
             this.dgvCities.Name = "dgvCities";
             this.dgvCities.RowHeadersWidth = 51;
             this.dgvCities.Size = new System.Drawing.Size(489, 474);
@@ -280,7 +282,7 @@
             this.btnUpdateCity.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateCity.ForeColor = System.Drawing.Color.White;
             this.btnUpdateCity.Location = new System.Drawing.Point(1157, 555);
-            this.btnUpdateCity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdateCity.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdateCity.Name = "btnUpdateCity";
             this.btnUpdateCity.Size = new System.Drawing.Size(321, 39);
             this.btnUpdateCity.TabIndex = 10;
@@ -294,7 +296,7 @@
             this.btnAddCity.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddCity.ForeColor = System.Drawing.Color.White;
             this.btnAddCity.Location = new System.Drawing.Point(1157, 513);
-            this.btnAddCity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddCity.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddCity.Name = "btnAddCity";
             this.btnAddCity.Size = new System.Drawing.Size(321, 39);
             this.btnAddCity.TabIndex = 11;
@@ -331,20 +333,31 @@
             this.panel1.Size = new System.Drawing.Size(1199, 607);
             this.panel1.TabIndex = 13;
             // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.gbxUpdateAirport);
+            this.panel2.Controls.Add(this.gbxAddAirport);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(433, 607);
+            this.panel2.TabIndex = 14;
+            // 
             // AirportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1628, 607);
-            this.Controls.Add(this.gbxUpdateAirport);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnAddCity);
             this.Controls.Add(this.btnUpdateCity);
             this.Controls.Add(this.dgvCities);
-            this.Controls.Add(this.gbxAddAirport);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AirportForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AirportForm";
@@ -356,6 +369,7 @@
             this.gbxAddAirport.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCities)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -385,5 +399,6 @@
         private System.Windows.Forms.Button btnAddCity;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

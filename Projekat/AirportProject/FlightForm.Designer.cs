@@ -433,7 +433,7 @@
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(777, 534);
+            this.panel2.Size = new System.Drawing.Size(795, 534);
             this.panel2.TabIndex = 21;
             // 
             // FlightForm
