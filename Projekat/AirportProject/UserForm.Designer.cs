@@ -37,6 +37,8 @@
             this.btnCheckFlights = new System.Windows.Forms.Button();
             this.dgvFlights = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnAddTicket = new System.Windows.Forms.Button();
+            this.btnDeleteTicket = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTickets)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFlights)).BeginInit();
             this.SuspendLayout();
@@ -120,11 +122,31 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Available flights:";
             // 
+            // btnAddTicket
+            // 
+            this.btnAddTicket.Location = new System.Drawing.Point(180, 427);
+            this.btnAddTicket.Name = "btnAddTicket";
+            this.btnAddTicket.Size = new System.Drawing.Size(75, 23);
+            this.btnAddTicket.TabIndex = 9;
+            this.btnAddTicket.Text = "Buy ticket";
+            this.btnAddTicket.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteTicket
+            // 
+            this.btnDeleteTicket.Location = new System.Drawing.Point(588, 427);
+            this.btnDeleteTicket.Name = "btnDeleteTicket";
+            this.btnDeleteTicket.Size = new System.Drawing.Size(88, 23);
+            this.btnDeleteTicket.TabIndex = 10;
+            this.btnDeleteTicket.Text = "Delete ticket";
+            this.btnDeleteTicket.UseVisualStyleBackColor = true;
+            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 477);
+            this.Controls.Add(this.btnDeleteTicket);
+            this.Controls.Add(this.btnAddTicket);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dgvFlights);
             this.Controls.Add(this.btnCheckFlights);
@@ -155,5 +177,7 @@
         private System.Windows.Forms.Button btnCheckFlights;
         private System.Windows.Forms.DataGridView dgvFlights;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnAddTicket;
+        private System.Windows.Forms.Button btnDeleteTicket;
     }
 }

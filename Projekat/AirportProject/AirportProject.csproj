@@ -172,7 +172,6 @@
     <Compile Include="Controllers\PlaneController.cs" />
     <Compile Include="Controllers\FlightController.cs" />
     <Compile Include="Controllers\Neo4jConnect.cs" />
-    <Compile Include="Controllers\PassengerController.cs" />
     <Compile Include="Controllers\RedisConnect.cs" />
     <Compile Include="Controllers\TicketController.cs" />
     <Compile Include="DatabaseConection.cs" />
@@ -184,7 +183,6 @@
     <Compile Include="DomainModel\SessionRepository.cs" />
     <Compile Include="DomainModel\Ticket.cs" />
     <Compile Include="DomainModel\Flight.cs" />
-    <Compile Include="DomainModel\Passenger.cs" />
     <Compile Include="DomainModel\User.cs" />
     <Compile Include="FlightForm.cs">
       <SubType>Form</SubType>
