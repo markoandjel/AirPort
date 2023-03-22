@@ -42,6 +42,8 @@ namespace AirportProject
             dgvAirports.DataSource=_airportController.GetAllAirports();
             dgvAirlines.DataSource=_airlineController.GetAllAirlines();
             lblAirlineCode.Text = "";
+            lblFlightFrom.Text = "";
+            lblFlightTo.Text = "";
         }
 
         private void btnCreateFlight_Click(object sender, EventArgs e)
@@ -119,6 +121,11 @@ namespace AirportProject
         private void dgvAirlines_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             lblAirlineCode.Text = dgvAirlines.SelectedCells[0].Value.ToString();    
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
