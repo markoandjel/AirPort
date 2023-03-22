@@ -163,10 +163,10 @@
             this.btnShowFlights.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnShowFlights.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowFlights.ForeColor = System.Drawing.Color.White;
-            this.btnShowFlights.Location = new System.Drawing.Point(110, 465);
+            this.btnShowFlights.Location = new System.Drawing.Point(71, 465);
             this.btnShowFlights.Margin = new System.Windows.Forms.Padding(4);
             this.btnShowFlights.Name = "btnShowFlights";
-            this.btnShowFlights.Size = new System.Drawing.Size(159, 46);
+            this.btnShowFlights.Size = new System.Drawing.Size(198, 46);
             this.btnShowFlights.TabIndex = 1;
             this.btnShowFlights.Text = "Show flights";
             this.btnShowFlights.UseVisualStyleBackColor = false;
