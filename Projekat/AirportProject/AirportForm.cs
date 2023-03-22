@@ -31,6 +31,8 @@ namespace AirportProject
 
         private void Airport_Load(object sender, EventArgs e)
         {
+            lblUpdateCity.Text = "";
+            lblCitySelected.Text = "";
             UpdateTable();
         }
         private void UpdateTable()

@@ -42,6 +42,8 @@ namespace AirportProject
             dgvAirports.DataSource=_airportController.GetAllAirports();
             dgvAirlines.DataSource=_airlineController.GetAllAirlines();
             lblAirlineCode.Text = "";
+            lblFlightFrom.Text = "";
+            lblFlightTo.Text = "";
         }
 
         private void btnCreateFlight_Click(object sender, EventArgs e)

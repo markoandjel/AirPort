@@ -104,20 +104,22 @@
             // lblFlightTo
             // 
             this.lblFlightTo.AutoSize = true;
-            this.lblFlightTo.Location = new System.Drawing.Point(128, 200);
+            this.lblFlightTo.Location = new System.Drawing.Point(147, 142);
             this.lblFlightTo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFlightTo.Name = "lblFlightTo";
-            this.lblFlightTo.Size = new System.Drawing.Size(0, 27);
+            this.lblFlightTo.Size = new System.Drawing.Size(126, 27);
             this.lblFlightTo.TabIndex = 3;
+            this.lblFlightTo.Text = "lblFlightTo";
             // 
             // lblFlightFrom
             // 
             this.lblFlightFrom.AutoSize = true;
-            this.lblFlightFrom.Location = new System.Drawing.Point(128, 125);
+            this.lblFlightFrom.Location = new System.Drawing.Point(147, 30);
             this.lblFlightFrom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFlightFrom.Name = "lblFlightFrom";
-            this.lblFlightFrom.Size = new System.Drawing.Size(0, 27);
+            this.lblFlightFrom.Size = new System.Drawing.Size(147, 27);
             this.lblFlightFrom.TabIndex = 5;
+            this.lblFlightFrom.Text = "lblflightfrom";
             // 
             // labela1
             // 
