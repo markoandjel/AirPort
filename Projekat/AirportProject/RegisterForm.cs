@@ -27,7 +27,7 @@ namespace AirportProject
 
             if (!userExists)
             {
-                var hashed = BCrypt.Net.BCrypt.HashPassword(password);
+                var hashed = BCrypt.Net.BCrypt.HashPassword(password, BCrypt.Net.BCrypt.GenerateSalt(13), false,HashType.SHA384);
                 var role = UserRole.User;
                 var user = new User(username, hashed, role);
                 var json = JsonConvert.SerializeObject(user);

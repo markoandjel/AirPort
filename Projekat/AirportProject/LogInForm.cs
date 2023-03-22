@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using System.Net;
 using AirportProject.Controllers;
 using BCrypt.Net;
+using Newtonsoft.Json;
 
 namespace AirportProject
 {
@@ -38,11 +39,13 @@ namespace AirportProject
             
             IDatabase db = redis.GetDatabase();
             var hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
-            var storedPassword = db.HashGet("Username:"+username, "Password");
-            var userExists =  db.HashExists(username, "Password");
-            if (userExists)
+            
+            RedisValue userExists =  db.StringGet(username);
+            if (!userExists.IsNullOrEmpty)
             {
-                if (storedPassword.HasValue && BCrypt.Net.BCrypt.Verify(hashedPassword, storedPassword))
+                User user = JsonConvert.DeserializeObject<User>(userExists);
+                string storedPassword = user.Password;
+                if (!String.IsNullOrEmpty(storedPassword) && BCrypt.Net.BCrypt.Verify(password, storedPassword,false,HashType.SHA384))
                 {
                     var sessionId = Guid.NewGuid().ToString();
                     var sessionRepo = new SessionRepository(redis);

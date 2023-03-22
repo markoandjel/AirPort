@@ -71,16 +71,6 @@ namespace AirportProject
             dgvMessages.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
-        private void addPassenger_Click(object sender, EventArgs e)
-        {
-            String name = "Marko Andjelkovic";
-            int passport = 22315543;
-            Passenger passenger = new Passenger(name, passport);
-            PassengerController p = new PassengerController(_klijent.Driver);
-            p.CreatePassenger(passenger);
-
-        }
-
         private void addTicket_Click(object sender, EventArgs e)
         {
             //int number = 12;
