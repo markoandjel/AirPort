@@ -31,6 +31,8 @@ namespace AirportProject
 
         private void Airport_Load(object sender, EventArgs e)
         {
+            lblUpdateCity.Text = "";
+            lblCitySelected.Text = "";
             UpdateTable();
         }
         private void UpdateTable()
@@ -157,6 +159,16 @@ namespace AirportProject
             {
                 lblCitySelected.Text = dgvCities.SelectedCells[0].Value.ToString();
             }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnExit_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

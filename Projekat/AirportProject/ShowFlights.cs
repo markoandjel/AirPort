@@ -1,5 +1,6 @@
 ﻿using AirportProject.Controllers;
 using AirportProject.DomainModel;
+using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -12,15 +13,17 @@ namespace AirportProject
         private List<Flight> _flights;
         private Airport _airport;
         private bool _from;
+        private RedisConnect _redisConnect;
         public ShowFlights()
         {
             InitializeComponent();
         }
-        public ShowFlights(Neo4jConnect klijent, Airport airport, bool from)
+        public ShowFlights(Neo4jConnect klijent, Airport airport, bool from,RedisConnect redisConnect)
         {
             _flightController = new FlightController(klijent.Driver);
             _airport = airport;
             _from = from;
+            _redisConnect=redisConnect;
             InitializeComponent();
         }
 
@@ -69,6 +72,8 @@ namespace AirportProject
                 return;
             }
             var index = dgvFlights.SelectedRows[0].Index;
+
+            var flightMessage = _flights[index].DeepCopy();
             _flightController.DeleteFlight(_flights[index]);
             _flights.RemoveAt(index);
             dgvFlights.Rows.Clear();
@@ -76,6 +81,9 @@ namespace AirportProject
             {
                 dgvFlights.Rows.Add(f.Destination.Name, f.TimeOfDeparture, f.TimeOfArival, f.Price, f.FreeSeats, f.NumOfSeats, f.AirlineCode);
             }
+            string message = String.Format("Flight from {0} to {1} is not operable anymore",
+                flightMessage.Start.Name, flightMessage.Destination.Name,flightMessage);
+            RedisMessage(flightMessage.Code,message);
         }
 
         private void dgvFlights_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -117,7 +125,10 @@ namespace AirportProject
             {
                 var index = dgvFlights.SelectedRows[0].Index; //index izabranog leta
 
+                
                 Flight flight = _flights[index];
+                Flight messageFlight = flight.DeepCopy();
+
                 flight.FreeSeats = (int)numFreeSeats.Value;
                 flight.Price = (int)numPrice.Value;
                 flight.NumOfSeats = (int)numSeats.Value;
@@ -150,12 +161,35 @@ namespace AirportProject
                         dgvFlights.Rows.Add(f.Start.Name, f.TimeOfDeparture, f.TimeOfArival, f.Price, f.FreeSeats, f.NumOfSeats, f.AirlineCode);
                     }
                 }
-
-
-
-
                 MessageBox.Show("Flight has been successfully updated!");
+
+                if(messageFlight.Price!=flight.Price)
+                {
+                    RedisMessage(flight.Code, String.Format("Flight from {0} to {1} have changed price from {2} to {3}"
+                        ,flight.Start.Name,flight.Destination.Name,messageFlight.Price,flight.Price));
+                }
+                if(messageFlight.TimeOfArival!=flight.TimeOfArival) 
+                {
+                    RedisMessage(flight.Code, String.Format("Flight from {0} to {1} have changed time of arrival from {2} to {3}"
+                        , flight.Start.Name, flight.Destination.Name, messageFlight.TimeOfArival.ToString(), flight.TimeOfArival.ToString()));
+                }
+                if(messageFlight.TimeOfDeparture!=flight.TimeOfDeparture) 
+                {
+                    RedisMessage(flight.Code, String.Format("Flight from {0} to {1} have changed time of departure from {2} to {3}"
+                        , flight.Start.Name, flight.Destination.Name, messageFlight.TimeOfDeparture.ToString(), flight.TimeOfDeparture.ToString()));
+                }                
             }
+        }
+
+        public void RedisMessage(string flightCode,string message)
+        {
+            ISubscriber pub=_redisConnect.PubSub();
+            pub.Publish(flightCode,message);
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

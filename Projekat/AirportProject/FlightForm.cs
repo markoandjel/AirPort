@@ -18,19 +18,21 @@ namespace AirportProject
         private AirportController _airportController;
         private AirlineController _airlineController;
         private Neo4jConnect _klijent;
+        private RedisConnect redisConnect;
 
         public FlightForm()
         {
             InitializeComponent();
         
         }
-        public FlightForm(Neo4jConnect klijent)
+        public FlightForm(Neo4jConnect klijent, RedisConnect redisConnect)
         {
             _klijent = klijent;
             _flightController = new FlightController(klijent.Driver);
             _airportController = new AirportController(klijent.Driver);
             _airlineController = new AirlineController(klijent.Driver);
             InitializeComponent();
+            this.redisConnect = redisConnect;
         }
 
         private void FlightForm_Load(object sender, EventArgs e)
@@ -40,6 +42,8 @@ namespace AirportProject
             dgvAirports.DataSource=_airportController.GetAllAirports();
             dgvAirlines.DataSource=_airlineController.GetAllAirlines();
             lblAirlineCode.Text = "";
+            lblFlightFrom.Text = "";
+            lblFlightTo.Text = "";
         }
 
         private void btnCreateFlight_Click(object sender, EventArgs e)
@@ -54,6 +58,8 @@ namespace AirportProject
             DateTime timeofDeparture = new DateTime(dtpDeparture.Value.Date.Year,
                 dtpDeparture.Value.Date.Month, dtpDeparture.Value.Date.Day,
                 dtpDepartureTime.Value.Hour, dtpDepartureTime.Value.Minute, 0);
+
+            
             int seats = ((int)numSeats.Value);
             int price = ((int)numPrice.Value);
 
@@ -104,12 +110,12 @@ namespace AirportProject
                 , dgvAirports.SelectedCells[2].Value.ToString());
             if (rbtnFrom.Checked == true)
             {
-                ShowFlights showflighFormFrom = new ShowFlights(_klijent,airport,true);
+                ShowFlights showflighFormFrom = new ShowFlights(_klijent,airport,true, redisConnect);
                 showflighFormFrom.ShowDialog();
             }
             else if (rbtnTo.Checked == true)
             {
-                ShowFlights showflighFormTo = new ShowFlights(_klijent,airport,false);
+                ShowFlights showflighFormTo = new ShowFlights(_klijent,airport,false, redisConnect);
                 showflighFormTo.ShowDialog();
             }
         }
@@ -117,6 +123,11 @@ namespace AirportProject
         private void dgvAirlines_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             lblAirlineCode.Text = dgvAirlines.SelectedCells[0].Value.ToString();    
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
