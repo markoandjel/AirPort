@@ -29,9 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.addPassenger = new System.Windows.Forms.Button();
-            this.addTicket = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAirportManager = new System.Windows.Forms.Button();
             this.btnFlightManager = new System.Windows.Forms.Button();
             this.btnCityManager = new System.Windows.Forms.Button();
@@ -52,40 +50,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // addPassenger
-            // 
-            this.addPassenger.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.addPassenger.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addPassenger.ForeColor = System.Drawing.Color.White;
-            this.addPassenger.Location = new System.Drawing.Point(204, 293);
-            this.addPassenger.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.addPassenger.Name = "addPassenger";
-            this.addPassenger.Size = new System.Drawing.Size(180, 49);
-            this.addPassenger.TabIndex = 2;
-            this.addPassenger.Text = "Add Passenger";
-            this.addPassenger.UseVisualStyleBackColor = false;
-            this.addPassenger.Click += new System.EventHandler(this.addPassenger_Click);
-            // 
-            // addTicket
-            // 
-            this.addTicket.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.addTicket.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addTicket.ForeColor = System.Drawing.Color.White;
-            this.addTicket.Location = new System.Drawing.Point(388, 293);
-            this.addTicket.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.addTicket.Name = "addTicket";
-            this.addTicket.Size = new System.Drawing.Size(180, 49);
-            this.addTicket.TabIndex = 3;
-            this.addTicket.Text = "Add Ticket";
-            this.addTicket.UseVisualStyleBackColor = false;
-            this.addTicket.Click += new System.EventHandler(this.addTicket_Click);
-            // 
             // btnAirportManager
             // 
             this.btnAirportManager.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnAirportManager.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAirportManager.ForeColor = System.Drawing.Color.White;
-            this.btnAirportManager.Location = new System.Drawing.Point(388, 241);
+            this.btnAirportManager.Location = new System.Drawing.Point(490, 295);
             this.btnAirportManager.Name = "btnAirportManager";
             this.btnAirportManager.Size = new System.Drawing.Size(180, 49);
             this.btnAirportManager.TabIndex = 5;
@@ -98,7 +68,7 @@
             this.btnFlightManager.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnFlightManager.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFlightManager.ForeColor = System.Drawing.Color.White;
-            this.btnFlightManager.Location = new System.Drawing.Point(204, 241);
+            this.btnFlightManager.Location = new System.Drawing.Point(258, 295);
             this.btnFlightManager.Name = "btnFlightManager";
             this.btnFlightManager.Size = new System.Drawing.Size(180, 49);
             this.btnFlightManager.TabIndex = 5;
@@ -111,8 +81,8 @@
             this.btnCityManager.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnCityManager.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCityManager.ForeColor = System.Drawing.Color.White;
-            this.btnCityManager.Location = new System.Drawing.Point(19, 293);
-            this.btnCityManager.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCityManager.Location = new System.Drawing.Point(714, 293);
+            this.btnCityManager.Margin = new System.Windows.Forms.Padding(2);
             this.btnCityManager.Name = "btnCityManager";
             this.btnCityManager.Size = new System.Drawing.Size(180, 49);
             this.btnCityManager.TabIndex = 6;
@@ -125,8 +95,8 @@
             this.btnAirlineManager.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnAirlineManager.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAirlineManager.ForeColor = System.Drawing.Color.White;
-            this.btnAirlineManager.Location = new System.Drawing.Point(19, 241);
-            this.btnAirlineManager.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAirlineManager.Location = new System.Drawing.Point(20, 295);
+            this.btnAirlineManager.Margin = new System.Windows.Forms.Padding(2);
             this.btnAirlineManager.Name = "btnAirlineManager";
             this.btnAirlineManager.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnAirlineManager.Size = new System.Drawing.Size(180, 49);
@@ -159,8 +129,8 @@
             // 
             // dgvMessages
             // 
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMessages.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMessages.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvMessages.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMessages.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvMessages.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
@@ -170,7 +140,7 @@
             this.dgvMessages.Location = new System.Drawing.Point(19, 84);
             this.dgvMessages.Name = "dgvMessages";
             this.dgvMessages.RowHeadersWidth = 51;
-            this.dgvMessages.Size = new System.Drawing.Size(875, 150);
+            this.dgvMessages.Size = new System.Drawing.Size(875, 204);
             this.dgvMessages.TabIndex = 12;
             // 
             // Message
@@ -187,7 +157,7 @@
             this.btnExit.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnExit.Location = new System.Drawing.Point(881, -1);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(29, 41);
             this.btnExit.TabIndex = 13;
@@ -206,13 +176,11 @@
             this.panel1.Controls.Add(this.btnCityManager);
             this.panel1.Controls.Add(this.btnFlightManager);
             this.panel1.Controls.Add(this.btnAirportManager);
-            this.panel1.Controls.Add(this.addTicket);
-            this.panel1.Controls.Add(this.addPassenger);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel1.Location = new System.Drawing.Point(235, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(912, 356);
             this.panel1.TabIndex = 14;
@@ -226,7 +194,7 @@
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(237, 356);
             this.panel2.TabIndex = 15;
@@ -274,7 +242,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AdminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -290,8 +258,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button addPassenger;
-        private System.Windows.Forms.Button addTicket;
         private System.Windows.Forms.Button btnAirportManager;
         private System.Windows.Forms.Button btnFlightManager;
         private System.Windows.Forms.Button btnCityManager;
