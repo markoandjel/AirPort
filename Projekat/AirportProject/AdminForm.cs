@@ -12,6 +12,9 @@ namespace AirportProject
     {
         private Neo4jConnect _klijent;
         private RedisConnect redisConnect;
+        private ConnectionMultiplexer _redis;
+        private Session _session;
+        private Timer _sessionTimer;
         public AdminForm()
         {
             //InitializeComponent();
@@ -25,7 +28,30 @@ namespace AirportProject
             InitializeComponent();
         }
 
+        public AdminForm(Session session, ConnectionMultiplexer redis)
+        {
+            InitializeComponent();
 
+            _klijent = new Neo4jConnect("bolt://87.250.63.38:7687", "neo4j", "bazicari");
+            _redis = redis;
+            _session = session;
+
+            _sessionTimer = new Timer();
+            _sessionTimer.Interval = 1000; // Check every second
+            _sessionTimer.Tick += new EventHandler(CheckSessionExpiration);
+            _sessionTimer.Start();
+
+        }
+        private void CheckSessionExpiration(object sender, EventArgs e)
+        {
+            if (_session.IsExpired())
+            {
+                _sessionTimer.Stop();
+                this.Close(); // Close the current form
+                RegisterForm registerForm = new RegisterForm();
+                registerForm.Show(); // Show the register form again
+            }
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             //String databaseName = "airport";

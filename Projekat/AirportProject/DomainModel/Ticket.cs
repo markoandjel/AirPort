@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
 
 namespace AirportProject.DomainModel
 {
@@ -11,14 +7,14 @@ namespace AirportProject.DomainModel
         public int TicketNum { get; set; }
         public string SeatNum { get; set; }
         public string Gate { get; set; }
-        public Flight FlightCode { get; set; }
+        public string FlightCode { get; set; }
         public string PassangerName { get; set; }
 
         public Ticket()
         {
         }
 
-        public Ticket(int ticketNum, string seatNum, string gate, Flight flightCode, string passangerName)
+        public Ticket(int ticketNum, string seatNum, string gate, string flightCode, string passangerName)
         {
             TicketNum = ticketNum;
             SeatNum = seatNum;
