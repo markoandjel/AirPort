@@ -120,5 +120,10 @@ namespace AirportProject
         {
             lblAirlineCode.Text = dgvAirlines.SelectedCells[0].Value.ToString();    
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

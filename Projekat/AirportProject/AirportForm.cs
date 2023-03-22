@@ -163,5 +163,10 @@ namespace AirportProject
         {
             this.Close();
         }
+
+        private void btnExit_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

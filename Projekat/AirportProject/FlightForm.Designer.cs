@@ -54,8 +54,8 @@
             this.label98 = new System.Windows.Forms.Label();
             this.lblAirlineCode = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.btnExit = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAirports)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSeats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).BeginInit();
@@ -66,6 +66,7 @@
             // 
             // dgvAirports
             // 
+            this.dgvAirports.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvAirports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAirports.Location = new System.Drawing.Point(18, 59);
             this.dgvAirports.Margin = new System.Windows.Forms.Padding(4);
@@ -127,7 +128,7 @@
             this.labela1.Name = "labela1";
             this.labela1.Size = new System.Drawing.Size(135, 27);
             this.labela1.TabIndex = 4;
-            this.labela1.Text = "Flight form:";
+            this.labela1.Text = "Flight from:";
             // 
             // btnSwapDestinations
             // 
@@ -341,6 +342,7 @@
             // 
             // dgvAirlines
             // 
+            this.dgvAirlines.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvAirlines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAirlines.Location = new System.Drawing.Point(657, 59);
             this.dgvAirlines.Margin = new System.Windows.Forms.Padding(4);
@@ -385,12 +387,25 @@
             this.panel1.Controls.Add(this.btnShowFlights);
             this.panel1.Controls.Add(this.dgvAirports);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel1.Location = new System.Drawing.Point(783, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(923, 534);
             this.panel1.TabIndex = 20;
+            // 
+            // btnExit
+            // 
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(890, 4);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(28, 42);
+            this.btnExit.TabIndex = 18;
+            this.btnExit.Text = "X";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // panel2
             // 
@@ -418,20 +433,8 @@
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(783, 534);
+            this.panel2.Size = new System.Drawing.Size(777, 534);
             this.panel2.TabIndex = 21;
-            // 
-            // btnExit
-            // 
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(890, 4);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(28, 42);
-            this.btnExit.TabIndex = 18;
-            this.btnExit.Text = "X";
-            this.btnExit.UseVisualStyleBackColor = true;
             // 
             // FlightForm
             // 
