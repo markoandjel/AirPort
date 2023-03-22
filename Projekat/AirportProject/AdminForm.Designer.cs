@@ -47,10 +47,10 @@
             this.addPassenger.Location = new System.Drawing.Point(73, 398);
             this.addPassenger.Margin = new System.Windows.Forms.Padding(2);
             this.addPassenger.Name = "addPassenger";
-            this.addPassenger.Size = new System.Drawing.Size(140, 49);
+            this.addPassenger.Size = new System.Drawing.Size(231, 64);
             this.addPassenger.TabIndex = 2;
             this.addPassenger.Text = "Add Passenger";
-            this.addPassenger.UseVisualStyleBackColor = true;
+            this.addPassenger.UseVisualStyleBackColor = false;
             this.addPassenger.Click += new System.EventHandler(this.addPassenger_Click);
             // 
             // addTicket
@@ -58,10 +58,10 @@
             this.addTicket.Location = new System.Drawing.Point(232, 398);
             this.addTicket.Margin = new System.Windows.Forms.Padding(2);
             this.addTicket.Name = "addTicket";
-            this.addTicket.Size = new System.Drawing.Size(140, 49);
+            this.addTicket.Size = new System.Drawing.Size(231, 64);
             this.addTicket.TabIndex = 3;
             this.addTicket.Text = "Add Ticket";
-            this.addTicket.UseVisualStyleBackColor = true;
+            this.addTicket.UseVisualStyleBackColor = false;
             this.addTicket.Click += new System.EventHandler(this.addTicket_Click);
             // 
             // btnAirportManager
@@ -69,7 +69,7 @@
             this.btnAirportManager.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnAirportManager.Location = new System.Drawing.Point(31, 196);
             this.btnAirportManager.Name = "btnAirportManager";
-            this.btnAirportManager.Size = new System.Drawing.Size(155, 52);
+            this.btnAirportManager.Size = new System.Drawing.Size(231, 64);
             this.btnAirportManager.TabIndex = 5;
             this.btnAirportManager.Text = "Airport Manager";
             this.btnAirportManager.UseVisualStyleBackColor = false;
@@ -80,7 +80,7 @@
             this.btnFlightManager.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnFlightManager.Location = new System.Drawing.Point(31, 254);
             this.btnFlightManager.Name = "btnFlightManager";
-            this.btnFlightManager.Size = new System.Drawing.Size(155, 52);
+            this.btnFlightManager.Size = new System.Drawing.Size(231, 64);
             this.btnFlightManager.TabIndex = 5;
             this.btnFlightManager.Text = "Flight Manager";
             this.btnFlightManager.UseVisualStyleBackColor = false;
@@ -92,7 +92,7 @@
             this.btnCityManager.Location = new System.Drawing.Point(31, 139);
             this.btnCityManager.Margin = new System.Windows.Forms.Padding(2);
             this.btnCityManager.Name = "btnCityManager";
-            this.btnCityManager.Size = new System.Drawing.Size(155, 52);
+            this.btnCityManager.Size = new System.Drawing.Size(231, 64);
             this.btnCityManager.TabIndex = 6;
             this.btnCityManager.Text = "City Manager";
             this.btnCityManager.UseVisualStyleBackColor = false;
@@ -105,7 +105,7 @@
             this.btnAirlineManager.Margin = new System.Windows.Forms.Padding(2);
             this.btnAirlineManager.Name = "btnAirlineManager";
             this.btnAirlineManager.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnAirlineManager.Size = new System.Drawing.Size(155, 52);
+            this.btnAirlineManager.Size = new System.Drawing.Size(231, 64);
             this.btnAirlineManager.TabIndex = 7;
             this.btnAirlineManager.Text = "Airline Manager";
             this.btnAirlineManager.UseVisualStyleBackColor = false;

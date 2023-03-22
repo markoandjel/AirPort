@@ -101,5 +101,16 @@ namespace AirportProject
             else
                 MessageBox.Show("Morate odabrati jedan avion!");
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
+
+        private void tbxModel_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
