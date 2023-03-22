@@ -14,12 +14,12 @@ using AirportProject.DomainModel;
 using Newtonsoft.Json;
 
 namespace AirportProject
-{   
+{
 
     public partial class RegisterForm : Form
     {
         private readonly ConnectionMultiplexer redis = ConnectionMultiplexer.Connect("87.250.63.38:6379");
-
+        private Session session;
         public async Task<bool> RegisterUser(string username, string password)
         {
             var db = redis.GetDatabase();
@@ -29,20 +29,25 @@ namespace AirportProject
             {
                 var hashed = BCrypt.Net.BCrypt.HashPassword(password);
                 var role = UserRole.User;
-                var user = new User(username, hashed,role);
+                var user = new User(username, hashed, role);
                 var json = JsonConvert.SerializeObject(user);
                 await db.StringSetAsync(username, json);
 
                 var sessionId = Guid.NewGuid().ToString();
                 var sessionRepo = new SessionRepository(redis);
-                var session = new Session(sessionId, username);
+                session = new Session(sessionId, username);
                 sessionRepo.Save(session);
                 MessageBox.Show("Uspeo si konju, pogledaj bazu dal pamti dobro");
+                Form1 forma = new Form1(session,redis);
+                forma.Show();
+                this.Hide();
+                redis.Dispose();
                 return true;
             }
             else
             {
-                MessageBox.Show("Ne radi s taj juzer, proveri opet unesi neki novi");
+                MessageBox.Show("Ne radi s taj juzer, proveri opet unesi neki novi" ,"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+           
                 return false;
 
             }
@@ -65,16 +70,25 @@ namespace AirportProject
 
         private void registerBtn_Click(object sender, EventArgs e)
         {
-            string u = usernameRegisterInput.Text;
-            string l = registerLozinkaInput.Text;
+            if (string.IsNullOrEmpty(usernameRegisterInput.Text) || string.IsNullOrEmpty(registerLozinkaInput.Text))
+            {
+                MessageBox.Show("Please enter a username and password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
 
-            RegisterUser(u, l);
-            
+                string u = usernameRegisterInput.Text;
+                string l = registerLozinkaInput.Text;
+                RegisterUser(u, l);
+            }
         }
+    
+        
 
         private void button2_Click(object sender, EventArgs e)
         {
-            LogInForm login = new LogInForm();
+            LogInForm login = new LogInForm(redis);
             login.Show();
             this.Hide();
         }

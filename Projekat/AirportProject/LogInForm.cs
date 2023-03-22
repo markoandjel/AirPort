@@ -1,62 +1,62 @@
-﻿using AirportProject.Controllers;
+﻿using AirportProject.DomainModel;
 using StackExchange.Redis;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace AirportProject
 {
     public partial class LogInForm : Form
     {
-        private readonly RedisConnect redis;
+        private  ConnectionMultiplexer redis;
+        private Session session;
 
 
-        private string ExtractSalt(RedisValue hashedPassword)
-        {
-            // Extract the salt value from the hashed password string
-            int startIndex = hashedPassword.ToString().LastIndexOf("$") + 1;
-            int endIndex = startIndex + 22;
-            string salt = hashedPassword.ToString().Substring(startIndex, 22);
-            return salt;
-        }
-
-        private string HashPassword(string password, string salt)
-        {
-            // Concatenate the password and salt values
-            string saltedPassword = password + salt;
-
-            // Hash the salted password value using a secure hash function, such as bcrypt
-            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(saltedPassword);
-
-            return hashedPassword;
-        }
         public LogInForm()
         {
             InitializeComponent();
 
-            redis = new RedisConnect("87.250.63.38:6379");
-            bool connected = redis.Connect();
-            if (!connected)
-            {
-                MessageBox.Show("Aj dodji kasnije ne mogu se povezujem sad");
-            }
         }
 
-        private bool LoginUser(string username, string password)
+        public LogInForm(ConnectionMultiplexer redis)
         {
-            IDatabase db = redis.GetDatabase();
-            RedisValue hashedPassword = db.HashGet("users", username);
+            InitializeComponent();
+            this.redis = redis;
+        }
 
-            if (hashedPassword.IsNullOrEmpty)
+        public bool LoginUser(string username, string password)
+        {
+            
+            IDatabase db = redis.GetDatabase();
+            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+            var storedPassword = db.HashGet("Username:"+username, "Password");
+            var userExists =  db.HashExists(username, "Password");
+            if (userExists)
             {
+                if (storedPassword.HasValue && BCrypt.Net.BCrypt.Verify(hashedPassword, storedPassword))
+                {
+                    var sessionId = Guid.NewGuid().ToString();
+                    var sessionRepo = new SessionRepository(redis);
+                    session = new Session(sessionId, username);
+                    sessionRepo.Save(session);
+                    MessageBox.Show("Uspeo si konju, pogledaj bazu dal pamti dobro");
+                    Form1 forma = new Form1(session, redis);
+                    forma.Show();
+                    this.Hide();
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Familijo zapisi si lozinku na papirce vidis da gresis");
+                    return false;
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Proveri dal se dobro zoves, nemam te takvog u bazu");
                 return false;
             }
-
-            string salt = ExtractSalt(hashedPassword);
-            string hashedInputPassword = HashPassword(password, salt);
-
-            return BCrypt.Net.BCrypt.Verify(hashedInputPassword, hashedPassword);
         }
 
 
@@ -105,23 +105,22 @@ namespace AirportProject
 
         private void prijaviseBtn_Click(object sender, EventArgs e)
         {
-            string kor_ime = InputUsername.Text;
-            string lozinka = lozinkaInput.Text;
-
-            //string sacuvanalozinka = redis.Get(kor_ime);
-
-            if (LoginUser(kor_ime, lozinka))
+            if (string.IsNullOrEmpty(InputUsername.Text) || string.IsNullOrEmpty(lozinkaInput.Text))
             {
-                MessageBox.Show("Login successful.");
-                Form1 forma = new Form1();
-                forma.Show();
-                this.Hide();
+                MessageBox.Show("Please enter a username and password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             else
             {
-                MessageBox.Show("Invalid username or password.");
+
+                string u = InputUsername.Text;
+                string l = lozinkaInput.Text;
+                LoginUser(u, l);
             }
-      
+            //string sacuvanalozinka = redis.Get(kor_ime);
+
+
+
 
         }
 

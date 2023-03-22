@@ -13,7 +13,7 @@ namespace AirportProject.DomainModel
         {
             SessionId = id;
             Username = username;
-            Expiry = DateTime.Now.AddMinutes(30);
+            Expiry = DateTime.Now.AddMinutes(10);
         }
 
         public bool IsExpired()
