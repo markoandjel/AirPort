@@ -121,5 +121,11 @@ namespace AirportProject
             else
                 MessageBox.Show("Morate odabrati jedan grad!");
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
     }
 }

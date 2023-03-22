@@ -107,5 +107,10 @@ namespace AirportProject
                 MessageBox.Show("Morate odabrati jednu avio kompaniju!");
             }
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
