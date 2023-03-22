@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AirportProject.DomainModel;
+using StackExchange.Redis;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,18 +17,57 @@ namespace AirportProject
 {
     public partial class LogInForm : Form
     {
-        private readonly RedisConnect redis;
+        private  ConnectionMultiplexer redis;
+        private Session session;
+
+
         public LogInForm()
         {
             InitializeComponent();
 
-            redis = new RedisConnect("87.250.63.38:6379");
-            bool connected = redis.Connect();
-            if (!connected)
+        }
+
+        public LogInForm(ConnectionMultiplexer redis)
+        {
+            InitializeComponent();
+            this.redis = redis;
+        }
+
+        public bool LoginUser(string username, string password)
+        {
+            
+            IDatabase db = redis.GetDatabase();
+            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+            var storedPassword = db.HashGet("Username:"+username, "Password");
+            var userExists =  db.HashExists(username, "Password");
+            if (userExists)
             {
-                MessageBox.Show("Aj dodji kasnije ne mogu se povezujem sad");
+                if (storedPassword.HasValue && BCrypt.Net.BCrypt.Verify(hashedPassword, storedPassword))
+                {
+                    var sessionId = Guid.NewGuid().ToString();
+                    var sessionRepo = new SessionRepository(redis);
+                    session = new Session(sessionId, username);
+                    sessionRepo.Save(session);
+                    MessageBox.Show("Uspeo si konju, pogledaj bazu dal pamti dobro");
+                    AdminForm forma = new AdminForm(session, redis);
+                    forma.Show();
+                    this.Hide();
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Familijo zapisi si lozinku na papirce vidis da gresis");
+                    return false;
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Proveri dal se dobro zoves, nemam te takvog u bazu");
+                return false;
             }
         }
+
 
         private void closeBtn_Click(object sender, EventArgs e)
         {
@@ -66,35 +107,29 @@ namespace AirportProject
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            RegisterForm forma = new RegisterForm();
+            forma.Show();
+            this.Hide();
         }
 
         private void prijaviseBtn_Click(object sender, EventArgs e)
         {
-            string kor_ime = InputUsername.Text;
-            string lozinka = lozinkaInput.Text;
-
-            //string sacuvanalozinka = redis.Get(kor_ime);
-
-            if (redis.Exists(kor_ime))
+            if (string.IsNullOrEmpty(InputUsername.Text) || string.IsNullOrEmpty(lozinkaInput.Text))
             {
-                string sacuvanalozinka = redis.Get(kor_ime);
-                if (BCrypt.Net.BCrypt.Verify(lozinka, sacuvanalozinka))
-                {
-                    MessageBox.Show("Upadaj momak");
-                    AdminForm forma = new AdminForm();
-                    forma.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    MessageBox.Show("Ne radi be ");
-                }
-
-
+                MessageBox.Show("Please enter a username and password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             else
-                MessageBox.Show("Proveri juzernejm nema ga u bazu ovamo");
+            {
+
+                string u = InputUsername.Text;
+                string l = lozinkaInput.Text;
+                LoginUser(u, l);
+            }
+            //string sacuvanalozinka = redis.Get(kor_ime);
+
+
+
 
         }
 
