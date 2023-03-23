@@ -92,5 +92,10 @@ namespace AirportProject
             login.Show();
             this.Hide();
         }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
