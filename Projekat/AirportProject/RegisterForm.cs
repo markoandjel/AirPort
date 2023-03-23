@@ -97,5 +97,76 @@ namespace AirportProject
         {
             Application.Exit();
         }
+
+        private void usernameRegisterInput_MouseEnter(object sender, EventArgs e)
+        {
+            usernameRegisterInput.BackColor= Color.White;
+            panel3.BackColor= Color.White;
+        }
+
+        private void usernameRegisterInput_Click(object sender, EventArgs e)
+        {
+            usernameRegisterInput.BackColor = Color.White;
+            panel3.BackColor= Color.White;
+            registerLozinkaInput.BackColor = SystemColors.Control;
+            panel4.BackColor = SystemColors.Control;
+        }
+
+        private void usernameRegisterInput_MouseLeave(object sender, EventArgs e)
+        {
+            usernameRegisterInput.BackColor = SystemColors.Control;
+            panel3.BackColor = SystemColors.Control;
+        }
+
+        private void registerLozinkaInput_MouseClick(object sender, MouseEventArgs e)
+        {
+            registerLozinkaInput.BackColor = Color.White;
+            panel4.BackColor = Color.White;
+            usernameRegisterInput.BackColor = SystemColors.Control;
+            panel3.BackColor = SystemColors.Control;
+        }
+
+        private void registerLozinkaInput_MouseEnter(object sender, EventArgs e)
+        {
+            registerLozinkaInput.BackColor = Color.White;
+            panel4.BackColor = Color.White;
+        }
+
+        private void registerLozinkaInput_MouseLeave(object sender, EventArgs e)
+        {
+            registerLozinkaInput.BackColor = SystemColors.Control;
+            panel4.BackColor = SystemColors.Control;
+        }
+
+        private void usernameRegisterInput_Enter(object sender, EventArgs e)
+        {
+            usernameRegisterInput.BackColor = Color.White;
+            panel3.BackColor = Color.White;
+            registerLozinkaInput.BackColor = SystemColors.Control;
+            panel4.BackColor = SystemColors.Control;
+        }
+
+        private void usernameRegisterInput_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void usernameRegisterInput_MouseEnter_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void usernameRegisterInput_MouseLeave_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void registerLozinkaInput_Enter(object sender, EventArgs e)
+        {
+            registerLozinkaInput.BackColor = Color.White;
+            panel4.BackColor = Color.White;
+            usernameRegisterInput.BackColor = SystemColors.Control;
+            panel3.BackColor = SystemColors.Control;
+        }
     }
 }

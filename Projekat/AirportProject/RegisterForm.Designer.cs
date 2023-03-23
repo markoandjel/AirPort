@@ -91,7 +91,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(104, 417);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(178, 21);
+            this.label5.Size = new System.Drawing.Size(142, 17);
             this.label5.TabIndex = 5;
             this.label5.Text = "Developed by team ";
             // 
@@ -102,7 +102,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(17, 238);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(350, 43);
+            this.label4.Size = new System.Drawing.Size(280, 34);
             this.label4.TabIndex = 4;
             this.label4.Text = "official plane ticket";
             // 
@@ -134,7 +134,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(49, 187);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(228, 43);
+            this.label1.Size = new System.Drawing.Size(182, 34);
             this.label1.TabIndex = 1;
             this.label1.Text = "Welcome to";
             // 
@@ -249,6 +249,9 @@
             this.registerLozinkaInput.Size = new System.Drawing.Size(371, 21);
             this.registerLozinkaInput.TabIndex = 3;
             this.registerLozinkaInput.UseSystemPasswordChar = true;
+            this.registerLozinkaInput.Enter += new System.EventHandler(this.registerLozinkaInput_Enter);
+            this.registerLozinkaInput.MouseEnter += new System.EventHandler(this.registerLozinkaInput_MouseEnter);
+            this.registerLozinkaInput.MouseHover += new System.EventHandler(this.registerLozinkaInput_MouseEnter);
             // 
             // pictureBox3
             // 
@@ -278,11 +281,15 @@
             this.usernameRegisterInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.usernameRegisterInput.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernameRegisterInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.usernameRegisterInput.Location = new System.Drawing.Point(42, 9);
+            this.usernameRegisterInput.Location = new System.Drawing.Point(37, 9);
             this.usernameRegisterInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.usernameRegisterInput.Name = "usernameRegisterInput";
-            this.usernameRegisterInput.Size = new System.Drawing.Size(371, 21);
+            this.usernameRegisterInput.Size = new System.Drawing.Size(362, 21);
             this.usernameRegisterInput.TabIndex = 4;
+            this.usernameRegisterInput.Click += new System.EventHandler(this.usernameRegisterInput_Click);
+            this.usernameRegisterInput.Enter += new System.EventHandler(this.usernameRegisterInput_Enter);
+            this.usernameRegisterInput.MouseEnter += new System.EventHandler(this.usernameRegisterInput_MouseEnter);
+            this.usernameRegisterInput.MouseHover += new System.EventHandler(this.usernameRegisterInput_MouseEnter);
             // 
             // pictureBox2
             // 
