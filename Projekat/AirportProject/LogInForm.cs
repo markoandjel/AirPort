@@ -50,7 +50,16 @@ namespace AirportProject
                     var sessionId = Guid.NewGuid().ToString();
                     var sessionRepo = new SessionRepository(redis);
                     session = new Session(sessionId, username);
-                    sessionRepo.Save(session);
+                    //sessionRepo.Save(session);
+                    if(!db.StringGet(username + "_Session").IsNull)
+                    {
+                        MessageBox.Show("Ne mozes na vise uredjaja da se prijavis!");
+                        return false;
+                    }
+
+                    db.StringSet(username+"_Session", JsonConvert.SerializeObject(session));
+
+
                     MessageBox.Show("Uspeo si konju, pogledaj bazu dal pamti dobro");
                     UserForm forma = new UserForm();
                     forma.Show();
