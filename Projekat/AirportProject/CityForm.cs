@@ -1,16 +1,10 @@
 ﻿using AirportProject.Controllers;
+using AirportProject.DomainModel;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using AirportProject.DomainModel;
-using static System.Runtime.CompilerServices.RuntimeHelpers;
-using System.Xml.Linq;
 
 namespace AirportProject
 {
@@ -18,10 +12,12 @@ namespace AirportProject
     {
         private CityController _cityController;
         private List<City> _listCities = new List<City>();
-        public CityForm(Neo4jConnect klijent)
+        private Session _session;
+        public CityForm(Neo4jConnect klijent,Session session)
         {
             _cityController= new CityController(klijent.Driver);
             InitializeComponent();
+            this._session = session;
         }
         
 
