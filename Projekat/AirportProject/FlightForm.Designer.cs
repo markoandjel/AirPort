@@ -80,6 +80,7 @@
             // btnCreateFlight
             // 
             this.btnCreateFlight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnCreateFlight.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCreateFlight.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateFlight.ForeColor = System.Drawing.Color.White;
             this.btnCreateFlight.Location = new System.Drawing.Point(40, 434);
@@ -136,6 +137,7 @@
             // btnSwapDestinations
             // 
             this.btnSwapDestinations.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnSwapDestinations.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSwapDestinations.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSwapDestinations.ForeColor = System.Drawing.Color.White;
             this.btnSwapDestinations.Location = new System.Drawing.Point(40, 83);
@@ -162,6 +164,7 @@
             // btnShowFlights
             // 
             this.btnShowFlights.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnShowFlights.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnShowFlights.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowFlights.ForeColor = System.Drawing.Color.White;
             this.btnShowFlights.Location = new System.Drawing.Point(71, 465);
@@ -443,6 +446,7 @@
             // btnBack
             // 
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnBack.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.White;
             this.btnBack.Location = new System.Drawing.Point(9, 487);

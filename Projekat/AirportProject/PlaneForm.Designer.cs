@@ -50,12 +50,13 @@
             // btnCreatePlane
             // 
             this.btnCreatePlane.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnCreatePlane.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCreatePlane.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreatePlane.ForeColor = System.Drawing.Color.White;
             this.btnCreatePlane.Location = new System.Drawing.Point(265, 279);
             this.btnCreatePlane.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreatePlane.Name = "btnCreatePlane";
-            this.btnCreatePlane.Size = new System.Drawing.Size(220, 55);
+            this.btnCreatePlane.Size = new System.Drawing.Size(220, 48);
             this.btnCreatePlane.TabIndex = 0;
             this.btnCreatePlane.Text = "Create Plane";
             this.btnCreatePlane.UseVisualStyleBackColor = false;
@@ -64,12 +65,13 @@
             // btnDeletePlane
             // 
             this.btnDeletePlane.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnDeletePlane.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDeletePlane.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeletePlane.ForeColor = System.Drawing.Color.White;
             this.btnDeletePlane.Location = new System.Drawing.Point(133, 335);
             this.btnDeletePlane.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeletePlane.Name = "btnDeletePlane";
-            this.btnDeletePlane.Size = new System.Drawing.Size(271, 55);
+            this.btnDeletePlane.Size = new System.Drawing.Size(271, 48);
             this.btnDeletePlane.TabIndex = 1;
             this.btnDeletePlane.Text = "Delete Plane";
             this.btnDeletePlane.UseVisualStyleBackColor = false;
@@ -78,12 +80,13 @@
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdate.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
             this.btnUpdate.Location = new System.Drawing.Point(25, 279);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(220, 55);
+            this.btnUpdate.Size = new System.Drawing.Size(220, 48);
             this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "Update Plane";
             this.btnUpdate.UseVisualStyleBackColor = false;

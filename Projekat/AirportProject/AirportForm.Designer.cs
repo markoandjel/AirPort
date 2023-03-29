@@ -44,9 +44,9 @@
             this.gbxUpdateAirport = new System.Windows.Forms.GroupBox();
             this.lblUpdateCity = new System.Windows.Forms.Label();
             this.gbxAddAirport = new System.Windows.Forms.GroupBox();
-            this.btnBack = new System.Windows.Forms.Button();
             this.lblCitySelected = new System.Windows.Forms.Label();
             this.tbxCode = new System.Windows.Forms.TextBox();
+            this.btnBack = new System.Windows.Forms.Button();
             this.dgvCities = new System.Windows.Forms.DataGridView();
             this.btnUpdateCity = new System.Windows.Forms.Button();
             this.btnAddCity = new System.Windows.Forms.Button();
@@ -64,6 +64,7 @@
             // btnAddAirport
             // 
             this.btnAddAirport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnAddAirport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddAirport.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddAirport.ForeColor = System.Drawing.Color.White;
             this.btnAddAirport.Location = new System.Drawing.Point(140, 237);
@@ -128,6 +129,7 @@
             // btnDeleteAirport
             // 
             this.btnDeleteAirport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnDeleteAirport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDeleteAirport.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteAirport.ForeColor = System.Drawing.Color.White;
             this.btnDeleteAirport.Location = new System.Drawing.Point(192, 646);
@@ -142,6 +144,7 @@
             // btnUpdateAirport
             // 
             this.btnUpdateAirport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnUpdateAirport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdateAirport.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateAirport.ForeColor = System.Drawing.Color.White;
             this.btnUpdateAirport.Location = new System.Drawing.Point(126, 237);
@@ -251,20 +254,6 @@
             this.gbxAddAirport.Text = "Add Airport";
             this.gbxAddAirport.Enter += new System.EventHandler(this.gbxAddAirport_Enter);
             // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnBack.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(12, 709);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(111, 38);
-            this.btnBack.TabIndex = 22;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
             // lblCitySelected
             // 
             this.lblCitySelected.AutoSize = true;
@@ -283,6 +272,21 @@
             this.tbxCode.Size = new System.Drawing.Size(347, 36);
             this.tbxCode.TabIndex = 5;
             // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBack.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(12, 709);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(111, 38);
+            this.btnBack.TabIndex = 22;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // dgvCities
             // 
             this.dgvCities.BackgroundColor = System.Drawing.SystemColors.Control;
@@ -297,6 +301,7 @@
             // btnUpdateCity
             // 
             this.btnUpdateCity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnUpdateCity.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdateCity.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateCity.ForeColor = System.Drawing.Color.White;
             this.btnUpdateCity.Location = new System.Drawing.Point(571, 694);
@@ -311,6 +316,7 @@
             // btnAddCity
             // 
             this.btnAddCity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnAddCity.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddCity.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddCity.ForeColor = System.Drawing.Color.White;
             this.btnAddCity.Location = new System.Drawing.Point(571, 637);

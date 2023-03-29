@@ -74,6 +74,7 @@
             // btnAddAirline
             // 
             this.btnAddAirline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnAddAirline.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddAirline.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnAddAirline.ForeColor = System.Drawing.Color.White;
             this.btnAddAirline.Location = new System.Drawing.Point(67, 104);
@@ -117,6 +118,7 @@
             // btnUpdateAirline
             // 
             this.btnUpdateAirline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnUpdateAirline.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdateAirline.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnUpdateAirline.ForeColor = System.Drawing.Color.White;
             this.btnUpdateAirline.Location = new System.Drawing.Point(67, 104);
@@ -139,6 +141,7 @@
             // btnDeleteAirline
             // 
             this.btnDeleteAirline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnDeleteAirline.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDeleteAirline.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnDeleteAirline.ForeColor = System.Drawing.Color.White;
             this.btnDeleteAirline.Location = new System.Drawing.Point(28, 394);
@@ -164,6 +167,7 @@
             // btnShowEditPlanes
             // 
             this.btnShowEditPlanes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnShowEditPlanes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnShowEditPlanes.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnShowEditPlanes.ForeColor = System.Drawing.Color.White;
             this.btnShowEditPlanes.Location = new System.Drawing.Point(149, 394);
@@ -220,6 +224,7 @@
             // btnBack
             // 
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnBack.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.White;
             this.btnBack.Location = new System.Drawing.Point(9, 416);

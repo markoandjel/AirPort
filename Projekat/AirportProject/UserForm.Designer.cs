@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvTickets = new System.Windows.Forms.DataGridView();
             this.cbxAriportFrom = new System.Windows.Forms.ComboBox();
             this.cbxAirportTo = new System.Windows.Forms.ComboBox();
@@ -40,12 +43,20 @@
             this.btnAddTicket = new System.Windows.Forms.Button();
             this.btnDeleteTicket = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTickets)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFlights)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvTickets
             // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Blue;
+            this.dgvTickets.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvTickets.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.dgvTickets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTickets.Location = new System.Drawing.Point(624, 100);
             this.dgvTickets.Margin = new System.Windows.Forms.Padding(4);
@@ -57,66 +68,88 @@
             // 
             // cbxAriportFrom
             // 
+            this.cbxAriportFrom.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.cbxAriportFrom.FormattingEnabled = true;
-            this.cbxAriportFrom.Location = new System.Drawing.Point(112, 113);
+            this.cbxAriportFrom.Location = new System.Drawing.Point(94, 113);
             this.cbxAriportFrom.Margin = new System.Windows.Forms.Padding(4);
             this.cbxAriportFrom.Name = "cbxAriportFrom";
-            this.cbxAriportFrom.Size = new System.Drawing.Size(223, 24);
+            this.cbxAriportFrom.Size = new System.Drawing.Size(223, 35);
             this.cbxAriportFrom.TabIndex = 1;
             this.cbxAriportFrom.SelectedIndexChanged += new System.EventHandler(this.cbxAriportFrom_SelectedIndexChanged);
             // 
             // cbxAirportTo
             // 
+            this.cbxAirportTo.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.cbxAirportTo.FormattingEnabled = true;
             this.cbxAirportTo.Location = new System.Drawing.Point(383, 113);
             this.cbxAirportTo.Margin = new System.Windows.Forms.Padding(4);
             this.cbxAirportTo.Name = "cbxAirportTo";
-            this.cbxAirportTo.Size = new System.Drawing.Size(209, 24);
+            this.cbxAirportTo.Size = new System.Drawing.Size(209, 35);
             this.cbxAirportTo.TabIndex = 2;
+            this.cbxAirportTo.SelectedIndexChanged += new System.EventHandler(this.cbxAirportTo_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(60, 117);
+            this.label1.Location = new System.Drawing.Point(13, 116);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 16);
+            this.label1.Size = new System.Drawing.Size(73, 27);
             this.label1.TabIndex = 3;
             this.label1.Text = "From:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(344, 117);
+            this.label2.Location = new System.Drawing.Point(338, 116);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 16);
+            this.label2.Size = new System.Drawing.Size(44, 27);
             this.label2.TabIndex = 4;
             this.label2.Text = "To:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(620, 69);
+            this.label3.Location = new System.Drawing.Point(619, 62);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 16);
+            this.label3.Size = new System.Drawing.Size(133, 27);
             this.label3.TabIndex = 5;
             this.label3.Text = "My tickets:";
             // 
             // btnCheckFlights
             // 
-            this.btnCheckFlights.Location = new System.Drawing.Point(240, 170);
+            this.btnCheckFlights.BackColor = System.Drawing.Color.PowderBlue;
+            this.btnCheckFlights.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCheckFlights.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckFlights.ForeColor = System.Drawing.Color.Blue;
+            this.btnCheckFlights.Location = new System.Drawing.Point(126, 173);
             this.btnCheckFlights.Margin = new System.Windows.Forms.Padding(4);
             this.btnCheckFlights.Name = "btnCheckFlights";
-            this.btnCheckFlights.Size = new System.Drawing.Size(217, 28);
+            this.btnCheckFlights.Size = new System.Drawing.Size(425, 39);
             this.btnCheckFlights.TabIndex = 6;
             this.btnCheckFlights.Text = "Check for available flights";
-            this.btnCheckFlights.UseVisualStyleBackColor = true;
+            this.btnCheckFlights.UseVisualStyleBackColor = false;
             this.btnCheckFlights.Click += new System.EventHandler(this.btnCheckFlights_Click);
             // 
             // dgvFlights
             // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Blue;
+            this.dgvFlights.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvFlights.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFlights.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvFlights.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFlights.Location = new System.Drawing.Point(45, 314);
             this.dgvFlights.Margin = new System.Windows.Forms.Padding(4);
@@ -131,48 +164,75 @@
             this.label4.Location = new System.Drawing.Point(41, 278);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 16);
+            this.label4.Size = new System.Drawing.Size(253, 34);
             this.label4.TabIndex = 8;
             this.label4.Text = "Available flights:";
             // 
             // btnAddTicket
             // 
-            this.btnAddTicket.Location = new System.Drawing.Point(240, 526);
+            this.btnAddTicket.BackColor = System.Drawing.Color.PowderBlue;
+            this.btnAddTicket.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAddTicket.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddTicket.ForeColor = System.Drawing.Color.Blue;
+            this.btnAddTicket.Location = new System.Drawing.Point(240, 524);
             this.btnAddTicket.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddTicket.Name = "btnAddTicket";
-            this.btnAddTicket.Size = new System.Drawing.Size(100, 28);
+            this.btnAddTicket.Size = new System.Drawing.Size(198, 40);
             this.btnAddTicket.TabIndex = 9;
             this.btnAddTicket.Text = "Buy ticket";
-            this.btnAddTicket.UseVisualStyleBackColor = true;
+            this.btnAddTicket.UseVisualStyleBackColor = false;
             this.btnAddTicket.Click += new System.EventHandler(this.btnAddTicket_Click);
             // 
             // btnDeleteTicket
             // 
-            this.btnDeleteTicket.Location = new System.Drawing.Point(784, 526);
+            this.btnDeleteTicket.BackColor = System.Drawing.Color.PowderBlue;
+            this.btnDeleteTicket.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDeleteTicket.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteTicket.ForeColor = System.Drawing.Color.Blue;
+            this.btnDeleteTicket.Location = new System.Drawing.Point(744, 526);
             this.btnDeleteTicket.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteTicket.Name = "btnDeleteTicket";
-            this.btnDeleteTicket.Size = new System.Drawing.Size(117, 28);
+            this.btnDeleteTicket.Size = new System.Drawing.Size(210, 38);
             this.btnDeleteTicket.TabIndex = 10;
             this.btnDeleteTicket.Text = "Delete ticket";
-            this.btnDeleteTicket.UseVisualStyleBackColor = true;
+            this.btnDeleteTicket.UseVisualStyleBackColor = false;
             this.btnDeleteTicket.Click += new System.EventHandler(this.btnDeleteTicket_Click);
             // 
             // btnLogOut
             // 
+            this.btnLogOut.BackColor = System.Drawing.Color.PowderBlue;
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLogOut.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.ForeColor = System.Drawing.Color.Blue;
             this.btnLogOut.Location = new System.Drawing.Point(13, 13);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(117, 28);
+            this.btnLogOut.Size = new System.Drawing.Size(156, 36);
             this.btnLogOut.TabIndex = 11;
             this.btnLogOut.Text = "Log out";
-            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.UseVisualStyleBackColor = false;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(1063, 1);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(28, 48);
+            this.btnExit.TabIndex = 12;
+            this.btnExit.Text = "X";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // UserForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 587);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.ClientSize = new System.Drawing.Size(1091, 587);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.btnDeleteTicket);
             this.Controls.Add(this.btnAddTicket);
@@ -185,6 +245,9 @@
             this.Controls.Add(this.cbxAirportTo);
             this.Controls.Add(this.cbxAriportFrom);
             this.Controls.Add(this.dgvTickets);
+            this.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.Blue;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UserForm";
             this.Text = "UserForm";
@@ -210,5 +273,6 @@
         private System.Windows.Forms.Button btnAddTicket;
         private System.Windows.Forms.Button btnDeleteTicket;
         private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.Button btnExit;
     }
 }

@@ -54,12 +54,13 @@
             // btnAirportManager
             // 
             this.btnAirportManager.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnAirportManager.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAirportManager.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAirportManager.ForeColor = System.Drawing.Color.White;
-            this.btnAirportManager.Location = new System.Drawing.Point(653, 363);
+            this.btnAirportManager.Location = new System.Drawing.Point(657, 386);
             this.btnAirportManager.Margin = new System.Windows.Forms.Padding(4);
             this.btnAirportManager.Name = "btnAirportManager";
-            this.btnAirportManager.Size = new System.Drawing.Size(240, 60);
+            this.btnAirportManager.Size = new System.Drawing.Size(240, 43);
             this.btnAirportManager.TabIndex = 5;
             this.btnAirportManager.Text = "Airport Manager";
             this.btnAirportManager.UseVisualStyleBackColor = false;
@@ -68,12 +69,13 @@
             // btnFlightManager
             // 
             this.btnFlightManager.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnFlightManager.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnFlightManager.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFlightManager.ForeColor = System.Drawing.Color.White;
-            this.btnFlightManager.Location = new System.Drawing.Point(344, 363);
+            this.btnFlightManager.Location = new System.Drawing.Point(348, 386);
             this.btnFlightManager.Margin = new System.Windows.Forms.Padding(4);
             this.btnFlightManager.Name = "btnFlightManager";
-            this.btnFlightManager.Size = new System.Drawing.Size(240, 60);
+            this.btnFlightManager.Size = new System.Drawing.Size(240, 43);
             this.btnFlightManager.TabIndex = 5;
             this.btnFlightManager.Text = "Flight Manager";
             this.btnFlightManager.UseVisualStyleBackColor = false;
@@ -82,12 +84,13 @@
             // btnCityManager
             // 
             this.btnCityManager.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnCityManager.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCityManager.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCityManager.ForeColor = System.Drawing.Color.White;
-            this.btnCityManager.Location = new System.Drawing.Point(952, 361);
+            this.btnCityManager.Location = new System.Drawing.Point(952, 386);
             this.btnCityManager.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCityManager.Name = "btnCityManager";
-            this.btnCityManager.Size = new System.Drawing.Size(240, 60);
+            this.btnCityManager.Size = new System.Drawing.Size(240, 43);
             this.btnCityManager.TabIndex = 6;
             this.btnCityManager.Text = "City Manager";
             this.btnCityManager.UseVisualStyleBackColor = false;
@@ -96,13 +99,14 @@
             // btnAirlineManager
             // 
             this.btnAirlineManager.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnAirlineManager.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAirlineManager.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAirlineManager.ForeColor = System.Drawing.Color.White;
-            this.btnAirlineManager.Location = new System.Drawing.Point(27, 363);
+            this.btnAirlineManager.Location = new System.Drawing.Point(26, 386);
             this.btnAirlineManager.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAirlineManager.Name = "btnAirlineManager";
             this.btnAirlineManager.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnAirlineManager.Size = new System.Drawing.Size(240, 60);
+            this.btnAirlineManager.Size = new System.Drawing.Size(240, 43);
             this.btnAirlineManager.TabIndex = 7;
             this.btnAirlineManager.Text = "Airline Manager";
             this.btnAirlineManager.UseVisualStyleBackColor = false;
@@ -210,13 +214,14 @@
             // btnLogOut
             // 
             this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLogOut.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogOut.ForeColor = System.Drawing.Color.White;
-            this.btnLogOut.Location = new System.Drawing.Point(40, 361);
+            this.btnLogOut.Location = new System.Drawing.Point(27, 386);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnLogOut.Size = new System.Drawing.Size(240, 60);
+            this.btnLogOut.Size = new System.Drawing.Size(240, 43);
             this.btnLogOut.TabIndex = 14;
             this.btnLogOut.Text = "Log out";
             this.btnLogOut.UseVisualStyleBackColor = false;

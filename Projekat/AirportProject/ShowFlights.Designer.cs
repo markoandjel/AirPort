@@ -63,7 +63,7 @@
             this.dgvFlights.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvFlights.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFlights.Location = new System.Drawing.Point(33, 34);
-            this.dgvFlights.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvFlights.Margin = new System.Windows.Forms.Padding(4);
             this.dgvFlights.Name = "dgvFlights";
             this.dgvFlights.RowHeadersWidth = 51;
             this.dgvFlights.Size = new System.Drawing.Size(715, 374);
@@ -86,7 +86,7 @@
             // dtpDepartureDate
             // 
             this.dtpDepartureDate.Location = new System.Drawing.Point(341, 96);
-            this.dtpDepartureDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpDepartureDate.Margin = new System.Windows.Forms.Padding(4);
             this.dtpDepartureDate.Name = "dtpDepartureDate";
             this.dtpDepartureDate.Size = new System.Drawing.Size(415, 36);
             this.dtpDepartureDate.TabIndex = 2;
@@ -94,7 +94,7 @@
             // dtpArrivalDate
             // 
             this.dtpArrivalDate.Location = new System.Drawing.Point(341, 135);
-            this.dtpArrivalDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpArrivalDate.Margin = new System.Windows.Forms.Padding(4);
             this.dtpArrivalDate.Name = "dtpArrivalDate";
             this.dtpArrivalDate.Size = new System.Drawing.Size(415, 36);
             this.dtpArrivalDate.TabIndex = 3;
@@ -104,7 +104,7 @@
             this.dtpDeparutreTime.CustomFormat = "HH:mm";
             this.dtpDeparutreTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDeparutreTime.Location = new System.Drawing.Point(763, 96);
-            this.dtpDeparutreTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpDeparutreTime.Margin = new System.Windows.Forms.Padding(4);
             this.dtpDeparutreTime.Name = "dtpDeparutreTime";
             this.dtpDeparutreTime.ShowUpDown = true;
             this.dtpDeparutreTime.Size = new System.Drawing.Size(119, 36);
@@ -115,7 +115,7 @@
             this.dtpArrivalTime.CustomFormat = "HH:mm";
             this.dtpArrivalTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpArrivalTime.Location = new System.Drawing.Point(763, 135);
-            this.dtpArrivalTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpArrivalTime.Margin = new System.Windows.Forms.Padding(4);
             this.dtpArrivalTime.Name = "dtpArrivalTime";
             this.dtpArrivalTime.ShowUpDown = true;
             this.dtpArrivalTime.Size = new System.Drawing.Size(119, 36);
@@ -140,9 +140,9 @@
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.groupBox1.Location = new System.Drawing.Point(29, 63);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(900, 340);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
@@ -151,10 +151,11 @@
             // btnUpdateFlight
             // 
             this.btnUpdateFlight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnUpdateFlight.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdateFlight.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateFlight.ForeColor = System.Drawing.Color.White;
             this.btnUpdateFlight.Location = new System.Drawing.Point(341, 261);
-            this.btnUpdateFlight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdateFlight.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdateFlight.Name = "btnUpdateFlight";
             this.btnUpdateFlight.Size = new System.Drawing.Size(232, 41);
             this.btnUpdateFlight.TabIndex = 15;
@@ -185,7 +186,7 @@
             // numPrice
             // 
             this.numPrice.Location = new System.Drawing.Point(161, 204);
-            this.numPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numPrice.Margin = new System.Windows.Forms.Padding(4);
             this.numPrice.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -198,7 +199,7 @@
             // numSeats
             // 
             this.numSeats.Location = new System.Drawing.Point(440, 204);
-            this.numSeats.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numSeats.Margin = new System.Windows.Forms.Padding(4);
             this.numSeats.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -211,7 +212,7 @@
             // numFreeSeats
             // 
             this.numFreeSeats.Location = new System.Drawing.Point(748, 204);
-            this.numFreeSeats.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numFreeSeats.Margin = new System.Windows.Forms.Padding(4);
             this.numFreeSeats.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -264,10 +265,11 @@
             // btnDeleteFlight
             // 
             this.btnDeleteFlight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnDeleteFlight.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDeleteFlight.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteFlight.ForeColor = System.Drawing.Color.White;
             this.btnDeleteFlight.Location = new System.Drawing.Point(280, 417);
-            this.btnDeleteFlight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteFlight.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteFlight.Name = "btnDeleteFlight";
             this.btnDeleteFlight.Size = new System.Drawing.Size(243, 44);
             this.btnDeleteFlight.TabIndex = 7;
@@ -326,7 +328,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ShowFlights";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ShowFlights";

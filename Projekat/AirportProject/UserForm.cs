@@ -162,6 +162,16 @@ namespace AirportProject
             dgvTickets.SelectedRows[0].Dispose();
             
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void cbxAirportTo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
         /*        public int TicketNum { get; set; }
 public string SeatNum { get; set; }
 public string Gate { get; set; }

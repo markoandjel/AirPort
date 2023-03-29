@@ -68,6 +68,7 @@
             // btnUpdateAirport
             // 
             this.btnUpdateAirport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnUpdateAirport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdateAirport.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnUpdateAirport.ForeColor = System.Drawing.Color.White;
             this.btnUpdateAirport.Location = new System.Drawing.Point(104, 163);
@@ -81,6 +82,7 @@
             // btnAddCity
             // 
             this.btnAddCity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnAddCity.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddCity.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnAddCity.ForeColor = System.Drawing.Color.White;
             this.btnAddCity.Location = new System.Drawing.Point(103, 163);
@@ -94,6 +96,7 @@
             // btnDeleteCity
             // 
             this.btnDeleteCity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnDeleteCity.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDeleteCity.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnDeleteCity.ForeColor = System.Drawing.Color.White;
             this.btnDeleteCity.Location = new System.Drawing.Point(341, 454);
@@ -203,6 +206,7 @@
             // btnConnectToAirports
             // 
             this.btnConnectToAirports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnConnectToAirports.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnConnectToAirports.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnConnectToAirports.ForeColor = System.Drawing.Color.White;
             this.btnConnectToAirports.Location = new System.Drawing.Point(133, 396);
@@ -216,6 +220,7 @@
             // btnDisconnectAirports
             // 
             this.btnDisconnectAirports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnDisconnectAirports.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDisconnectAirports.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnDisconnectAirports.ForeColor = System.Drawing.Color.White;
             this.btnDisconnectAirports.Location = new System.Drawing.Point(399, 396);
