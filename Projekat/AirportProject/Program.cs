@@ -1,9 +1,4 @@
-﻿
-using Neo4j.Driver;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 
 
@@ -20,7 +15,7 @@ namespace AirportProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RegisterForm());
+            Application.Run(new LogInForm());
           //Application.Run(new LogInForm());
         }
     }

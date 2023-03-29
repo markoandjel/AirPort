@@ -31,7 +31,6 @@ namespace AirportProject
                 var sessionRepo = new SessionRepository(redis);
                 session = new Session(sessionId, username);
                 sessionRepo.Save(session,username);
-                MessageBox.Show("Uspeo si konju, pogledaj bazu dal pamti dobro");
                 AdminForm forma = new AdminForm(session);
                 forma.Show();
                 this.Hide();
@@ -40,7 +39,7 @@ namespace AirportProject
             }
             else
             {
-                MessageBox.Show("Ne radi s taj juzer, proveri opet unesi neki novi" ,"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Incorrect user" ,"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
            
                 return false;
 
@@ -161,6 +160,11 @@ namespace AirportProject
             panel4.BackColor = Color.White;
             usernameRegisterInput.BackColor = SystemColors.Control;
             panel3.BackColor = SystemColors.Control;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

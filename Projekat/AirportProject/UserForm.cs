@@ -1,16 +1,11 @@
 ﻿using AirportProject.Controllers;
 using AirportProject.DomainModel;
 using Newtonsoft.Json;
-using NHibernate.Util;
 using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AirportProject
@@ -32,7 +27,7 @@ namespace AirportProject
             bool connected = redisConnect.Connect();
             if (!connected)
             {
-                MessageBox.Show("Aj dodji kasnije ne mogu se povezujem sad");
+                MessageBox.Show("Connection failed!");
             }
             InitializeComponent();
         }
@@ -45,7 +40,7 @@ namespace AirportProject
             bool connected = redisConnect.Connect();
             if (!connected)
             {
-                MessageBox.Show("Aj dodji kasnije ne mogu se povezujem sad");
+                MessageBox.Show("Connection failed!");
             }
             tickets = new List<Ticket>();
             InitializeComponent();

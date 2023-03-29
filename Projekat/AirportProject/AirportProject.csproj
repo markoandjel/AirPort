@@ -202,12 +202,6 @@
     <Compile Include="AirportForm.Designer.cs">
       <DependentUpon>AirportForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormTEST.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormTEST.Designer.cs">
-      <DependentUpon>FormTEST.cs</DependentUpon>
-    </Compile>
     <Compile Include="LogInForm.cs">
       <SubType>Form</SubType>
     </Compile>

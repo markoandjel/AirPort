@@ -72,6 +72,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(320, 530);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label6
             // 
@@ -280,7 +281,7 @@
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             this.label7.Location = new System.Drawing.Point(37, 135);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(325, 34);
+            this.label7.Size = new System.Drawing.Size(260, 27);
             this.label7.TabIndex = 7;
             this.label7.Text = "Login to your account";
             // 

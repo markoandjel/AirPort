@@ -71,13 +71,13 @@ namespace AirportProject
                 }
                 else
                 {
-                    MessageBox.Show("Familijo zapisi si lozinku na papirce vidis da gresis");
+                    MessageBox.Show("Bad password");
                     return false;
                 }
             }
             else
             {
-                MessageBox.Show("Proveri dal se dobro zoves, nemam te takvog u bazu");
+                MessageBox.Show("Bad username");
                 return false;
             }
         }
@@ -145,6 +145,11 @@ namespace AirportProject
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
