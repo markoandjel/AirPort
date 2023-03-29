@@ -10,12 +10,14 @@ namespace AirportProject.DomainModel
 
         public SessionRepository(IConnectionMultiplexer redis)
         {
+            if (redis == null)
+                redis = ConnectionMultiplexer.Connect("87.250.63.38:6379");
             _db = redis.GetDatabase();
         }
-        public void Save(Session session)
+        public void Save(Session session,string username)
         {
             var json = JsonConvert.SerializeObject(session);
-            _db.StringSet(session.SessionId, json, session.Expiry - DateTime.Now);
+            _db.StringSet(username + "_Session", json, session.Expiry - DateTime.Now);
         }
         public Session get (string sessionId)
         {

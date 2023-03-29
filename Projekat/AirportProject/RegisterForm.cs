@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using AirportProject.DomainModel;
+using BCrypt.Net;
+using Newtonsoft.Json;
+using StackExchange.Redis;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using StackExchange.Redis;
-using System.Security.Cryptography;
-using BCrypt.Net;
-using AirportProject.DomainModel;
-using Newtonsoft.Json;
 
 namespace AirportProject
 {
@@ -36,8 +30,7 @@ namespace AirportProject
                 var sessionId = Guid.NewGuid().ToString();
                 var sessionRepo = new SessionRepository(redis);
                 session = new Session(sessionId, username);
-                sessionRepo.Save(session);
-                MessageBox.Show("Uspeo si konju, pogledaj bazu dal pamti dobro");
+                sessionRepo.Save(session,username);
                 AdminForm forma = new AdminForm(session);
                 forma.Show();
                 this.Hide();
@@ -46,7 +39,7 @@ namespace AirportProject
             }
             else
             {
-                MessageBox.Show("Ne radi s taj juzer, proveri opet unesi neki novi" ,"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Incorrect user" ,"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
            
                 return false;
 
@@ -167,6 +160,11 @@ namespace AirportProject
             panel4.BackColor = Color.White;
             usernameRegisterInput.BackColor = SystemColors.Control;
             panel3.BackColor = SystemColors.Control;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

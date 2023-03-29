@@ -1,18 +1,10 @@
 ﻿using AirportProject.DomainModel;
-using StackExchange.Redis;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Net;
-using AirportProject.Controllers;
 using BCrypt.Net;
 using Newtonsoft.Json;
+using StackExchange.Redis;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace AirportProject
 {
@@ -20,7 +12,7 @@ namespace AirportProject
     {
         private  ConnectionMultiplexer redis;
         private Session session;
-
+        private SessionRepository sessionRepo;
 
         public LogInForm()
         {
@@ -36,7 +28,8 @@ namespace AirportProject
 
         public bool LoginUser(string username, string password)
         {
-            
+            if(redis == null)
+                redis = ConnectionMultiplexer.Connect("87.250.63.38:6379");
             IDatabase db = redis.GetDatabase();
             var hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
             
@@ -48,41 +41,50 @@ namespace AirportProject
                 if (!String.IsNullOrEmpty(storedPassword) && BCrypt.Net.BCrypt.Verify(password, storedPassword,false,HashType.SHA384))
                 {
                     var sessionId = Guid.NewGuid().ToString();
-                    var sessionRepo = new SessionRepository(redis);
+                    
                     session = new Session(sessionId, username);
-                    //sessionRepo.Save(session);
+                    
                     if(!db.StringGet(username + "_Session").IsNull)
                     {
-                        MessageBox.Show("Ne mozes na vise uredjaja da se prijavis!");
+                        MessageBox.Show("You are already logged in!");
                         return false;
                     }
 
-                    db.StringSet(username+"_Session", JsonConvert.SerializeObject(session));
-
-
-                    MessageBox.Show("Uspeo si konju, pogledaj bazu dal pamti dobro");
-                    UserForm forma = new UserForm();
-                    forma.Show();
-                    this.Hide();
-                    return true;
+                    //db.StringSet(username+"_Session", JsonConvert.SerializeObject(session));
+                    sessionRepo = new SessionRepository(redis);
+                    sessionRepo.Save(session,username);
+                    if (user.Role == 0)
+                    {
+                       
+                        AdminForm forma = new AdminForm(session);
+                        forma.ShowDialog();
+                        this.Hide();
+                        return true;
+                    }
+                    else
+                    {
+                        UserForm forma = new UserForm(session);
+                        forma.ShowDialog();
+                        this.Hide();
+                        return true;
+                    }  
                 }
                 else
                 {
-                    MessageBox.Show("Familijo zapisi si lozinku na papirce vidis da gresis");
+                    MessageBox.Show("Bad password");
                     return false;
                 }
-
             }
             else
             {
-                MessageBox.Show("Proveri dal se dobro zoves, nemam te takvog u bazu");
+                MessageBox.Show("Bad username");
                 return false;
             }
         }
 
-
         private void closeBtn_Click(object sender, EventArgs e)
-        {
+        {   
+
             Application.Exit();
         }
 
@@ -125,7 +127,7 @@ namespace AirportProject
         }
 
         private void prijaviseBtn_Click(object sender, EventArgs e)
-        {
+        {  
             if (string.IsNullOrEmpty(InputUsername.Text) || string.IsNullOrEmpty(lozinkaInput.Text))
             {
                 MessageBox.Show("Please enter a username and password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -137,15 +139,17 @@ namespace AirportProject
                 string u = InputUsername.Text;
                 string l = lozinkaInput.Text;
                 LoginUser(u, l);
+               
             }
-            //string sacuvanalozinka = redis.Get(kor_ime);
-
-
-
-
+            this.Close();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

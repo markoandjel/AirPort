@@ -39,6 +39,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnAddTicket = new System.Windows.Forms.Button();
             this.btnDeleteTicket = new System.Windows.Forms.Button();
+            this.btnLogOut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTickets)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFlights)).BeginInit();
             this.SuspendLayout();
@@ -46,60 +47,69 @@
             // dgvTickets
             // 
             this.dgvTickets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTickets.Location = new System.Drawing.Point(468, 81);
+            this.dgvTickets.Location = new System.Drawing.Point(624, 100);
+            this.dgvTickets.Margin = new System.Windows.Forms.Padding(4);
             this.dgvTickets.Name = "dgvTickets";
-            this.dgvTickets.Size = new System.Drawing.Size(320, 324);
+            this.dgvTickets.RowHeadersWidth = 51;
+            this.dgvTickets.Size = new System.Drawing.Size(427, 399);
             this.dgvTickets.TabIndex = 0;
+            this.dgvTickets.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTickets_CellContentClick);
             // 
             // cbxAriportFrom
             // 
             this.cbxAriportFrom.FormattingEnabled = true;
-            this.cbxAriportFrom.Location = new System.Drawing.Point(84, 92);
+            this.cbxAriportFrom.Location = new System.Drawing.Point(112, 113);
+            this.cbxAriportFrom.Margin = new System.Windows.Forms.Padding(4);
             this.cbxAriportFrom.Name = "cbxAriportFrom";
-            this.cbxAriportFrom.Size = new System.Drawing.Size(168, 21);
+            this.cbxAriportFrom.Size = new System.Drawing.Size(223, 24);
             this.cbxAriportFrom.TabIndex = 1;
             this.cbxAriportFrom.SelectedIndexChanged += new System.EventHandler(this.cbxAriportFrom_SelectedIndexChanged);
             // 
             // cbxAirportTo
             // 
             this.cbxAirportTo.FormattingEnabled = true;
-            this.cbxAirportTo.Location = new System.Drawing.Point(287, 92);
+            this.cbxAirportTo.Location = new System.Drawing.Point(383, 113);
+            this.cbxAirportTo.Margin = new System.Windows.Forms.Padding(4);
             this.cbxAirportTo.Name = "cbxAirportTo";
-            this.cbxAirportTo.Size = new System.Drawing.Size(158, 21);
+            this.cbxAirportTo.Size = new System.Drawing.Size(209, 24);
             this.cbxAirportTo.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 95);
+            this.label1.Location = new System.Drawing.Point(60, 117);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 13);
+            this.label1.Size = new System.Drawing.Size(41, 16);
             this.label1.TabIndex = 3;
             this.label1.Text = "From:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(258, 95);
+            this.label2.Location = new System.Drawing.Point(344, 117);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(23, 13);
+            this.label2.Size = new System.Drawing.Size(27, 16);
             this.label2.TabIndex = 4;
             this.label2.Text = "To:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(465, 56);
+            this.label3.Location = new System.Drawing.Point(620, 69);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 13);
+            this.label3.Size = new System.Drawing.Size(69, 16);
             this.label3.TabIndex = 5;
             this.label3.Text = "My tickets:";
             // 
             // btnCheckFlights
             // 
-            this.btnCheckFlights.Location = new System.Drawing.Point(180, 138);
+            this.btnCheckFlights.Location = new System.Drawing.Point(240, 170);
+            this.btnCheckFlights.Margin = new System.Windows.Forms.Padding(4);
             this.btnCheckFlights.Name = "btnCheckFlights";
-            this.btnCheckFlights.Size = new System.Drawing.Size(163, 23);
+            this.btnCheckFlights.Size = new System.Drawing.Size(217, 28);
             this.btnCheckFlights.TabIndex = 6;
             this.btnCheckFlights.Text = "Check for available flights";
             this.btnCheckFlights.UseVisualStyleBackColor = true;
@@ -108,43 +118,62 @@
             // dgvFlights
             // 
             this.dgvFlights.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFlights.Location = new System.Drawing.Point(34, 255);
+            this.dgvFlights.Location = new System.Drawing.Point(45, 314);
+            this.dgvFlights.Margin = new System.Windows.Forms.Padding(4);
             this.dgvFlights.Name = "dgvFlights";
-            this.dgvFlights.Size = new System.Drawing.Size(411, 150);
+            this.dgvFlights.RowHeadersWidth = 51;
+            this.dgvFlights.Size = new System.Drawing.Size(548, 185);
             this.dgvFlights.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 226);
+            this.label4.Location = new System.Drawing.Point(41, 278);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 13);
+            this.label4.Size = new System.Drawing.Size(104, 16);
             this.label4.TabIndex = 8;
             this.label4.Text = "Available flights:";
             // 
             // btnAddTicket
             // 
-            this.btnAddTicket.Location = new System.Drawing.Point(180, 427);
+            this.btnAddTicket.Location = new System.Drawing.Point(240, 526);
+            this.btnAddTicket.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddTicket.Name = "btnAddTicket";
-            this.btnAddTicket.Size = new System.Drawing.Size(75, 23);
+            this.btnAddTicket.Size = new System.Drawing.Size(100, 28);
             this.btnAddTicket.TabIndex = 9;
             this.btnAddTicket.Text = "Buy ticket";
             this.btnAddTicket.UseVisualStyleBackColor = true;
+            this.btnAddTicket.Click += new System.EventHandler(this.btnAddTicket_Click);
             // 
             // btnDeleteTicket
             // 
-            this.btnDeleteTicket.Location = new System.Drawing.Point(588, 427);
+            this.btnDeleteTicket.Location = new System.Drawing.Point(784, 526);
+            this.btnDeleteTicket.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteTicket.Name = "btnDeleteTicket";
-            this.btnDeleteTicket.Size = new System.Drawing.Size(88, 23);
+            this.btnDeleteTicket.Size = new System.Drawing.Size(117, 28);
             this.btnDeleteTicket.TabIndex = 10;
             this.btnDeleteTicket.Text = "Delete ticket";
             this.btnDeleteTicket.UseVisualStyleBackColor = true;
+            this.btnDeleteTicket.Click += new System.EventHandler(this.btnDeleteTicket_Click);
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Location = new System.Drawing.Point(13, 13);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(117, 28);
+            this.btnLogOut.TabIndex = 11;
+            this.btnLogOut.Text = "Log out";
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // UserForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 477);
+            this.ClientSize = new System.Drawing.Size(1067, 587);
+            this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.btnDeleteTicket);
             this.Controls.Add(this.btnAddTicket);
             this.Controls.Add(this.label4);
@@ -156,6 +185,7 @@
             this.Controls.Add(this.cbxAirportTo);
             this.Controls.Add(this.cbxAriportFrom);
             this.Controls.Add(this.dgvTickets);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UserForm";
             this.Text = "UserForm";
             this.Load += new System.EventHandler(this.UserForm_Load);
@@ -179,5 +209,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAddTicket;
         private System.Windows.Forms.Button btnDeleteTicket;
+        private System.Windows.Forms.Button btnLogOut;
     }
 }

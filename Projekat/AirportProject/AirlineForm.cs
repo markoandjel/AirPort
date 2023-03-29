@@ -19,14 +19,15 @@ namespace AirportProject
         private AirlineController _airlineController;
         private PlaneController _planeController;
         private List<Airline> _listAirlines = new List<Airline>();
-
-        public AirlineForm(Neo4jConnect klijent)
+        private Session session;
+        public AirlineForm(Neo4jConnect klijent, Session session)
         {
             _klijent = klijent;
             _airlineController = new AirlineController(klijent.Driver);
             _planeController = new PlaneController(klijent.Driver);
             InitializeComponent();
             UpdateTable();
+            this.session = session; 
         }
 
         private void UpdateTable()
@@ -111,6 +112,18 @@ namespace AirportProject
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AdminForm forma = new AdminForm(session);
+            forma.Show();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
