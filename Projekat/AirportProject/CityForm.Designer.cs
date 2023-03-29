@@ -58,7 +58,7 @@
             // 
             this.dgvCity.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvCity.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCity.Location = new System.Drawing.Point(40, 11);
+            this.dgvCity.Location = new System.Drawing.Point(133, 22);
             this.dgvCity.Name = "dgvCity";
             this.dgvCity.RowHeadersWidth = 51;
             this.dgvCity.RowTemplate.Height = 24;
@@ -96,7 +96,7 @@
             this.btnDeleteCity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnDeleteCity.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnDeleteCity.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteCity.Location = new System.Drawing.Point(242, 441);
+            this.btnDeleteCity.Location = new System.Drawing.Point(341, 454);
             this.btnDeleteCity.Name = "btnDeleteCity";
             this.btnDeleteCity.Size = new System.Drawing.Size(113, 50);
             this.btnDeleteCity.TabIndex = 6;
@@ -205,7 +205,7 @@
             this.btnConnectToAirports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnConnectToAirports.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnConnectToAirports.ForeColor = System.Drawing.Color.White;
-            this.btnConnectToAirports.Location = new System.Drawing.Point(40, 385);
+            this.btnConnectToAirports.Location = new System.Drawing.Point(133, 396);
             this.btnConnectToAirports.Name = "btnConnectToAirports";
             this.btnConnectToAirports.Size = new System.Drawing.Size(260, 50);
             this.btnConnectToAirports.TabIndex = 7;
@@ -218,7 +218,7 @@
             this.btnDisconnectAirports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnDisconnectAirports.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnDisconnectAirports.ForeColor = System.Drawing.Color.White;
-            this.btnDisconnectAirports.Location = new System.Drawing.Point(306, 385);
+            this.btnDisconnectAirports.Location = new System.Drawing.Point(399, 396);
             this.btnDisconnectAirports.Name = "btnDisconnectAirports";
             this.btnDisconnectAirports.Size = new System.Drawing.Size(268, 50);
             this.btnDisconnectAirports.TabIndex = 8;
@@ -238,9 +238,9 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.panel1.Location = new System.Drawing.Point(462, 0);
+            this.panel1.Location = new System.Drawing.Point(374, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(640, 504);
+            this.panel1.Size = new System.Drawing.Size(735, 512);
             this.panel1.TabIndex = 14;
             // 
             // btnExit
@@ -249,7 +249,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnExit.Location = new System.Drawing.Point(599, -1);
+            this.btnExit.Location = new System.Drawing.Point(692, -1);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(40, 39);
             this.btnExit.TabIndex = 9;
@@ -265,14 +265,14 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(462, 504);
+            this.panel2.Size = new System.Drawing.Size(460, 512);
             this.panel2.TabIndex = 15;
             // 
             // CityForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1102, 504);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(1109, 512);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;

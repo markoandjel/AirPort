@@ -1,13 +1,6 @@
 ﻿using AirportProject.Controllers;
 using AirportProject.DomainModel;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AirportProject
@@ -19,13 +12,14 @@ namespace AirportProject
         private AirlineController _airlineController;
         private Neo4jConnect _klijent;
         private RedisConnect redisConnect;
+        private Session session;
 
         public FlightForm()
         {
             InitializeComponent();
         
         }
-        public FlightForm(Neo4jConnect klijent, RedisConnect redisConnect)
+        public FlightForm(Neo4jConnect klijent, RedisConnect redisConnect, Session session)
         {
             _klijent = klijent;
             _flightController = new FlightController(klijent.Driver);
@@ -33,6 +27,7 @@ namespace AirportProject
             _airlineController = new AirlineController(klijent.Driver);
             InitializeComponent();
             this.redisConnect = redisConnect;
+            this.session = session;
         }
 
         private void FlightForm_Load(object sender, EventArgs e)
@@ -128,6 +123,18 @@ namespace AirportProject
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AdminForm forma = new AdminForm(session);
+            forma.Show();
         }
     }
 }

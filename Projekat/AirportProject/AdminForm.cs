@@ -2,8 +2,6 @@
 using AirportProject.DomainModel;
 using StackExchange.Redis;
 using System;
-using System.Collections.Generic;
-using System.Reflection.Emit;
 using System.Windows.Forms;
 
 namespace AirportProject
@@ -12,30 +10,41 @@ namespace AirportProject
     {
         private Neo4jConnect _klijent;
         private RedisConnect redisConnect;
-        public AdminForm()
+        private ConnectionMultiplexer _redis;
+        private Session _session;
+        private Timer _sessionTimer;
+
+        public AdminForm(Session session)
         {
-            //InitializeComponent();
-            _klijent = new Neo4jConnect("bolt://87.250.63.38:7687", "neo4j","bazicari");
-            redisConnect = new RedisConnect("87.250.63.38:6379");
+            InitializeComponent();
+
+            _klijent = new Neo4jConnect("bolt://87.250.63.38:7687", "neo4j", "bazicari");
+            this.redisConnect = new RedisConnect("87.250.63.38:6379");
             bool connected = redisConnect.Connect();
             if (!connected)
             {
-                MessageBox.Show("Aj dodji kasnije ne mogu se povezujem sad");
+                MessageBox.Show("Connection is not working!");
             }
-            InitializeComponent();
+            _session = session;
+
+            _sessionTimer = new Timer();
+            _sessionTimer.Interval = 1000; // Check every second
+            _sessionTimer.Tick += new EventHandler(CheckSessionExpiration);
+            _sessionTimer.Start();
+
         }
-
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void CheckSessionExpiration(object sender, EventArgs e)
         {
-            //String databaseName = "airport";
-            //string url = "http://localhost:7474/" + databaseName;
-            //string username = "neo4j";
-            //string password = "password";
-            //_client = new GraphClient(new Uri(url), username, password);
-            //_client.ConnectAsync();
-            //_klijent = new Neo4jConnect("bolt://localhost:7687", "neo4j", "password");
-
+            if (_session.IsExpired())
+            {
+                _sessionTimer.Stop();
+                this.Close(); // Close the current form
+                RegisterForm registerForm = new RegisterForm();
+                registerForm.Show(); // Show the register form again
+            }
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        { 
             AirportController a = new AirportController(_klijent.Driver);
             var airports=a.GetAllAirports();
             foreach(var p in airports)
@@ -43,16 +52,6 @@ namespace AirportProject
                 cbxAirports.Items.Add(p.Name);
             }
             dgvMessages.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        }
-
-        private void addPassenger_Click(object sender, EventArgs e)
-        {
-            String name = "Marko Andjelkovic";
-            int passport = 22315543;
-            Passenger passenger = new Passenger(name, passport);
-            PassengerController p = new PassengerController(_klijent.Driver);
-            p.CreatePassenger(passenger);
-
         }
 
         private void addTicket_Click(object sender, EventArgs e)
@@ -72,25 +71,28 @@ namespace AirportProject
 
         private void btnAirportManager_Click(object sender, EventArgs e)
         {
-            AirportForm airportForm=new AirportForm(_klijent);
+            AirportForm airportForm=new AirportForm(_klijent,_session);
             airportForm.ShowDialog();
         }
 
         private void btnFlightManager_Click(object sender, EventArgs e)
         {
-            FlightForm flighForm = new FlightForm(_klijent,redisConnect);
+            this.Close();
+            FlightForm flighForm = new FlightForm(_klijent,redisConnect,_session);
             flighForm.ShowDialog();
         }
 
         private void btnCityManager_Click(object sender, EventArgs e)
         {
-            CityForm cityForm = new CityForm(_klijent);
+            this.Close();
+            CityForm cityForm = new CityForm(_klijent,_session);
             cityForm.ShowDialog();
         }
 
         private void btnAirlineManager_Click(object sender, EventArgs e)
         {
-            AirlineForm airlineForm=new AirlineForm(_klijent);
+            this.Close();
+            AirlineForm airlineForm=new AirlineForm(_klijent,_session);
             airlineForm.ShowDialog();
         }
 
@@ -129,6 +131,20 @@ namespace AirportProject
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            SessionRepository repo = new SessionRepository(_redis);
+            repo.Delete(_session.Username + "_Session");
+            this.Close();
+            LogInForm forma = new LogInForm(_redis);
+            forma.Show();
         }
     }
 }

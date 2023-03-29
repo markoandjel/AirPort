@@ -1,17 +1,11 @@
 ﻿using AirportProject.Controllers;
 using AirportProject.DomainModel;
-using Neo4j.Driver;
 using NHibernate.Util;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace AirportProject
 {
@@ -21,12 +15,13 @@ namespace AirportProject
         private CityController _cityController;
         private List<DomainModel.Airport> _listAirports=new List<DomainModel.Airport>();
         private List<City> _listCities=new List<City>();
-
-        public AirportForm(Neo4jConnect klijent)
+        private Session session;
+        public AirportForm(Neo4jConnect klijent, Session session)
         {
             _airportController = new AirportController(klijent.Driver);
             _cityController = new CityController(klijent.Driver);
             InitializeComponent();
+            this.session = session;
         }
 
         private void Airport_Load(object sender, EventArgs e)
@@ -169,6 +164,18 @@ namespace AirportProject
         private void btnExit_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void gbxAddAirport_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AdminForm forma = new AdminForm(session);
+            forma.Show();
         }
     }
 }

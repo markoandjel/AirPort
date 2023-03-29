@@ -1,35 +1,90 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Net;
-using AirportProject.Controllers;
+﻿using AirportProject.DomainModel;
 using BCrypt.Net;
+using Newtonsoft.Json;
+using StackExchange.Redis;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace AirportProject
 {
     public partial class LogInForm : Form
     {
-        private readonly RedisConnect redis;
+        private  ConnectionMultiplexer redis;
+        private Session session;
+        private SessionRepository sessionRepo;
+
         public LogInForm()
         {
             InitializeComponent();
 
-            redis = new RedisConnect("87.250.63.38:6379");
-            bool connected = redis.Connect();
-            if (!connected)
+        }
+
+        public LogInForm(ConnectionMultiplexer redis)
+        {
+            InitializeComponent();
+            this.redis = redis;
+        }
+
+        public bool LoginUser(string username, string password)
+        {
+            if(redis == null)
+                redis = ConnectionMultiplexer.Connect("87.250.63.38:6379");
+            IDatabase db = redis.GetDatabase();
+            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+            
+            RedisValue userExists =  db.StringGet(username);
+            if (!userExists.IsNullOrEmpty)
             {
-                MessageBox.Show("Aj dodji kasnije ne mogu se povezujem sad");
+                User user = JsonConvert.DeserializeObject<User>(userExists);
+                string storedPassword = user.Password;
+                if (!String.IsNullOrEmpty(storedPassword) && BCrypt.Net.BCrypt.Verify(password, storedPassword,false,HashType.SHA384))
+                {
+                    var sessionId = Guid.NewGuid().ToString();
+                    
+                    session = new Session(sessionId, username);
+                    
+                    if(!db.StringGet(username + "_Session").IsNull)
+                    {
+                        MessageBox.Show("You are already logged in!");
+                        return false;
+                    }
+
+                    //db.StringSet(username+"_Session", JsonConvert.SerializeObject(session));
+                    sessionRepo = new SessionRepository(redis);
+                    sessionRepo.Save(session,username);
+                    if (user.Role == 0)
+                    {
+                       
+                        AdminForm forma = new AdminForm(session);
+                        forma.ShowDialog();
+                        this.Hide();
+                        return true;
+                    }
+                    else
+                    {
+                        UserForm forma = new UserForm(session);
+                        forma.ShowDialog();
+                        this.Hide();
+                        return true;
+                    }  
+                }
+                else
+                {
+                    MessageBox.Show("Bad password");
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bad username");
+                return false;
             }
         }
 
         private void closeBtn_Click(object sender, EventArgs e)
-        {
+        {   
+
             Application.Exit();
         }
 
@@ -66,39 +121,35 @@ namespace AirportProject
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            RegisterForm forma = new RegisterForm();
+            forma.Show();
+            this.Hide();
         }
 
         private void prijaviseBtn_Click(object sender, EventArgs e)
-        {
-            string kor_ime = InputUsername.Text;
-            string lozinka = lozinkaInput.Text;
-
-            //string sacuvanalozinka = redis.Get(kor_ime);
-
-            if (redis.Exists(kor_ime))
+        {  
+            if (string.IsNullOrEmpty(InputUsername.Text) || string.IsNullOrEmpty(lozinkaInput.Text))
             {
-                string sacuvanalozinka = redis.Get(kor_ime);
-                if (BCrypt.Net.BCrypt.Verify(lozinka, sacuvanalozinka))
-                {
-                    MessageBox.Show("Upadaj momak");
-                    AdminForm forma = new AdminForm();
-                    forma.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    MessageBox.Show("Ne radi be ");
-                }
-
-
+                MessageBox.Show("Please enter a username and password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             else
-                MessageBox.Show("Proveri juzernejm nema ga u bazu ovamo");
+            {
 
+                string u = InputUsername.Text;
+                string l = lozinkaInput.Text;
+                LoginUser(u, l);
+               
+            }
+            this.Close();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

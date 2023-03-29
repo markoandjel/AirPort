@@ -42,6 +42,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnExit = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnBack = new System.Windows.Forms.Button();
             this.gbAdd.SuspendLayout();
             this.gbUpdate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAirline)).BeginInit();
@@ -184,9 +185,9 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.panel1.Location = new System.Drawing.Point(399, 0);
+            this.panel1.Location = new System.Drawing.Point(400, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(426, 460);
+            this.panel1.Size = new System.Drawing.Size(425, 460);
             this.panel1.TabIndex = 19;
             // 
             // btnExit
@@ -206,6 +207,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btnBack);
             this.panel2.Controls.Add(this.gbAdd);
             this.panel2.Controls.Add(this.gbUpdate);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -213,11 +215,26 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(400, 460);
             this.panel2.TabIndex = 20;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnBack.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(9, 416);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(111, 38);
+            this.btnBack.TabIndex = 21;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // AirlineForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(825, 460);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -252,5 +269,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnBack;
     }
 }

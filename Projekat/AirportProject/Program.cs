@@ -1,9 +1,4 @@
-﻿
-using Neo4j.Driver;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 
 
@@ -18,12 +13,9 @@ namespace AirportProject
         [STAThread]
         static void Main()
         {
-
-            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new AdminForm());
-            Application.Run(new UserForm());
+            Application.Run(new LogInForm());
           //Application.Run(new LogInForm());
         }
     }
