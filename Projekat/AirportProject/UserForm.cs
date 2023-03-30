@@ -19,7 +19,7 @@ namespace AirportProject
         private Session _session;
         private List<Flight> flights;
         private List<Ticket> tickets;
-        private int seatNum = 0; 
+        
         public UserForm()
         {
             _klijent = new Neo4jConnect("bolt://87.250.63.38:7687", "neo4j", "bazicari");
@@ -43,6 +43,9 @@ namespace AirportProject
                 MessageBox.Show("Connection failed!");
             }
             tickets = new List<Ticket>();
+            var user = _session.Username;
+            IDatabase db = redisConnect.GetDatabase();
+          
             InitializeComponent();
         }
 
@@ -140,6 +143,7 @@ namespace AirportProject
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
+            this.Hide();
             IDatabase db = redisConnect.GetDatabase();
             db.KeyDelete(_session.Username + "_Session");
             this.Close();
@@ -158,24 +162,23 @@ namespace AirportProject
         {
             var index = dgvTickets.SelectedRows[0].Index;
             IDatabase db = redisConnect.GetDatabase();
-            db.KeyDelete("Ticket " + tickets[index].SeatNum);
+            db.KeyDelete("Ticket " + tickets[index].TicketNum);
             dgvTickets.SelectedRows[0].Dispose();
             
         }
 
         private void btnExit_Click(object sender, EventArgs e)
-        {
+        {      
+            IDatabase db = redisConnect.GetDatabase();
+            db.KeyDelete(_session.Username + "_Session");
+            this.Hide();
             this.Close();
+            Application.Exit();
         }
 
         private void cbxAirportTo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        }
-        /*        public int TicketNum { get; set; }
-public string SeatNum { get; set; }
-public string Gate { get; set; }
-public string FlightCode { get; set; }
-public string PassangerName { get; set; }*/
+        }      
     }
 }
