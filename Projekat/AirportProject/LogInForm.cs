@@ -127,7 +127,8 @@ namespace AirportProject
         }
 
         private void prijaviseBtn_Click(object sender, EventArgs e)
-        {  
+        {
+            this.Hide();
             if (string.IsNullOrEmpty(InputUsername.Text) || string.IsNullOrEmpty(lozinkaInput.Text))
             {
                 MessageBox.Show("Please enter a username and password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -141,6 +142,7 @@ namespace AirportProject
                 LoginUser(u, l);
                
             }
+            
             this.Close();
         }
 
